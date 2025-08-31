@@ -319,4 +319,95 @@
       @apply px-8;
     }
   }
+
+  /* RTL Support */
+  [dir="rtl"] {
+    font-family: 'Noto Sans Hebrew', var(--font-serif), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  }
+
+  [dir="rtl"] .text-left {
+    text-align: right;
+  }
+
+  [dir="rtl"] .text-right {
+    text-align: left;
+  }
+
+  [dir="rtl"] .flex-row {
+    flex-direction: row-reverse;
+  }
+
+  [dir="rtl"] .space-x-1 > * + * {
+    margin-left: 0;
+    margin-right: 0.25rem;
+  }
+
+  [dir="rtl"] .space-x-2 > * + * {
+    margin-left: 0;
+    margin-right: 0.5rem;
+  }
+
+  [dir="rtl"] .space-x-3 > * + * {
+    margin-left: 0;
+    margin-right: 0.75rem;
+  }
+
+  [dir="rtl"] .space-x-4 > * + * {
+    margin-left: 0;
+    margin-right: 1rem;
+  }
+
+  /* RTL margin and padding adjustments */
+  [dir="rtl"] .ml-4 {
+    margin-left: 0;
+    margin-right: 1rem;
+  }
+
+  [dir="rtl"] .mr-4 {
+    margin-right: 0;
+    margin-left: 1rem;
+  }
+
+  [dir="rtl"] .pl-4 {
+    padding-left: 0;
+    padding-right: 1rem;
+  }
+
+  [dir="rtl"] .pr-4 {
+    padding-right: 0;
+    padding-left: 1rem;
+  }
+
+  /* RTL border adjustments */
+  [dir="rtl"] .border-l-2 {
+    border-left: none;
+    border-right: 2px solid;
+  }
+
+  [dir="rtl"] .border-r-2 {
+    border-right: none;
+    border-left: 2px solid;
+  }
+
+  /* RTL transform adjustments for animations */
+  [dir="rtl"] .animate-slide-in-left {
+    animation: slide-in-right 0.8s ease-out;
+  }
+
+  [dir="rtl"] .animate-slide-in-right {
+    animation: slide-in-left 0.8s ease-out;
+  }
+
+  /* RTL specific utility classes */
+  .rtl\:flex-row-reverse {
+    flex-direction: row-reverse;
+  }
+
+  .rtl\:text-right {
+    text-align: right;
+  }
+
+  .rtl\:text-left {
+    text-align: left;
+  }
 }

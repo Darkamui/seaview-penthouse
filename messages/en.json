@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "title": "The Sea View Penthouse - Luxury Vacation Rental in Ashdod",
+    "description": "Experience luxury at its finest in our stunning sea view penthouse in Ashdod. Perfect for intimate events, family vacations, and unforgettable stays."
+  },
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "gallery": "Gallery",
+    "events": "Events",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "siteTitle": "The Sea View Penthouse",
+    "bookStay": "Book Your Stay"
+  },
+  "hero": {
+    "title": "Your Private Sea View Penthouse",
+    "subtitle": "Experience luxury living with breathtaking Mediterranean views in the heart of Ashdod. Where modern elegance meets coastal serenity.",
+    "bookStay": "Book Your Stay",
+    "virtualTour": "Virtual Tour",
+    "loading": "Loading luxury experience...",
+    "scroll": "SCROLL",
+    "pauseSlideshow": "Pause slideshow",
+    "playSlideshow": "Play slideshow",
+    "goToSlide": "Go to slide {number}",
+    "scrollToContent": "Scroll to content",
+    "altTexts": {
+      "seaViewSunset": "Sea view from penthouse balcony at sunset",
+      "spaciousLiving": "Spacious living room with panoramic sea views",
+      "eveningBalcony": "Evening ambiance on the 270m² balcony"
+    }
+  },
+  "homepage": {
+    "luxuryRedefined": "Luxury Redefined",
+    "subtitle": "Discover an extraordinary penthouse experience where modern elegance meets coastal serenity",
+    "livingSpace": {
+      "title": "150m² Living Space",
+      "description": "Expansive kitchen and living room designed for comfort and entertaining",
+      "alt": "Spacious living room with sea views"
+    },
+    "balcony": {
+      "title": "270m² Balcony",
+      "description": "Stunning outdoor terrace perfect for events and relaxation",
+      "alt": "270 square meter balcony with sea view"
+    },
+    "amenities": {
+      "title": "Premium Amenities",
+      "description": "Every detail crafted for the ultimate luxury experience",
+      "alt": "Luxury bedroom with modern amenities"
+    }
+  },
+  "footer": {
+    "logoAlt": "The Sea View Penthouse",
+    "copyright": "© 2025 J-Web. All rights reserved."
+  }
+}

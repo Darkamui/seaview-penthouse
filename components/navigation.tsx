@@ -1,25 +1,27 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-
-const navItems = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Gallery", href: "/gallery" },
-  { name: "Events", href: "/events" },
-  { name: "FAQ", href: "/faq" },
-  { name: "Contact", href: "/contact" },
-];
+import { useTranslations } from "next-intl";
+import { LanguageSwitcher } from "@/components/language-switcher";
+import { Link, usePathname } from '@/i18n/navigation';
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
+  const t = useTranslations('navigation');
+
+  const navItems = [
+    { name: t('home'), href: "/" },
+    { name: t('about'), href: "/about" },
+    { name: t('gallery'), href: "/gallery" },
+    { name: t('events'), href: "/events" },
+    { name: t('faq'), href: "/faq" },
+    { name: t('contact'), href: "/contact" },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,14 +50,14 @@ export function Navigation() {
             <div className="relative">
               <Image
                 src="/images/logo.png"
-                alt="The Sea View Penthouse"
+                alt={t('siteTitle')}
                 width={40}
                 height={40}
                 className="w-10 h-10 transition-transform duration-300 group-hover:scale-110"
               />
             </div>
             <span className="font-sans font-semibold text-lg text-foreground group-hover:text-accent transition-colors duration-300">
-              The Sea View Penthouse
+              {t('siteTitle')}
             </span>
           </Link>
 
@@ -78,8 +80,9 @@ export function Navigation() {
               </Link>
             ))}
             <Button className="ml-4 bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-              Book Your Stay
+              {t('bookStay')}
             </Button>
+            <LanguageSwitcher />
           </div>
 
           {/* Mobile menu button */}
@@ -120,10 +123,13 @@ export function Navigation() {
                 {item.name}
               </Link>
             ))}
-            <div className="px-4 py-3">
+            <div className="px-4 py-3 space-y-3">
               <Button className="w-full bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg hover:shadow-xl transition-all duration-300">
-                Book Your Stay
+                {t('bookStay')}
               </Button>
+              <div className="flex justify-center">
+                <LanguageSwitcher />
+              </div>
             </div>
           </div>
         </div>
