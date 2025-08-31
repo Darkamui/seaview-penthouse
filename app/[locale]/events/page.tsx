@@ -22,13 +22,36 @@ export default async function EventsPage({ params }: Props) {
   setRequestLocale(locale);
 
   const t = await getTranslations("events");
+  // Get nested translations for event types
+  const getEventFeatures = (type: string): string[] => {
+    try {
+      const features = t(`eventTypes.${type}.features`);
+      // Handle case where features might be returned as a single string or array
+      if (Array.isArray(features)) {
+        return features;
+      }
+      // Try to parse if it's a JSON string
+      if (typeof features === 'string') {
+        try {
+          const parsed = JSON.parse(features);
+          return Array.isArray(parsed) ? parsed : [features];
+        } catch {
+          return [features];
+        }
+      }
+      return [];
+    } catch {
+      return [];
+    }
+  };
+
   const eventTypes = [
     {
       icon: Heart,
       title: t("eventTypes.intimate.title"),
       capacity: t("eventTypes.intimate.capacity"),
       description: t("eventTypes.intimate.description"),
-      features: t("eventTypes.intimate.features") as unknown as string[],
+      features: getEventFeatures("intimate"),
       image: "/wedding-proposal-setup-with-sea-view.png",
       color: "text-red-500",
     },
@@ -37,7 +60,7 @@ export default async function EventsPage({ params }: Props) {
       title: t("eventTypes.bridal.title"),
       capacity: t("eventTypes.bridal.capacity"),
       description: t("eventTypes.bridal.description"),
-      features: t("eventTypes.bridal.features") as unknown as string[],
+      features: getEventFeatures("bridal"),
       image: "/images/bedroom.jpg",
       color: "text-pink-500",
     },
@@ -46,7 +69,7 @@ export default async function EventsPage({ params }: Props) {
       title: t("eventTypes.business.title"),
       capacity: t("eventTypes.business.capacity"),
       description: t("eventTypes.business.description"),
-      features: t("eventTypes.business.features") as unknown as string[],
+      features: getEventFeatures("business"),
       image: "/business-meeting-in-luxury-penthouse.png",
       color: "text-blue-500",
     },
@@ -55,7 +78,7 @@ export default async function EventsPage({ params }: Props) {
       title: t("eventTypes.family.title"),
       capacity: t("eventTypes.family.capacity"),
       description: t("eventTypes.family.description"),
-      features: t("eventTypes.family.features") as unknown as string[],
+      features: getEventFeatures("family"),
       image: "/family-celebration-in-penthouse-living-room.png",
       color: "text-green-500",
     },
@@ -64,23 +87,46 @@ export default async function EventsPage({ params }: Props) {
       title: t("eventTypes.culinary.title"),
       capacity: t("eventTypes.culinary.capacity"),
       description: t("eventTypes.culinary.description"),
-      features: t("eventTypes.culinary.features") as unknown as string[],
+      features: getEventFeatures("culinary"),
       image: "/elegant-dinner-party-setup-on-penthouse-balcony.png",
       color: "text-orange-500",
     },
   ];
 
+  // Get nested translations for spaces
+  const getSpaceFeatures = (type: string): string[] => {
+    try {
+      const features = t(`spaces.${type}.features`);
+      // Handle case where features might be returned as a single string or array
+      if (Array.isArray(features)) {
+        return features;
+      }
+      // Try to parse if it's a JSON string
+      if (typeof features === 'string') {
+        try {
+          const parsed = JSON.parse(features);
+          return Array.isArray(parsed) ? parsed : [features];
+        } catch {
+          return [features];
+        }
+      }
+      return [];
+    } catch {
+      return [];
+    }
+  };
+
   const spaces = [
     {
       title: t("spaces.livingRoom.title"),
       description: t("spaces.livingRoom.description"),
-      features: t("spaces.livingRoom.features") as unknown as string[],
+      features: getSpaceFeatures("livingRoom"),
       image: "/images/living-room.jpg",
     },
     {
       title: t("spaces.balcony.title"),
       description: t("spaces.balcony.description"),
-      features: t("spaces.balcony.features") as unknown as string[],
+      features: getSpaceFeatures("balcony"),
       image: "/images/balcony-evening.jpg",
     },
   ];
