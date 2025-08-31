@@ -41,5 +41,5 @@ jobs:
           script: |
             cd /opt/stacks/infra
             docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-            docker compose pull seaview-penthouse
-            docker compose up -d seaview-penthouse
+            docker compose pull seaview
+            docker compose up -d seaview
