@@ -183,56 +183,46 @@
         "title": "Intimate Events",
         "capacity": "Up to 30 guests",
         "description": "Perfect for wedding proposals, anniversary celebrations, and romantic chef dinners",
-        "features": [
-          "Private chef service",
-          "Romantic setup",
-          "Sunset views",
-          "Premium sound system"
-        ]
+        "feature1": "Private chef service",
+        "feature2": "Romantic setup",
+        "feature3": "Sunset views",
+        "feature4": "Premium sound system"
       },
       "bridal": {
         "title": "Bridal Preparation",
         "capacity": "Bridal party of 8-12",
         "description": "Elegant space for getting ready with natural light and luxury amenities",
-        "features": [
-          "Professional lighting",
-          "Spacious bedroom",
-          "Luxury bathroom",
-          "Balcony photo ops"
-        ]
+        "feature1": "Professional lighting",
+        "feature2": "Spacious bedroom",
+        "feature3": "Luxury bathroom",
+        "feature4": "Balcony photo ops"
       },
       "business": {
         "title": "Business Events",
         "capacity": "Up to 25 professionals",
         "description": "Sophisticated venue for corporate meetings, product launches, and networking",
-        "features": [
-          "High-speed WiFi",
-          "Presentation setup",
-          "Catering space",
-          "Professional ambiance"
-        ]
+        "feature1": "High-speed WiFi",
+        "feature2": "Presentation setup",
+        "feature3": "Catering space",
+        "feature4": "Professional ambiance"
       },
       "family": {
         "title": "Family Vacations",
         "capacity": "Up to 8 family members",
         "description": "Spacious accommodation for multi-generational family gatherings",
-        "features": [
-          "Multiple sleeping areas",
-          "Family-friendly amenities",
-          "Safe balcony",
-          "Kitchen facilities"
-        ]
+        "feature1": "Multiple sleeping areas",
+        "feature2": "Family-friendly amenities",
+        "feature3": "Safe balcony",
+        "feature4": "Kitchen facilities"
       },
       "culinary": {
         "title": "Culinary Experiences",
         "capacity": "Up to 20 guests",
         "description": "Premium kitchen space for cooking classes and gourmet dining experiences",
-        "features": [
-          "Professional kitchen",
-          "Dining for 20",
-          "Sea view dining",
-          "Chef workspace"
-        ]
+        "feature1": "Professional kitchen",
+        "feature2": "Dining for 20",
+        "feature3": "Sea view dining",
+        "feature4": "Chef workspace"
       }
     },
     "eventSpacesTitle": "Event Spaces",
@@ -241,24 +231,20 @@
       "livingRoom": {
         "title": "150m² Kitchen & Living Room",
         "description": "Expansive open-plan space perfect for entertaining and events",
-        "features": [
-          "Floor-to-ceiling windows with sea views",
-          "Modern fully-equipped kitchen",
-          "Comfortable seating for 20+ guests",
-          "Premium sound and lighting systems",
-          "Direct access to balcony"
-        ]
+        "feature1": "Floor-to-ceiling windows with sea views",
+        "feature2": "Modern fully-equipped kitchen",
+        "feature3": "Comfortable seating for 20+ guests",
+        "feature4": "Premium sound and lighting systems",
+        "feature5": "Direct access to balcony"
       },
       "balcony": {
         "title": "270m² Private Balcony",
         "description": "Stunning outdoor venue with panoramic Mediterranean views",
-        "features": [
-          "Unobstructed sea views",
-          "Premium outdoor furniture",
-          "Multiple seating areas",
-          "Perfect for sunset events",
-          "Weather-protected sections"
-        ]
+        "feature1": "Unobstructed sea views",
+        "feature2": "Premium outdoor furniture",
+        "feature3": "Multiple seating areas",
+        "feature4": "Perfect for sunset events",
+        "feature5": "Weather-protected sections"
       }
     },
     "readyToPlan": "Ready to Plan Your Event?",

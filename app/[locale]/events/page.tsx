@@ -17,41 +17,23 @@ export function generateStaticParams() {
 
 export default async function EventsPage({ params }: Props) {
   const { locale } = await params;
-  
+
   // Enable static rendering
   setRequestLocale(locale);
 
   const t = await getTranslations("events");
-  // Get nested translations for event types
-  const getEventFeatures = (type: string): string[] => {
-    try {
-      const features = t(`eventTypes.${type}.features`);
-      // Handle case where features might be returned as a single string or array
-      if (Array.isArray(features)) {
-        return features;
-      }
-      // Try to parse if it's a JSON string
-      if (typeof features === 'string') {
-        try {
-          const parsed = JSON.parse(features);
-          return Array.isArray(parsed) ? parsed : [features];
-        } catch {
-          return [features];
-        }
-      }
-      return [];
-    } catch {
-      return [];
-    }
-  };
-
   const eventTypes = [
     {
       icon: Heart,
       title: t("eventTypes.intimate.title"),
       capacity: t("eventTypes.intimate.capacity"),
       description: t("eventTypes.intimate.description"),
-      features: getEventFeatures("intimate"),
+      features: [
+        t("eventTypes.intimate.feature1"),
+        t("eventTypes.intimate.feature2"),
+        t("eventTypes.intimate.feature3"),
+        t("eventTypes.intimate.feature4"),
+      ],
       image: "/wedding-proposal-setup-with-sea-view.png",
       color: "text-red-500",
     },
@@ -60,8 +42,13 @@ export default async function EventsPage({ params }: Props) {
       title: t("eventTypes.bridal.title"),
       capacity: t("eventTypes.bridal.capacity"),
       description: t("eventTypes.bridal.description"),
-      features: getEventFeatures("bridal"),
-      image: "/images/bedroom.jpg",
+      features: [
+        t("eventTypes.bridal.feature1"),
+        t("eventTypes.bridal.feature2"),
+        t("eventTypes.bridal.feature3"),
+        t("eventTypes.bridal.feature4"),
+      ],
+      image: "/images/living7.jpg",
       color: "text-pink-500",
     },
     {
@@ -69,7 +56,12 @@ export default async function EventsPage({ params }: Props) {
       title: t("eventTypes.business.title"),
       capacity: t("eventTypes.business.capacity"),
       description: t("eventTypes.business.description"),
-      features: getEventFeatures("business"),
+      features: [
+        t("eventTypes.business.feature1"),
+        t("eventTypes.business.feature2"),
+        t("eventTypes.business.feature3"),
+        t("eventTypes.business.feature4"),
+      ],
       image: "/business-meeting-in-luxury-penthouse.png",
       color: "text-blue-500",
     },
@@ -78,7 +70,12 @@ export default async function EventsPage({ params }: Props) {
       title: t("eventTypes.family.title"),
       capacity: t("eventTypes.family.capacity"),
       description: t("eventTypes.family.description"),
-      features: getEventFeatures("family"),
+      features: [
+        t("eventTypes.family.feature1"),
+        t("eventTypes.family.feature2"),
+        t("eventTypes.family.feature3"),
+        t("eventTypes.family.feature4"),
+      ],
       image: "/family-celebration-in-penthouse-living-room.png",
       color: "text-green-500",
     },
@@ -87,46 +84,40 @@ export default async function EventsPage({ params }: Props) {
       title: t("eventTypes.culinary.title"),
       capacity: t("eventTypes.culinary.capacity"),
       description: t("eventTypes.culinary.description"),
-      features: getEventFeatures("culinary"),
+      features: [
+        t("eventTypes.culinary.feature1"),
+        t("eventTypes.culinary.feature2"),
+        t("eventTypes.culinary.feature3"),
+        t("eventTypes.culinary.feature4"),
+      ],
       image: "/elegant-dinner-party-setup-on-penthouse-balcony.png",
       color: "text-orange-500",
     },
   ];
 
-  // Get nested translations for spaces
-  const getSpaceFeatures = (type: string): string[] => {
-    try {
-      const features = t(`spaces.${type}.features`);
-      // Handle case where features might be returned as a single string or array
-      if (Array.isArray(features)) {
-        return features;
-      }
-      // Try to parse if it's a JSON string
-      if (typeof features === 'string') {
-        try {
-          const parsed = JSON.parse(features);
-          return Array.isArray(parsed) ? parsed : [features];
-        } catch {
-          return [features];
-        }
-      }
-      return [];
-    } catch {
-      return [];
-    }
-  };
-
   const spaces = [
     {
       title: t("spaces.livingRoom.title"),
       description: t("spaces.livingRoom.description"),
-      features: getSpaceFeatures("livingRoom"),
+      features: [
+        t("spaces.livingRoom.feature1"),
+        t("spaces.livingRoom.feature2"),
+        t("spaces.livingRoom.feature3"),
+        t("spaces.livingRoom.feature4"),
+        t("spaces.livingRoom.feature5"),
+      ],
       image: "/images/living-room.jpg",
     },
     {
       title: t("spaces.balcony.title"),
       description: t("spaces.balcony.description"),
-      features: getSpaceFeatures("balcony"),
+      features: [
+        t("spaces.balcony.feature1"),
+        t("spaces.balcony.feature2"),
+        t("spaces.balcony.feature3"),
+        t("spaces.balcony.feature4"),
+        t("spaces.balcony.feature5"),
+      ],
       image: "/images/balcony-evening.jpg",
     },
   ];
