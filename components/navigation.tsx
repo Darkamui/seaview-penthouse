@@ -6,21 +6,21 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { LanguageSwitcher } from "@/components/language-switcher";
-import { Link, usePathname } from '@/i18n/navigation';
+import { Link, usePathname } from "@/i18n/navigation";
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
-  const t = useTranslations('navigation');
+  const t = useTranslations("navigation");
 
   const navItems = [
-    { name: t('home'), href: "/" },
-    { name: t('about'), href: "/about" },
-    { name: t('gallery'), href: "/gallery" },
-    { name: t('events'), href: "/events" },
-    { name: t('faq'), href: "/faq" },
-    { name: t('contact'), href: "/contact" },
+    { name: t("home"), href: "/" },
+    { name: t("about"), href: "/about" },
+    { name: t("gallery"), href: "/gallery" },
+    { name: t("events"), href: "/events" },
+    { name: t("faq"), href: "/faq" },
+    { name: t("contact"), href: "/contact" },
   ];
 
   useEffect(() => {
@@ -49,15 +49,15 @@ export function Navigation() {
           <Link href="/" className="flex items-center space-x-3 group">
             <div className="relative">
               <Image
-                src="/images/logo.png"
-                alt={t('siteTitle')}
+                src="/images/logo-crop.png"
+                alt={t("siteTitle")}
                 width={40}
                 height={40}
-                className="w-10 h-10 transition-transform duration-300 group-hover:scale-110"
+                className="h-10 w-auto transition-transform duration-300 group-hover:scale-110"
               />
             </div>
             <span className="font-sans font-semibold text-lg text-foreground group-hover:text-accent transition-colors duration-300">
-              {t('siteTitle')}
+              {t("siteTitle")}
             </span>
           </Link>
 
@@ -80,7 +80,7 @@ export function Navigation() {
               </Link>
             ))}
             <Button className="ml-4 bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-              {t('bookStay')}
+              {t("bookStay")}
             </Button>
             <LanguageSwitcher />
           </div>
@@ -103,10 +103,16 @@ export function Navigation() {
         </div>
 
         {/* Mobile Navigation */}
+        {isOpen && (
+          <div 
+            className="fixed inset-0 z-40 bg-black/50 md:hidden" 
+            onClick={() => setIsOpen(false)}
+          />
+        )}
         <div
           className={`md:hidden transition-all duration-300 ease-in-out ${
-            isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-          } overflow-hidden`}
+            isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+          } overflow-hidden relative z-50`}
         >
           <div className="px-2 pt-2 pb-3 space-y-1 bg-card/80 backdrop-blur-md rounded-lg mt-2 border border-accent/20">
             {navItems.map((item) => (
@@ -125,7 +131,7 @@ export function Navigation() {
             ))}
             <div className="px-4 py-3 space-y-3">
               <Button className="w-full bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg hover:shadow-xl transition-all duration-300">
-                {t('bookStay')}
+                {t("bookStay")}
               </Button>
               <div className="flex justify-center">
                 <LanguageSwitcher />

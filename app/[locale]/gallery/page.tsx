@@ -1,0 +1,293 @@
+"use client";
+
+import { useState } from "react";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import { X, ChevronLeft, ChevronRight, Play } from "lucide-react";
+
+const galleryCategories = [
+  {
+    id: "inside-spaces",
+    name: "Inside Spaces",
+    images: [
+      {
+        src: "/images/living-room.jpg",
+        alt: "Spacious living room with panoramic sea views",
+      },
+      {
+        src: "/images/kitchen.jpg",
+        alt: "Modern kitchen with premium appliances",
+      },
+      {
+        src: "/images/bedroom.jpg",
+        alt: "Luxury bedroom with natural textures",
+      },
+      {
+        src: "/images/bedroom-detail.jpg",
+        alt: "Bedroom detail with premium linens",
+      },
+      {
+        src: "/images/bathroom.jpg",
+        alt: "Spa-like bathroom with modern fixtures",
+      },
+    ],
+  },
+  {
+    id: "balcony-sea-view",
+    name: "Balcony & Sea View",
+    images: [
+      {
+        src: "/images/balcony-sunset.jpg",
+        alt: "Balcony at sunset with sea views",
+      },
+      {
+        src: "/images/balcony-evening.jpg",
+        alt: "Evening ambiance on the balcony",
+      },
+      {
+        src: "/panoramic-sea-view-from-penthouse.png",
+        alt: "Panoramic sea view",
+      },
+      {
+        src: "/balcony-dining-setup-with-ocean-view.png",
+        alt: "Balcony dining area",
+      },
+    ],
+  },
+  {
+    id: "events",
+    name: "Events",
+    images: [
+      {
+        src: "/elegant-dinner-party-setup-on-penthouse-balcony.png",
+        alt: "Dinner party setup",
+      },
+      {
+        src: "/wedding-proposal-setup-with-sea-view.png",
+        alt: "Wedding proposal setup",
+      },
+      {
+        src: "/business-meeting-in-luxury-penthouse.png",
+        alt: "Business meeting",
+      },
+      {
+        src: "/family-celebration-in-penthouse-living-room.png",
+        alt: "Family celebration",
+      },
+    ],
+  },
+  {
+    id: "video",
+    name: "Video",
+    videos: [
+      {
+        thumbnail: "/penthouse-virtual-tour-thumbnail.png",
+        title: "Virtual Tour",
+        description: "Complete walkthrough of the penthouse",
+      },
+      {
+        thumbnail: "/sunset-timelapse-from-balcony.png",
+        title: "Sunset Timelapse",
+        description: "Beautiful Mediterranean sunset from the balcony",
+      },
+      {
+        thumbnail: "/penthouse-amenities-showcase.png",
+        title: "Amenities Showcase",
+        description: "Detailed look at all premium amenities",
+      },
+    ],
+  },
+];
+
+export default function GalleryPage() {
+  const [activeCategory, setActiveCategory] = useState("inside-spaces");
+  const [lightboxImage, setLightboxImage] = useState<{
+    src: string;
+    alt: string;
+  } | null>(null);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+
+  const currentCategory = galleryCategories.find(
+    (cat) => cat.id === activeCategory
+  );
+  const currentImages = currentCategory?.images || [];
+
+  const openLightbox = (image: { src: string; alt: string }, index: number) => {
+    setLightboxImage(image);
+    setLightboxIndex(index);
+  };
+
+  const closeLightbox = () => {
+    setLightboxImage(null);
+  };
+
+  const navigateLightbox = (direction: "prev" | "next") => {
+    if (!currentImages.length) return;
+
+    let newIndex = lightboxIndex;
+    if (direction === "prev") {
+      newIndex =
+        lightboxIndex > 0 ? lightboxIndex - 1 : currentImages.length - 1;
+    } else {
+      newIndex =
+        lightboxIndex < currentImages.length - 1 ? lightboxIndex + 1 : 0;
+    }
+
+    setLightboxIndex(newIndex);
+    setLightboxImage(currentImages[newIndex]);
+  };
+
+  return (
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <section className="relative py-20 px-4 bg-gradient-to-b from-card to-background">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <Badge className="mb-4 bg-accent/10 text-accent-foreground border-accent/20">
+              Visual Experience
+            </Badge>
+            <h1 className="font-sans text-5xl font-bold text-foreground mb-6">
+              Gallery
+            </h1>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-balance leading-relaxed">
+              Explore every corner of our luxury penthouse through our
+              comprehensive photo and video gallery
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Category Navigation */}
+      <section className="py-8 px-4 border-b border-accent/20">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-4">
+            {galleryCategories.map((category) => (
+              <Button
+                key={category.id}
+                variant={activeCategory === category.id ? "default" : "outline"}
+                onClick={() => setActiveCategory(category.id)}
+                className={
+                  activeCategory === category.id
+                    ? "bg-accent hover:bg-accent/90 text-accent-foreground"
+                    : "border-accent/20 hover:border-accent/40 hover:bg-accent/5"
+                }
+              >
+                {category.name}
+              </Button>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery Grid */}
+      <section className="py-16 px-4">
+        <div className="max-w-7xl mx-auto">
+          {activeCategory === "video" ? (
+            // Video Grid
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {currentCategory?.videos?.map((video, index) => (
+                <div key={index} className="group cursor-pointer">
+                  <div className="relative aspect-video rounded-lg overflow-hidden bg-card border border-accent/20 hover:border-accent/40 transition-colors">
+                    <Image
+                      src={video.thumbnail || "/placeholder.svg"}
+                      alt={video.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-primary/20 group-hover:bg-primary/30 transition-colors flex items-center justify-center">
+                      <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <Play className="w-6 h-6 text-primary ml-1" />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="mt-4">
+                    <h3 className="font-sans text-lg font-semibold mb-2">
+                      {video.title}
+                    </h3>
+                    <p className="text-muted-foreground text-sm">
+                      {video.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            // Image Grid
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {currentImages.map((image, index) => (
+                <div
+                  key={index}
+                  className="group cursor-pointer"
+                  onClick={() => openLightbox(image, index)}
+                >
+                  <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-card border border-accent/20 hover:border-accent/40 transition-colors">
+                    <Image
+                      src={image.src || "/placeholder.svg"}
+                      alt={image.alt}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors" />
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* Lightbox */}
+      {lightboxImage && (
+        <div className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4">
+          <div className="relative max-w-7xl max-h-full">
+            <Image
+              src={lightboxImage.src || "/placeholder.svg"}
+              alt={lightboxImage.alt}
+              width={1200}
+              height={800}
+              className="max-w-full max-h-full object-contain"
+            />
+
+            {/* Close Button */}
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={closeLightbox}
+              className="absolute top-4 right-4 text-white hover:bg-white/20"
+            >
+              <X className="w-6 h-6" />
+            </Button>
+
+            {/* Navigation Buttons */}
+            {currentImages.length > 1 && (
+              <>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => navigateLightbox("prev")}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:bg-white/20"
+                >
+                  <ChevronLeft className="w-6 h-6" />
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => navigateLightbox("next")}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:bg-white/20"
+                >
+                  <ChevronRight className="w-6 h-6" />
+                </Button>
+              </>
+            )}
+
+            {/* Image Counter */}
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/50 text-white px-3 py-1 rounded-full text-sm">
+              {lightboxIndex + 1} / {currentImages.length}
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}

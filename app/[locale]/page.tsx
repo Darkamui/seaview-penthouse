@@ -97,22 +97,6 @@ export default async function HomePage({ params }: Props) {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="bg-card py-2 px-4">
-        <div className="max-w-7xl mx-auto text-center">
-          <Image
-            src="/images/logo.png"
-            alt={tFooter("logoAlt")}
-            width={240}
-            height={240}
-            className="mx-auto mb-2"
-          />
-          <p className="text-sm text-muted-foreground">
-            {tFooter("copyright")}
-          </p>
-        </div>
-      </footer>
     </div>
   );
 }

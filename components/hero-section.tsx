@@ -116,7 +116,7 @@ export function HeroSection() {
           isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         }`}
       >
-        <div className="space-y-8">
+        <div className="space-y-8 lg:mb-14">
           <h1 className="font-sans text-4xl sm:text-5xl lg:text-7xl xl:text-8xl font-bold text-balance leading-tight text-shadow-lg">
             {t("title")}
           </h1>
