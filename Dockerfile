@@ -57,6 +57,8 @@ USER nextjs
 # Expose port
 EXPOSE 3007
 
+ENV PORT=3007
+
 # Start the application using standalone server
 CMD ["node", "server.js"]
     
