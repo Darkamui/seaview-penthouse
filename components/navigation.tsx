@@ -35,6 +35,20 @@ export function Navigation() {
     setIsOpen(false);
   }, [pathname]);
 
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen]);
+
   return (
     <nav
       className={`sticky top-0 z-50 transition-all duration-300 ${
@@ -102,43 +116,75 @@ export function Navigation() {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Navigation - Full Screen Menu */}
         {isOpen && (
-          <div 
-            className="fixed inset-0 z-40 bg-black/50 md:hidden" 
-            onClick={() => setIsOpen(false)}
-          />
-        )}
-        <div
-          className={`md:hidden transition-all duration-300 ease-in-out ${
-            isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
-          } overflow-hidden relative z-50`}
-        >
-          <div className="px-2 pt-2 pb-3 space-y-1 bg-card/80 backdrop-blur-md rounded-lg mt-2 border border-accent/20">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className={`block px-4 py-3 rounded-lg text-sm font-medium transition-all duration-300 ${
-                  pathname === item.href
-                    ? "text-accent bg-accent/10 border-l-2 border-accent"
-                    : "text-foreground hover:text-accent hover:bg-accent/5"
-                }`}
-                onClick={() => setIsOpen(false)}
-              >
-                {item.name}
-              </Link>
-            ))}
-            <div className="px-4 py-3 space-y-3">
-              <Button className="w-full bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg hover:shadow-xl transition-all duration-300">
-                {t("bookStay")}
-              </Button>
+          <div className="fixed inset-0 z-[100] md:hidden h-screen w-screen">
+            {/* Solid background */}
+            <div
+              className="absolute inset-0 bg-white h-full w-full"
+              onClick={() => setIsOpen(false)}
+            />
+
+            {/* Menu content */}
+            <div className="relative z-10 flex flex-col h-screen bg-white">
+              {/* Header with logo and close button */}
+              <div className="flex items-center justify-between px-6 py-4 bg-white border-b border-accent/20 h-16">
+                <div className="flex items-center space-x-3">
+                  <Image
+                    src="/images/logo-crop.png"
+                    alt={t("siteTitle")}
+                    width={32}
+                    height={32}
+                    className="h-8 w-auto"
+                  />
+                  <span className="font-sans font-semibold text-lg text-foreground">
+                    {t("siteTitle")}
+                  </span>
+                </div>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => setIsOpen(false)}
+                  className="text-foreground hover:text-accent"
+                >
+                  <X className="h-6 w-6" />
+                </Button>
+              </div>
               <div className="flex justify-center">
                 <LanguageSwitcher />
               </div>
+              {/* Navigation links */}
+              <div className="flex-1 flex flex-col justify-center px-6 bg-white">
+                <nav className="space-y-6">
+                  {navItems.map((item) => (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      className={`block text-center py-4 text-2xl font-medium transition-colors ${
+                        pathname === item.href
+                          ? "text-accent"
+                          : "text-foreground hover:text-accent"
+                      }`}
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </nav>
+              </div>
+
+              {/* Bottom section */}
+              <div className="px-6 py-8 bg-white border-t border-accent/20 space-y-4">
+                <Button
+                  className="w-full py-4 text-lg bg-accent hover:bg-accent/90 text-accent-foreground"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {t("bookStay")}
+                </Button>
+              </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
     </nav>
   );
