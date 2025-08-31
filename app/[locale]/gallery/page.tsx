@@ -13,7 +13,27 @@ const galleryCategories = [
     name: "Inside Spaces",
     images: [
       {
-        src: "/images/living-room.jpg",
+        src: "/images/living.jpg",
+        alt: "Spacious living room with panoramic sea views",
+      },
+      {
+        src: "/images/living1.jpg",
+        alt: "Spacious living room with panoramic sea views",
+      },
+      {
+        src: "/images/living2.jpg",
+        alt: "Spacious living room with panoramic sea views",
+      },
+      {
+        src: "/images/living3.jpg",
+        alt: "Spacious living room with panoramic sea views",
+      },
+      {
+        src: "/images/living4.jpg",
+        alt: "Spacious living room with panoramic sea views",
+      },
+      {
+        src: "/images/living5.jpg",
         alt: "Spacious living room with panoramic sea views",
       },
       {
@@ -21,15 +41,55 @@ const galleryCategories = [
         alt: "Modern kitchen with premium appliances",
       },
       {
-        src: "/images/bedroom.jpg",
+        src: "/images/kitchen1.jpg",
+        alt: "Modern kitchen with premium appliances",
+      },
+      {
+        src: "/images/kitchen2.jpg",
+        alt: "Modern kitchen with premium appliances",
+      },
+      {
+        src: "/images/room.jpg",
         alt: "Luxury bedroom with natural textures",
       },
       {
-        src: "/images/bedroom-detail.jpg",
-        alt: "Bedroom detail with premium linens",
+        src: "/images/room1.jpg",
+        alt: "Luxury bedroom with natural textures",
       },
       {
-        src: "/images/bathroom.jpg",
+        src: "/images/room2.jpg",
+        alt: "Luxury bedroom with natural textures",
+      },
+      {
+        src: "/images/room3.jpg",
+        alt: "Luxury bedroom with natural textures",
+      },
+      {
+        src: "/images/room4.jpg",
+        alt: "Luxury bedroom with natural textures",
+      },
+      {
+        src: "/images/room5.jpg",
+        alt: "Luxury bedroom with natural textures",
+      },
+      {
+        src: "/images/room6.jpg",
+        alt: "Luxury bedroom with natural textures",
+      },
+      {
+        src: "/images/bath.jpg",
+        alt: "Spa-like bathroom with modern fixtures",
+      },
+      {
+        src: "/images/bath1.jpg",
+        alt: "Spa-like bathroom with modern fixtures",
+      },
+      {
+        src: "/images/bath2.jpg",
+        alt: "Spa-like bathroom with modern fixtures",
+      },
+      {
+        src: "/images/bath3.jpg",
         alt: "Spa-like bathroom with modern fixtures",
       },
     ],
@@ -39,20 +99,48 @@ const galleryCategories = [
     name: "Balcony & Sea View",
     images: [
       {
-        src: "/images/balcony-sunset.jpg",
+        src: "/images/balcony.jpg",
         alt: "Balcony at sunset with sea views",
       },
       {
-        src: "/images/balcony-evening.jpg",
-        alt: "Evening ambiance on the balcony",
+        src: "/images/balcony1.jpg",
+        alt: "Balcony at sunset with sea views",
       },
       {
-        src: "/panoramic-sea-view-from-penthouse.png",
-        alt: "Panoramic sea view",
+        src: "/images/balcony2.jpg",
+        alt: "Balcony at sunset with sea views",
       },
       {
-        src: "/balcony-dining-setup-with-ocean-view.png",
-        alt: "Balcony dining area",
+        src: "/images/balcony3.jpg",
+        alt: "Balcony at sunset with sea views",
+      },
+      {
+        src: "/images/balcony4.jpg",
+        alt: "Balcony at sunset with sea views",
+      },
+      {
+        src: "/images/balcony5.jpg",
+        alt: "Balcony at sunset with sea views",
+      },
+      {
+        src: "/images/balcony6.jpg",
+        alt: "Balcony at sunset with sea views",
+      },
+      {
+        src: "/images/balcony7.jpg",
+        alt: "Balcony at sunset with sea views",
+      },
+      {
+        src: "/images/balcony8.jpg",
+        alt: "Balcony at sunset with sea views",
+      },
+      {
+        src: "/images/balcony9.jpg",
+        alt: "Balcony at sunset with sea views",
+      },
+      {
+        src: "/images/balcony10.jpg",
+        alt: "Balcony at sunset with sea views",
       },
     ],
   },

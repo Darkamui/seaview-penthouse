@@ -63,7 +63,7 @@ export function Navigation() {
           <Link href="/" className="flex items-center space-x-3 group">
             <div className="relative">
               <Image
-                src="/images/logo-crop.png"
+                src="/images/logo-clean.png"
                 alt={t("siteTitle")}
                 width={40}
                 height={40}

@@ -1,7 +1,5 @@
 "use client";
 
-"use client";
-
 import type React from "react";
 
 import { useState } from "react";
@@ -65,7 +63,7 @@ Details:
     
 Looking forward to hearing from you!`;
 
-    const whatsappUrl = `https://wa.me/972501234567?text=${encodeURIComponent(
+    const whatsappUrl = `https://wa.me/972546606233?text=${encodeURIComponent(
       message
     )}`;
     window.open(whatsappUrl, "_blank");
@@ -75,25 +73,37 @@ Looking forward to hearing from you!`;
     {
       icon: Phone,
       title: t("contactInfo.phone.title"),
-      details: [t("contactInfo.phone.number"), t("contactInfo.phone.availability")],
-      action: "tel:+972501234567",
+      details: [
+        t("contactInfo.phone.number"),
+        t("contactInfo.phone.availability"),
+      ],
+      action: "tel:+972546606233",
     },
     {
       icon: Mail,
       title: t("contactInfo.email.title"),
-      details: [t("contactInfo.email.address"), t("contactInfo.email.response")],
-      action: "mailto:info@seaviewpenthouse.com",
+      details: [
+        t("contactInfo.email.address"),
+        t("contactInfo.email.response"),
+      ],
+      action: "mailto:rachel.yer@gmail.com",
     },
     {
       icon: MapPin,
       title: t("contactInfo.location.title"),
-      details: [t("contactInfo.location.address"), t("contactInfo.location.distance")],
+      details: [
+        t("contactInfo.location.address"),
+        t("contactInfo.location.distance"),
+      ],
       action: null,
     },
     {
       icon: Clock,
       title: t("contactInfo.checkInOut.title"),
-      details: [t("contactInfo.checkInOut.checkIn"), t("contactInfo.checkInOut.checkOut")],
+      details: [
+        t("contactInfo.checkInOut.checkIn"),
+        t("contactInfo.checkInOut.checkOut"),
+      ],
       action: null,
     },
   ];
@@ -189,7 +199,9 @@ Looking forward to hearing from you!`;
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="checkOut">{t("form.checkOutDate")} *</Label>
+                      <Label htmlFor="checkOut">
+                        {t("form.checkOutDate")} *
+                      </Label>
                       <Input
                         id="checkOut"
                         type="date"
@@ -215,18 +227,34 @@ Looking forward to hearing from you!`;
                         </SelectTrigger>
                         <SelectContent>
                           <SelectItem value="1">1 {t("form.guest")}</SelectItem>
-                          <SelectItem value="2">2 {t("form.guests")}</SelectItem>
-                          <SelectItem value="3">3 {t("form.guests")}</SelectItem>
-                          <SelectItem value="4">4 {t("form.guests")}</SelectItem>
-                          <SelectItem value="5">5 {t("form.guests")}</SelectItem>
-                          <SelectItem value="6">6 {t("form.guests")}</SelectItem>
-                          <SelectItem value="7">7 {t("form.guests")}</SelectItem>
-                          <SelectItem value="8">8 {t("form.guests")}</SelectItem>
+                          <SelectItem value="2">
+                            2 {t("form.guests")}
+                          </SelectItem>
+                          <SelectItem value="3">
+                            3 {t("form.guests")}
+                          </SelectItem>
+                          <SelectItem value="4">
+                            4 {t("form.guests")}
+                          </SelectItem>
+                          <SelectItem value="5">
+                            5 {t("form.guests")}
+                          </SelectItem>
+                          <SelectItem value="6">
+                            6 {t("form.guests")}
+                          </SelectItem>
+                          <SelectItem value="7">
+                            7 {t("form.guests")}
+                          </SelectItem>
+                          <SelectItem value="8">
+                            8 {t("form.guests")}
+                          </SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="eventType">{t("form.purposeOfStay")}</Label>
+                      <Label htmlFor="eventType">
+                        {t("form.purposeOfStay")}
+                      </Label>
                       <Select
                         onValueChange={(value) =>
                           handleInputChange("eventType", value)
@@ -248,17 +276,19 @@ Looking forward to hearing from you!`;
                           <SelectItem value="family">
                             {t("form.purposes.family")}
                           </SelectItem>
-                          <SelectItem value="event">{t("form.purposes.event")}</SelectItem>
-                          <SelectItem value="other">{t("form.purposes.other")}</SelectItem>
+                          <SelectItem value="event">
+                            {t("form.purposes.event")}
+                          </SelectItem>
+                          <SelectItem value="other">
+                            {t("form.purposes.other")}
+                          </SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="message">
-                      {t("form.specialRequests")}
-                    </Label>
+                    <Label htmlFor="message">{t("form.specialRequests")}</Label>
                     <Textarea
                       id="message"
                       value={formData.message}
@@ -420,7 +450,9 @@ Looking forward to hearing from you!`;
                 <div className="flex items-start gap-3">
                   <div className="w-5 h-5 bg-accent rounded-full mt-0.5 flex-shrink-0" />
                   <div>
-                    <p className="font-medium text-foreground">{t("locationDetails.beach")}</p>
+                    <p className="font-medium text-foreground">
+                      {t("locationDetails.beach")}
+                    </p>
                     <p className="text-sm text-muted-foreground">
                       {t("locationDetails.beachDescription")}
                     </p>

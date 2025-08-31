@@ -16,7 +16,7 @@ export function generateStaticParams() {
 
 export default async function AboutPage({ params }: Props) {
   const { locale } = await params;
-  
+
   // Enable static rendering
   setRequestLocale(locale);
 
@@ -34,22 +34,22 @@ export default async function AboutPage({ params }: Props) {
     {
       title: t("features.livingSpace.title"),
       description: t("features.livingSpace.description"),
-      image: "/images/living-room.jpg",
+      image: "/images/living.jpg",
     },
     {
       title: t("features.balcony.title"),
       description: t("features.balcony.description"),
-      image: "/images/balcony-evening.jpg",
+      image: "/images/balcony.jpg",
     },
     {
       title: t("features.bedroom.title"),
       description: t("features.bedroom.description"),
-      image: "/images/bedroom.jpg",
+      image: "/images/room.jpg",
     },
     {
       title: t("features.bathroom.title"),
       description: t("features.bathroom.description"),
-      image: "/images/bathroom.jpg",
+      image: "/images/bath.jpg",
     },
   ];
 
