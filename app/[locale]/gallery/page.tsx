@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { X, ChevronLeft, ChevronRight, Play } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 const galleryCategories = [
   {
@@ -101,6 +102,7 @@ const galleryCategories = [
 ];
 
 export default function GalleryPage() {
+  const t = useTranslations("gallery");
   const [activeCategory, setActiveCategory] = useState("inside-spaces");
   const [lightboxImage, setLightboxImage] = useState<{
     src: string;
@@ -145,14 +147,13 @@ export default function GalleryPage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <Badge className="mb-4 bg-accent/10 text-accent-foreground border-accent/20">
-              Visual Experience
+              {t("badge")}
             </Badge>
             <h1 className="font-sans text-5xl font-bold text-foreground mb-6">
-              Gallery
+              {t("title")}
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-balance leading-relaxed">
-              Explore every corner of our luxury penthouse through our
-              comprehensive photo and video gallery
+              {t("subtitle")}
             </p>
           </div>
         </div>

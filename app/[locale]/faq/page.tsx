@@ -4,7 +4,6 @@ import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
 import {
   ChevronDown,
   ChevronUp,
@@ -12,6 +11,7 @@ import {
   Phone,
   Mail,
 } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 const faqCategories = [
   {
@@ -117,6 +117,7 @@ const faqCategories = [
 ];
 
 export default function FAQPage() {
+  const t = useTranslations("faq");
   const [openItems, setOpenItems] = useState<string[]>([]);
 
   const toggleItem = (id: string) => {
@@ -132,14 +133,13 @@ export default function FAQPage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <Badge className="mb-4 bg-accent/10 text-accent-foreground border-accent/20">
-              Help Center
+              {t("badge")}
             </Badge>
             <h1 className="font-sans text-5xl font-bold text-foreground mb-6">
-              Frequently Asked Questions
+              {t("title")}
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-balance leading-relaxed">
-              Find answers to common questions about staying at our luxury sea
-              view penthouse
+              {t("subtitle")}
             </p>
           </div>
         </div>
@@ -203,10 +203,10 @@ export default function FAQPage() {
       <section className="py-16 px-4 bg-card/30">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="font-sans text-3xl font-bold text-foreground mb-4">
-            Still Have Questions?
+            {t("stillHaveQuestions")}
           </h2>
           <p className="text-xl text-muted-foreground mb-8 text-balance">
-            Our team is here to help you plan the perfect stay
+            {t("stillHaveQuestionsSubtitle")}
           </p>
 
           <div className="grid sm:grid-cols-3 gap-6 mb-8">
@@ -272,7 +272,7 @@ export default function FAQPage() {
             size="lg"
             className="bg-accent hover:bg-accent/90 text-accent-foreground"
           >
-            Contact Us Directly
+            {t("contactUsDirectly")}
           </Button>
         </div>
       </section>

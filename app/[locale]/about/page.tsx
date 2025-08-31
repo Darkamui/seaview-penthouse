@@ -2,40 +2,53 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 import { MapPin, Users, Wifi, Car, Utensils, Bath, Bed } from "lucide-react";
+import { getTranslations } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
+import { routing } from "@/i18n/routing";
 
-export default function AboutPage() {
+type Props = {
+  params: Promise<{ locale: string }>;
+};
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
+export default async function AboutPage({ params }: Props) {
+  const { locale } = await params;
+  
+  // Enable static rendering
+  setRequestLocale(locale);
+
+  const t = await getTranslations("about");
   const amenities = [
-    { icon: Wifi, label: "High-Speed WiFi" },
-    { icon: Car, label: "Private Parking" },
-    { icon: Utensils, label: "Fully Equipped Kitchen" },
-    { icon: Bath, label: "Luxury Bathroom" },
-    { icon: Bed, label: "Premium Bedding" },
-    { icon: Users, label: "Up to 8 Guests" },
+    { icon: Wifi, label: t("amenitiesItems.highSpeedWifi") },
+    { icon: Car, label: t("amenitiesItems.privateParking") },
+    { icon: Utensils, label: t("amenitiesItems.fullyEquippedKitchen") },
+    { icon: Bath, label: t("amenitiesItems.luxuryBathroom") },
+    { icon: Bed, label: t("amenitiesItems.premiumBedding") },
+    { icon: Users, label: t("amenitiesItems.upToEightGuests") },
   ];
 
   const features = [
     {
-      title: "150m² Living Space",
-      description:
-        "Expansive open-plan kitchen and living room with floor-to-ceiling windows showcasing panoramic sea views.",
+      title: t("features.livingSpace.title"),
+      description: t("features.livingSpace.description"),
       image: "/images/living-room.jpg",
     },
     {
-      title: "270m² Private Balcony",
-      description:
-        "Stunning outdoor terrace with premium furniture, perfect for entertaining and watching Mediterranean sunsets.",
+      title: t("features.balcony.title"),
+      description: t("features.balcony.description"),
       image: "/images/balcony-evening.jpg",
     },
     {
-      title: "Luxury Bedroom Suite",
-      description:
-        "Elegantly appointed bedroom with premium linens, natural textures, and direct access to the balcony.",
+      title: t("features.bedroom.title"),
+      description: t("features.bedroom.description"),
       image: "/images/bedroom.jpg",
     },
     {
-      title: "Spa-Like Bathroom",
-      description:
-        "Modern bathroom featuring premium fixtures, glass block walls, and luxury amenities for ultimate relaxation.",
+      title: t("features.bathroom.title"),
+      description: t("features.bathroom.description"),
       image: "/images/bathroom.jpg",
     },
   ];
@@ -47,15 +60,13 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <Badge className="mb-4 bg-accent/10 text-accent-foreground border-accent/20">
-              About Our Penthouse
+              {t("badge")}
             </Badge>
             <h1 className="font-sans text-5xl font-bold text-foreground mb-6">
-              Penthouse in Details
+              {t("title")}
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-balance leading-relaxed">
-              Discover every exquisite detail of our luxury sea view penthouse,
-              where modern sophistication meets coastal elegance in the heart of
-              Ashdod.
+              {t("subtitle")}
             </p>
           </div>
         </div>
@@ -68,16 +79,13 @@ export default function AboutPage() {
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <MapPin className="w-5 h-5 text-accent" />
-                <span className="text-accent font-medium">Ashdod, Israel</span>
+                <span className="text-accent font-medium">{t("location")}</span>
               </div>
               <h2 className="font-sans text-3xl font-bold text-foreground mb-6">
-                Prime Coastal Location
+                {t("locationTitle")}
               </h2>
               <p className="text-muted-foreground mb-6 leading-relaxed">
-                Perched high above the Mediterranean coastline, our penthouse
-                offers unobstructed sea views and easy access to Ashdod&apos;s
-                finest beaches, restaurants, and cultural attractions. The
-                strategic location provides both tranquility and convenience.
+                {t("locationDescription")}
               </p>
               <div className="grid grid-cols-2 gap-4">
                 <div className="text-center p-4 bg-card rounded-lg">
@@ -85,7 +93,7 @@ export default function AboutPage() {
                     420m²
                   </div>
                   <div className="text-sm text-muted-foreground">
-                    Total Space
+                    {t("totalSpace")}
                   </div>
                 </div>
                 <div className="text-center p-4 bg-card rounded-lg">
@@ -93,7 +101,7 @@ export default function AboutPage() {
                     8
                   </div>
                   <div className="text-sm text-muted-foreground">
-                    Max Guests
+                    {t("maxGuests")}
                   </div>
                 </div>
               </div>
@@ -115,11 +123,10 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="font-sans text-3xl font-bold text-foreground mb-4">
-              Exceptional Features
+              {t("featuresTitle")}
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Every space has been thoughtfully designed to provide the ultimate
-              luxury experience
+              {t("featuresSubtitle")}
             </p>
           </div>
 
@@ -156,11 +163,10 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="font-sans text-3xl font-bold text-foreground mb-4">
-              Premium Amenities
+              {t("amenitiesTitle")}
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Everything you need for a perfect stay, from modern conveniences
-              to luxury touches
+              {t("amenitiesSubtitle")}
             </p>
           </div>
 

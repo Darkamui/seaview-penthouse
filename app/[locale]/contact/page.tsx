@@ -1,5 +1,7 @@
 "use client";
 
+"use client";
+
 import type React from "react";
 
 import { useState } from "react";
@@ -16,7 +18,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import Image from "next/image";
 import {
   MapPin,
   Phone,
@@ -26,8 +27,10 @@ import {
   Users,
   Calendar,
 } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export default function ContactPage() {
+  const t = useTranslations("contact");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -71,26 +74,26 @@ Looking forward to hearing from you!`;
   const contactInfo = [
     {
       icon: Phone,
-      title: "Phone",
-      details: ["+972 50-123-4567", "Available 24/7"],
+      title: t("contactInfo.phone.title"),
+      details: [t("contactInfo.phone.number"), t("contactInfo.phone.availability")],
       action: "tel:+972501234567",
     },
     {
       icon: Mail,
-      title: "Email",
-      details: ["info@seaviewpenthouse.com", "Response within 2 hours"],
+      title: t("contactInfo.email.title"),
+      details: [t("contactInfo.email.address"), t("contactInfo.email.response")],
       action: "mailto:info@seaviewpenthouse.com",
     },
     {
       icon: MapPin,
-      title: "Location",
-      details: ["Kineret 17, Ashdod", "200m from the beach"],
+      title: t("contactInfo.location.title"),
+      details: [t("contactInfo.location.address"), t("contactInfo.location.distance")],
       action: null,
     },
     {
       icon: Clock,
-      title: "Check-in/out",
-      details: ["Check-in: 3:00 PM", "Check-out: 11:00 AM"],
+      title: t("contactInfo.checkInOut.title"),
+      details: [t("contactInfo.checkInOut.checkIn"), t("contactInfo.checkInOut.checkOut")],
       action: null,
     },
   ];
@@ -102,14 +105,13 @@ Looking forward to hearing from you!`;
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <Badge className="mb-4 bg-accent/10 text-accent-foreground border-accent/20">
-              Get In Touch
+              {t("badge")}
             </Badge>
             <h1 className="font-sans text-5xl font-bold text-foreground mb-6">
-              Contact Us
+              {t("title")}
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-balance leading-relaxed">
-              Ready to experience luxury? Contact us to book your stay or plan
-              your perfect event at our sea view penthouse.
+              {t("subtitle")}
             </p>
           </div>
         </div>
@@ -124,30 +126,29 @@ Looking forward to hearing from you!`;
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Calendar className="w-5 h-5 text-accent" />
-                  Booking Inquiry
+                  {t("bookingInquiry")}
                 </CardTitle>
                 <p className="text-muted-foreground">
-                  Fill out the form below and we&apos;ll get back to you within
-                  2 hours
+                  {t("bookingInquirySubtitle")}
                 </p>
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label htmlFor="name">Full Name *</Label>
+                      <Label htmlFor="name">{t("form.fullName")} *</Label>
                       <Input
                         id="name"
                         value={formData.name}
                         onChange={(e) =>
                           handleInputChange("name", e.target.value)
                         }
-                        placeholder="Your full name"
+                        placeholder={t("form.fullNamePlaceholder")}
                         required
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="email">Email *</Label>
+                      <Label htmlFor="email">{t("form.email")} *</Label>
                       <Input
                         id="email"
                         type="email"
@@ -155,14 +156,14 @@ Looking forward to hearing from you!`;
                         onChange={(e) =>
                           handleInputChange("email", e.target.value)
                         }
-                        placeholder="your@email.com"
+                        placeholder={t("form.emailPlaceholder")}
                         required
                       />
                     </div>
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="phone">Phone Number</Label>
+                    <Label htmlFor="phone">{t("form.phone")}</Label>
                     <Input
                       id="phone"
                       type="tel"
@@ -170,13 +171,13 @@ Looking forward to hearing from you!`;
                       onChange={(e) =>
                         handleInputChange("phone", e.target.value)
                       }
-                      placeholder="+1 (555) 123-4567"
+                      placeholder={t("form.phonePlaceholder")}
                     />
                   </div>
 
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label htmlFor="checkIn">Check-in Date *</Label>
+                      <Label htmlFor="checkIn">{t("form.checkInDate")} *</Label>
                       <Input
                         id="checkIn"
                         type="date"
@@ -188,7 +189,7 @@ Looking forward to hearing from you!`;
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="checkOut">Check-out Date *</Label>
+                      <Label htmlFor="checkOut">{t("form.checkOutDate")} *</Label>
                       <Input
                         id="checkOut"
                         type="date"
@@ -203,52 +204,52 @@ Looking forward to hearing from you!`;
 
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label htmlFor="guests">Number of Guests</Label>
+                      <Label htmlFor="guests">{t("form.numberOfGuests")}</Label>
                       <Select
                         onValueChange={(value) =>
                           handleInputChange("guests", value)
                         }
                       >
                         <SelectTrigger>
-                          <SelectValue placeholder="Select guests" />
+                          <SelectValue placeholder={t("form.selectGuests")} />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="1">1 Guest</SelectItem>
-                          <SelectItem value="2">2 Guests</SelectItem>
-                          <SelectItem value="3">3 Guests</SelectItem>
-                          <SelectItem value="4">4 Guests</SelectItem>
-                          <SelectItem value="5">5 Guests</SelectItem>
-                          <SelectItem value="6">6 Guests</SelectItem>
-                          <SelectItem value="7">7 Guests</SelectItem>
-                          <SelectItem value="8">8 Guests</SelectItem>
+                          <SelectItem value="1">1 {t("form.guest")}</SelectItem>
+                          <SelectItem value="2">2 {t("form.guests")}</SelectItem>
+                          <SelectItem value="3">3 {t("form.guests")}</SelectItem>
+                          <SelectItem value="4">4 {t("form.guests")}</SelectItem>
+                          <SelectItem value="5">5 {t("form.guests")}</SelectItem>
+                          <SelectItem value="6">6 {t("form.guests")}</SelectItem>
+                          <SelectItem value="7">7 {t("form.guests")}</SelectItem>
+                          <SelectItem value="8">8 {t("form.guests")}</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="eventType">Purpose of Stay</Label>
+                      <Label htmlFor="eventType">{t("form.purposeOfStay")}</Label>
                       <Select
                         onValueChange={(value) =>
                           handleInputChange("eventType", value)
                         }
                       >
                         <SelectTrigger>
-                          <SelectValue placeholder="Select purpose" />
+                          <SelectValue placeholder={t("form.selectPurpose")} />
                         </SelectTrigger>
                         <SelectContent>
                           <SelectItem value="vacation">
-                            Vacation Rental
+                            {t("form.purposes.vacation")}
                           </SelectItem>
                           <SelectItem value="business">
-                            Business Trip
+                            {t("form.purposes.business")}
                           </SelectItem>
                           <SelectItem value="wedding">
-                            Wedding/Proposal
+                            {t("form.purposes.wedding")}
                           </SelectItem>
                           <SelectItem value="family">
-                            Family Gathering
+                            {t("form.purposes.family")}
                           </SelectItem>
-                          <SelectItem value="event">Private Event</SelectItem>
-                          <SelectItem value="other">Other</SelectItem>
+                          <SelectItem value="event">{t("form.purposes.event")}</SelectItem>
+                          <SelectItem value="other">{t("form.purposes.other")}</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
@@ -256,7 +257,7 @@ Looking forward to hearing from you!`;
 
                   <div className="space-y-2">
                     <Label htmlFor="message">
-                      Special Requests or Questions
+                      {t("form.specialRequests")}
                     </Label>
                     <Textarea
                       id="message"
@@ -264,7 +265,7 @@ Looking forward to hearing from you!`;
                       onChange={(e) =>
                         handleInputChange("message", e.target.value)
                       }
-                      placeholder="Tell us about any special requirements, questions, or how we can make your stay perfect..."
+                      placeholder={t("form.specialRequestsPlaceholder")}
                       rows={4}
                     />
                   </div>
@@ -274,7 +275,7 @@ Looking forward to hearing from you!`;
                       type="submit"
                       className="flex-1 bg-accent hover:bg-accent/90 text-accent-foreground"
                     >
-                      Send Inquiry
+                      {t("form.sendInquiry")}
                     </Button>
                     <Button
                       type="button"
@@ -282,7 +283,7 @@ Looking forward to hearing from you!`;
                       className="flex-1 bg-green-600 hover:bg-green-700 text-white"
                     >
                       <MessageSquare className="w-4 h-4 mr-2" />
-                      WhatsApp Us
+                      {t("form.whatsappUs")}
                     </Button>
                   </div>
                 </form>
@@ -293,7 +294,7 @@ Looking forward to hearing from you!`;
             <div className="space-y-8">
               <div>
                 <h2 className="font-sans text-2xl font-bold text-foreground mb-6">
-                  Get In Touch
+                  {t("getInTouch")}
                 </h2>
                 <div className="grid gap-6">
                   {contactInfo.map((info, index) => (
@@ -326,7 +327,7 @@ Looking forward to hearing from you!`;
                                   window.open(info.action!, "_blank")
                                 }
                               >
-                                Contact Now
+                                {t("contactNow")}
                               </Button>
                             )}
                           </div>
@@ -342,7 +343,7 @@ Looking forward to hearing from you!`;
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <Users className="w-5 h-5 text-accent" />
-                    Quick Facts
+                    {t("quickFacts")}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -352,7 +353,7 @@ Looking forward to hearing from you!`;
                         420m²
                       </div>
                       <div className="text-sm text-muted-foreground">
-                        Total Space
+                        {t("quickFactsItems.totalSpace")}
                       </div>
                     </div>
                     <div className="text-center p-4 bg-card rounded-lg">
@@ -360,7 +361,7 @@ Looking forward to hearing from you!`;
                         8
                       </div>
                       <div className="text-sm text-muted-foreground">
-                        Max Guests
+                        {t("quickFactsItems.maxGuests")}
                       </div>
                     </div>
                     <div className="text-center p-4 bg-card rounded-lg">
@@ -368,7 +369,7 @@ Looking forward to hearing from you!`;
                         200m
                       </div>
                       <div className="text-sm text-muted-foreground">
-                        To Beach
+                        {t("quickFactsItems.toBeach")}
                       </div>
                     </div>
                     <div className="text-center p-4 bg-card rounded-lg">
@@ -376,7 +377,7 @@ Looking forward to hearing from you!`;
                         24/7
                       </div>
                       <div className="text-sm text-muted-foreground">
-                        Support
+                        {t("quickFactsItems.support")}
                       </div>
                     </div>
                   </div>
@@ -392,48 +393,36 @@ Looking forward to hearing from you!`;
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="font-sans text-3xl font-bold text-foreground mb-4">
-              Our Location
+              {t("ourLocation")}
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Perfectly positioned in Ashdod with stunning sea views and easy
-              access to the city&apos;s best attractions
+              {t("locationSubtitle")}
             </p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h3 className="font-sans text-xl font-semibold text-foreground mb-4">
-                Prime Coastal Location
+                {t("primeCoastalLocation")}
               </h3>
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
                   <MapPin className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
                   <div>
                     <p className="font-medium text-foreground">
-                      Kineret 17, Ashdod, Israel
+                      {t("locationDetails.address")}
                     </p>
                     <p className="text-sm text-muted-foreground">
-                      Premium residential area with sea access
+                      {t("locationDetails.addressDescription")}
                     </p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="w-5 h-5 bg-accent rounded-full mt-0.5 flex-shrink-0" />
                   <div>
-                    <p className="font-medium text-foreground">200m to Beach</p>
+                    <p className="font-medium text-foreground">{t("locationDetails.beach")}</p>
                     <p className="text-sm text-muted-foreground">
-                      Direct access to Ashdod&apos;s beautiful coastline
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-5 h-5 bg-accent rounded-full mt-0.5 flex-shrink-0" />
-                  <div>
-                    <p className="font-medium text-foreground">
-                      45 min from Ben Gurion Airport
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      Easy access via highway or public transport
+                      {t("locationDetails.beachDescription")}
                     </p>
                   </div>
                 </div>
@@ -441,10 +430,21 @@ Looking forward to hearing from you!`;
                   <div className="w-5 h-5 bg-accent rounded-full mt-0.5 flex-shrink-0" />
                   <div>
                     <p className="font-medium text-foreground">
-                      Walking distance to amenities
+                      {t("locationDetails.airport")}
                     </p>
                     <p className="text-sm text-muted-foreground">
-                      Restaurants, shopping, and cultural sites nearby
+                      {t("locationDetails.airportDescription")}
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-5 h-5 bg-accent rounded-full mt-0.5 flex-shrink-0" />
+                  <div>
+                    <p className="font-medium text-foreground">
+                      {t("locationDetails.walkingDistance")}
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      {t("locationDetails.walkingDistanceDescription")}
                     </p>
                   </div>
                 </div>

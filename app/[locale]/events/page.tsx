@@ -3,81 +3,68 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { Heart, Briefcase, ChefHat, Camera, Baby } from "lucide-react";
+import { getTranslations } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
+import { routing } from "@/i18n/routing";
 
-export default function EventsPage() {
+type Props = {
+  params: Promise<{ locale: string }>;
+};
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
+export default async function EventsPage({ params }: Props) {
+  const { locale } = await params;
+  
+  // Enable static rendering
+  setRequestLocale(locale);
+
+  const t = await getTranslations("events");
   const eventTypes = [
     {
       icon: Heart,
-      title: "Intimate Events",
-      capacity: "Up to 30 guests",
-      description:
-        "Perfect for wedding proposals, anniversary celebrations, and romantic chef dinners",
-      features: [
-        "Private chef service",
-        "Romantic setup",
-        "Sunset views",
-        "Premium sound system",
-      ],
+      title: t("eventTypes.intimate.title"),
+      capacity: t("eventTypes.intimate.capacity"),
+      description: t("eventTypes.intimate.description"),
+      features: t("eventTypes.intimate.features") as unknown as string[],
       image: "/wedding-proposal-setup-with-sea-view.png",
       color: "text-red-500",
     },
     {
       icon: Camera,
-      title: "Bridal Preparation",
-      capacity: "Bridal party of 8-12",
-      description:
-        "Elegant space for getting ready with natural light and luxury amenities",
-      features: [
-        "Professional lighting",
-        "Spacious bedroom",
-        "Luxury bathroom",
-        "Balcony photo ops",
-      ],
+      title: t("eventTypes.bridal.title"),
+      capacity: t("eventTypes.bridal.capacity"),
+      description: t("eventTypes.bridal.description"),
+      features: t("eventTypes.bridal.features") as unknown as string[],
       image: "/images/bedroom.jpg",
       color: "text-pink-500",
     },
     {
       icon: Briefcase,
-      title: "Business Events",
-      capacity: "Up to 25 professionals",
-      description:
-        "Sophisticated venue for corporate meetings, product launches, and networking",
-      features: [
-        "High-speed WiFi",
-        "Presentation setup",
-        "Catering space",
-        "Professional ambiance",
-      ],
+      title: t("eventTypes.business.title"),
+      capacity: t("eventTypes.business.capacity"),
+      description: t("eventTypes.business.description"),
+      features: t("eventTypes.business.features") as unknown as string[],
       image: "/business-meeting-in-luxury-penthouse.png",
       color: "text-blue-500",
     },
     {
       icon: Baby,
-      title: "Family Vacations",
-      capacity: "Up to 8 family members",
-      description:
-        "Spacious accommodation for multi-generational family gatherings",
-      features: [
-        "Multiple sleeping areas",
-        "Family-friendly amenities",
-        "Safe balcony",
-        "Kitchen facilities",
-      ],
+      title: t("eventTypes.family.title"),
+      capacity: t("eventTypes.family.capacity"),
+      description: t("eventTypes.family.description"),
+      features: t("eventTypes.family.features") as unknown as string[],
       image: "/family-celebration-in-penthouse-living-room.png",
       color: "text-green-500",
     },
     {
       icon: ChefHat,
-      title: "Culinary Experiences",
-      capacity: "Up to 20 guests",
-      description:
-        "Premium kitchen space for cooking classes and gourmet dining experiences",
-      features: [
-        "Professional kitchen",
-        "Dining for 20",
-        "Sea view dining",
-        "Chef workspace",
-      ],
+      title: t("eventTypes.culinary.title"),
+      capacity: t("eventTypes.culinary.capacity"),
+      description: t("eventTypes.culinary.description"),
+      features: t("eventTypes.culinary.features") as unknown as string[],
       image: "/elegant-dinner-party-setup-on-penthouse-balcony.png",
       color: "text-orange-500",
     },
@@ -85,28 +72,15 @@ export default function EventsPage() {
 
   const spaces = [
     {
-      title: "150m² Kitchen & Living Room",
-      description:
-        "Expansive open-plan space perfect for entertaining and events",
-      features: [
-        "Floor-to-ceiling windows with sea views",
-        "Modern fully-equipped kitchen",
-        "Comfortable seating for 20+ guests",
-        "Premium sound and lighting systems",
-        "Direct access to balcony",
-      ],
+      title: t("spaces.livingRoom.title"),
+      description: t("spaces.livingRoom.description"),
+      features: t("spaces.livingRoom.features") as unknown as string[],
       image: "/images/living-room.jpg",
     },
     {
-      title: "270m² Private Balcony",
-      description: "Stunning outdoor venue with panoramic Mediterranean views",
-      features: [
-        "Unobstructed sea views",
-        "Premium outdoor furniture",
-        "Multiple seating areas",
-        "Perfect for sunset events",
-        "Weather-protected sections",
-      ],
+      title: t("spaces.balcony.title"),
+      description: t("spaces.balcony.description"),
+      features: t("spaces.balcony.features") as unknown as string[],
       image: "/images/balcony-evening.jpg",
     },
   ];
@@ -118,15 +92,13 @@ export default function EventsPage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <Badge className="mb-4 bg-accent/10 text-accent-foreground border-accent/20">
-              Event Hosting
+              {t("badge")}
             </Badge>
             <h1 className="font-sans text-5xl font-bold text-foreground mb-6">
-              Unforgettable Events
+              {t("title")}
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-balance leading-relaxed">
-              Host your most important moments in our luxury penthouse, where
-              every celebration becomes extraordinary against the backdrop of
-              the Mediterranean Sea.
+              {t("subtitle")}
             </p>
           </div>
         </div>
@@ -137,11 +109,10 @@ export default function EventsPage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="font-sans text-3xl font-bold text-foreground mb-4">
-              Event Types
+              {t("eventTypesTitle")}
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              From intimate gatherings to business meetings, our penthouse
-              adapts to your vision
+              {t("eventTypesSubtitle")}
             </p>
           </div>
 
@@ -201,11 +172,10 @@ export default function EventsPage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="font-sans text-3xl font-bold text-foreground mb-4">
-              Event Spaces
+              {t("eventSpacesTitle")}
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Two distinct areas that can be used together or separately for
-              your perfect event
+              {t("eventSpacesSubtitle")}
             </p>
           </div>
 
@@ -249,25 +219,24 @@ export default function EventsPage() {
       <section className="py-16 px-4">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="font-sans text-3xl font-bold text-foreground mb-4">
-            Ready to Plan Your Event?
+            {t("readyToPlan")}
           </h2>
           <p className="text-xl text-muted-foreground mb-8 text-balance">
-            Let us help you create an unforgettable experience in our luxury
-            penthouse
+            {t("readyToPlanSubtitle")}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               size="lg"
               className="bg-accent hover:bg-accent/90 text-accent-foreground"
             >
-              Request Event Quote
+              {t("requestEventQuote")}
             </Button>
             <Button
               variant="outline"
               size="lg"
               className="border-accent/20 hover:border-accent/40 bg-transparent"
             >
-              Schedule Viewing
+              {t("scheduleViewing")}
             </Button>
           </div>
         </div>

@@ -52,5 +52,354 @@
   "footer": {
     "logoAlt": "The Sea View Penthouse",
     "copyright": "© 2025 J-Web. All rights reserved."
+  },
+  "about": {
+    "badge": "About Our Penthouse",
+    "title": "Penthouse in Details",
+    "subtitle": "Discover every exquisite detail of our luxury sea view penthouse, where modern sophistication meets coastal elegance in the heart of Ashdod.",
+    "location": "Ashdod, Israel",
+    "locationTitle": "Prime Coastal Location",
+    "locationDescription": "Perched high above the Mediterranean coastline, our penthouse offers unobstructed sea views and easy access to Ashdod's finest beaches, restaurants, and cultural attractions. The strategic location provides both tranquility and convenience.",
+    "totalSpace": "Total Space",
+    "maxGuests": "Max Guests",
+    "featuresTitle": "Exceptional Features",
+    "featuresSubtitle": "Every space has been thoughtfully designed to provide the ultimate luxury experience",
+    "features": {
+      "livingSpace": {
+        "title": "150m² Living Space",
+        "description": "Expansive open-plan kitchen and living room with floor-to-ceiling windows showcasing panoramic sea views."
+      },
+      "balcony": {
+        "title": "270m² Private Balcony",
+        "description": "Stunning outdoor terrace with premium furniture, perfect for entertaining and watching Mediterranean sunsets."
+      },
+      "bedroom": {
+        "title": "Luxury Bedroom Suite",
+        "description": "Elegantly appointed bedroom with premium linens, natural textures, and direct access to the balcony."
+      },
+      "bathroom": {
+        "title": "Spa-Like Bathroom",
+        "description": "Modern bathroom featuring premium fixtures, glass block walls, and luxury amenities for ultimate relaxation."
+      }
+    },
+    "amenitiesTitle": "Premium Amenities",
+    "amenitiesSubtitle": "Everything you need for a perfect stay, from modern conveniences to luxury touches",
+    "amenitiesItems": {
+      "highSpeedWifi": "High-Speed WiFi",
+      "privateParking": "Private Parking",
+      "fullyEquippedKitchen": "Fully Equipped Kitchen",
+      "luxuryBathroom": "Luxury Bathroom",
+      "premiumBedding": "Premium Bedding",
+      "upToEightGuests": "Up to 8 Guests"
+    }
+  },
+  "contact": {
+    "badge": "Get In Touch",
+    "title": "Contact Us",
+    "subtitle": "Ready to experience luxury? Contact us to book your stay or plan your perfect event at our sea view penthouse.",
+    "bookingInquiry": "Booking Inquiry",
+    "bookingInquirySubtitle": "Fill out the form below and we'll get back to you within 2 hours",
+    "form": {
+      "fullName": "Full Name",
+      "fullNamePlaceholder": "Your full name",
+      "email": "Email",
+      "emailPlaceholder": "your@email.com",
+      "phone": "Phone Number",
+      "phonePlaceholder": "+1 (555) 123-4567",
+      "checkInDate": "Check-in Date",
+      "checkOutDate": "Check-out Date",
+      "numberOfGuests": "Number of Guests",
+      "selectGuests": "Select guests",
+      "guest": "Guest",
+      "guests": "Guests",
+      "purposeOfStay": "Purpose of Stay",
+      "selectPurpose": "Select purpose",
+      "purposes": {
+        "vacation": "Vacation Rental",
+        "business": "Business Trip",
+        "wedding": "Wedding/Proposal",
+        "family": "Family Gathering",
+        "event": "Private Event",
+        "other": "Other"
+      },
+      "specialRequests": "Special Requests or Questions",
+      "specialRequestsPlaceholder": "Tell us about any special requirements, questions, or how we can make your stay perfect...",
+      "sendInquiry": "Send Inquiry",
+      "whatsappUs": "WhatsApp Us"
+    },
+    "getInTouch": "Get In Touch",
+    "contactInfo": {
+      "phone": {
+        "title": "Phone",
+        "number": "+972 50-123-4567",
+        "availability": "Available 24/7"
+      },
+      "email": {
+        "title": "Email",
+        "address": "info@seaviewpenthouse.com",
+        "response": "Response within 2 hours"
+      },
+      "location": {
+        "title": "Location",
+        "address": "Kineret 17, Ashdod",
+        "distance": "200m from the beach"
+      },
+      "checkInOut": {
+        "title": "Check-in/out",
+        "checkIn": "Check-in: 3:00 PM",
+        "checkOut": "Check-out: 11:00 AM"
+      }
+    },
+    "contactNow": "Contact Now",
+    "quickFacts": "Quick Facts",
+    "quickFactsItems": {
+      "totalSpace": "Total Space",
+      "maxGuests": "Max Guests",
+      "toBeach": "To Beach",
+      "support": "Support"
+    },
+    "ourLocation": "Our Location",
+    "locationSubtitle": "Perfectly positioned in Ashdod with stunning sea views and easy access to the city's best attractions",
+    "primeCoastalLocation": "Prime Coastal Location",
+    "locationDetails": {
+      "address": "Kineret 17, Ashdod, Israel",
+      "addressDescription": "Premium residential area with sea access",
+      "beach": "200m to Beach",
+      "beachDescription": "Direct access to Ashdod's beautiful coastline",
+      "airport": "45 min from Ben Gurion Airport",
+      "airportDescription": "Easy access via highway or public transport",
+      "walkingDistance": "Walking distance to amenities",
+      "walkingDistanceDescription": "Restaurants, shopping, and cultural sites nearby"
+    }
+  },
+  "events": {
+    "badge": "Event Hosting",
+    "title": "Unforgettable Events",
+    "subtitle": "Host your most important moments in our luxury penthouse, where every celebration becomes extraordinary against the backdrop of the Mediterranean Sea.",
+    "eventTypesTitle": "Event Types",
+    "eventTypesSubtitle": "From intimate gatherings to business meetings, our penthouse adapts to your vision",
+    "eventTypes": {
+      "intimate": {
+        "title": "Intimate Events",
+        "capacity": "Up to 30 guests",
+        "description": "Perfect for wedding proposals, anniversary celebrations, and romantic chef dinners",
+        "features": [
+          "Private chef service",
+          "Romantic setup",
+          "Sunset views",
+          "Premium sound system"
+        ]
+      },
+      "bridal": {
+        "title": "Bridal Preparation",
+        "capacity": "Bridal party of 8-12",
+        "description": "Elegant space for getting ready with natural light and luxury amenities",
+        "features": [
+          "Professional lighting",
+          "Spacious bedroom",
+          "Luxury bathroom",
+          "Balcony photo ops"
+        ]
+      },
+      "business": {
+        "title": "Business Events",
+        "capacity": "Up to 25 professionals",
+        "description": "Sophisticated venue for corporate meetings, product launches, and networking",
+        "features": [
+          "High-speed WiFi",
+          "Presentation setup",
+          "Catering space",
+          "Professional ambiance"
+        ]
+      },
+      "family": {
+        "title": "Family Vacations",
+        "capacity": "Up to 8 family members",
+        "description": "Spacious accommodation for multi-generational family gatherings",
+        "features": [
+          "Multiple sleeping areas",
+          "Family-friendly amenities",
+          "Safe balcony",
+          "Kitchen facilities"
+        ]
+      },
+      "culinary": {
+        "title": "Culinary Experiences",
+        "capacity": "Up to 20 guests",
+        "description": "Premium kitchen space for cooking classes and gourmet dining experiences",
+        "features": [
+          "Professional kitchen",
+          "Dining for 20",
+          "Sea view dining",
+          "Chef workspace"
+        ]
+      }
+    },
+    "eventSpacesTitle": "Event Spaces",
+    "eventSpacesSubtitle": "Two distinct areas that can be used together or separately for your perfect event",
+    "spaces": {
+      "livingRoom": {
+        "title": "150m² Kitchen & Living Room",
+        "description": "Expansive open-plan space perfect for entertaining and events",
+        "features": [
+          "Floor-to-ceiling windows with sea views",
+          "Modern fully-equipped kitchen",
+          "Comfortable seating for 20+ guests",
+          "Premium sound and lighting systems",
+          "Direct access to balcony"
+        ]
+      },
+      "balcony": {
+        "title": "270m² Private Balcony",
+        "description": "Stunning outdoor venue with panoramic Mediterranean views",
+        "features": [
+          "Unobstructed sea views",
+          "Premium outdoor furniture",
+          "Multiple seating areas",
+          "Perfect for sunset events",
+          "Weather-protected sections"
+        ]
+      }
+    },
+    "readyToPlan": "Ready to Plan Your Event?",
+    "readyToPlanSubtitle": "Let us help you create an unforgettable experience in our luxury penthouse",
+    "requestEventQuote": "Request Event Quote",
+    "scheduleViewing": "Schedule Viewing"
+  },
+  "gallery": {
+    "badge": "Visual Experience",
+    "title": "Gallery",
+    "subtitle": "Explore every corner of our luxury penthouse through our comprehensive photo and video gallery",
+    "categories": {
+      "insideSpaces": "Inside Spaces",
+      "balconySeaView": "Balcony & Sea View",
+      "events": "Events",
+      "video": "Video"
+    },
+    "videoItems": {
+      "virtualTour": {
+        "title": "Virtual Tour",
+        "description": "Complete walkthrough of the penthouse"
+      },
+      "sunsetTimelapse": {
+        "title": "Sunset Timelapse",
+        "description": "Beautiful Mediterranean sunset from the balcony"
+      },
+      "amenitiesShowcase": {
+        "title": "Amenities Showcase",
+        "description": "Detailed look at all premium amenities"
+      }
+    }
+  },
+  "faq": {
+    "badge": "Help Center",
+    "title": "Frequently Asked Questions",
+    "subtitle": "Find answers to common questions about staying at our luxury sea view penthouse",
+    "categories": {
+      "booking": {
+        "title": "Booking & Reservations",
+        "questions": {
+          "howFarAdvance": {
+            "question": "How far in advance should I book?",
+            "answer": "We recommend booking at least 2-4 weeks in advance, especially during peak season (May-September) and holidays. For events and special occasions, earlier booking is advised to ensure availability."
+          },
+          "cancellationPolicy": {
+            "question": "What is your cancellation policy?",
+            "answer": "Free cancellation up to 14 days before check-in. Cancellations between 7-14 days incur a 50% charge. Less than 7 days notice results in full charge. We understand emergencies happen and will work with you when possible."
+          },
+          "securityDeposit": {
+            "question": "Do you require a security deposit?",
+            "answer": "Yes, we require a refundable security deposit of $500 which is returned within 7 days after checkout, provided there are no damages or excessive cleaning required."
+          },
+          "checkInOut": {
+            "question": "What are your check-in and check-out times?",
+            "answer": "Check-in is from 3:00 PM and check-out is by 11:00 AM. Early check-in or late check-out may be available upon request and subject to availability."
+          }
+        }
+      },
+      "amenities": {
+        "title": "Amenities & Services",
+        "questions": {
+          "whatIncluded": {
+            "question": "What amenities are included?",
+            "answer": "All stays include high-speed WiFi, fully equipped kitchen, premium bedding, luxury bathroom amenities, private parking, and access to the 270m² balcony. We also provide welcome refreshments and 24/7 concierge support."
+          },
+          "parkingAvailable": {
+            "question": "Is there parking available?",
+            "answer": "Yes, we provide secure private parking for up to 2 vehicles. Additional parking can be arranged nearby if needed for larger groups or events."
+          },
+          "petsAllowed": {
+            "question": "Do you allow pets?",
+            "answer": "We welcome well-behaved pets with prior approval. A pet fee of $50 per stay applies, and we ask that pets are supervised at all times, especially on the balcony."
+          },
+          "suitableChildren": {
+            "question": "Is the penthouse suitable for children?",
+            "answer": "Yes, families are welcome! The penthouse is child-friendly with safety features on the balcony. We can provide cribs, high chairs, and other baby equipment upon request."
+          }
+        }
+      },
+      "location": {
+        "title": "Location & Access",
+        "questions": {
+          "howCloseBeach": {
+            "question": "How close are you to the beach?",
+            "answer": "We're located just 200 meters from Ashdod's beautiful beaches. The penthouse offers direct sea views, and the beach is an easy 3-minute walk away."
+          },
+          "nearbyDining": {
+            "question": "What's nearby for dining and entertainment?",
+            "answer": "Ashdod offers excellent restaurants, cafes, and cultural attractions within walking distance. The marina, shopping centers, and historic sites are all easily accessible. We provide a comprehensive local guide upon arrival."
+          },
+          "airportTransport": {
+            "question": "How do I get to the penthouse from the airport?",
+            "answer": "Ben Gurion Airport is approximately 45 minutes by car. We can arrange airport transfers, or you can take a taxi, rental car, or public transportation. Detailed directions are provided upon booking confirmation."
+          },
+          "publicTransport": {
+            "question": "Is public transportation available?",
+            "answer": "Yes, Ashdod has good public transportation including buses and trains. The central train station is 10 minutes away, providing easy access to Tel Aviv, Jerusalem, and other major cities."
+          }
+        }
+      },
+      "events": {
+        "title": "Events & Special Occasions",
+        "questions": {
+          "canHostEvents": {
+            "question": "Can I host events at the penthouse?",
+            "answer": "Our penthouse is perfect for intimate events up to 30 guests. We can accommodate wedding proposals, anniversary celebrations, business meetings, and family gatherings. Event planning services are available."
+          },
+          "cateringServices": {
+            "question": "Do you provide catering services?",
+            "answer": "We can arrange catering through our network of premium local caterers and private chefs. Our fully equipped kitchen also allows for self-catering or hiring your own chef."
+          },
+          "noiseRestrictions": {
+            "question": "Are there noise restrictions for events?",
+            "answer": "We ask that events respect quiet hours from 10 PM to 8 AM out of consideration for neighbors. Music and celebrations are welcome during appropriate hours."
+          },
+          "eventPlanning": {
+            "question": "Can you help with event planning?",
+            "answer": "Yes! We offer event planning assistance including decoration setup, vendor recommendations, and coordination services. Contact us to discuss your specific needs and vision."
+          }
+        }
+      }
+    },
+    "stillHaveQuestions": "Still Have Questions?",
+    "stillHaveQuestionsSubtitle": "Our team is here to help you plan the perfect stay",
+    "supportOptions": {
+      "liveChat": {
+        "title": "Live Chat",
+        "description": "Available 24/7 for immediate assistance",
+        "action": "Start Chat"
+      },
+      "phoneSupport": {
+        "title": "Phone Support",
+        "description": "Speak directly with our team",
+        "action": "Call Now"
+      },
+      "emailSupport": {
+        "title": "Email Support",
+        "description": "Detailed responses within 2 hours",
+        "action": "Send Email"
+      }
+    },
+    "contactUsDirectly": "Contact Us Directly"
   }
 }
