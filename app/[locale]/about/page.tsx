@@ -108,7 +108,7 @@ export default async function AboutPage({ params }: Props) {
             </div>
             <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
               <Image
-                src="/images/balcony-sunset.jpg"
+                src="/images/balcony9.jpg"
                 alt="Penthouse balcony with stunning sea views"
                 fill
                 className="object-cover"

@@ -147,24 +147,7 @@ const galleryCategories = [
   {
     id: "events",
     name: "Events",
-    images: [
-      {
-        src: "/elegant-dinner-party-setup-on-penthouse-balcony.png",
-        alt: "Dinner party setup",
-      },
-      {
-        src: "/wedding-proposal-setup-with-sea-view.png",
-        alt: "Wedding proposal setup",
-      },
-      {
-        src: "/business-meeting-in-luxury-penthouse.png",
-        alt: "Business meeting",
-      },
-      {
-        src: "/family-celebration-in-penthouse-living-room.png",
-        alt: "Family celebration",
-      },
-    ],
+    images: [],
   },
   {
     id: "video",
@@ -259,7 +242,7 @@ export default function GalleryPage() {
                 className={
                   activeCategory === category.id
                     ? "bg-accent hover:bg-accent/90 text-accent-foreground"
-                    : "border-accent/20 hover:border-accent/40 hover:bg-accent/5"
+                    : "cursor-pointer border-accent/20 hover:border-accent/40 hover:bg-accent/5"
                 }
               >
                 {category.name}

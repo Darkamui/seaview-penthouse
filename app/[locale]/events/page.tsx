@@ -34,7 +34,7 @@ export default async function EventsPage({ params }: Props) {
         t("eventTypes.intimate.feature3"),
         t("eventTypes.intimate.feature4"),
       ],
-      image: "/wedding-proposal-setup-with-sea-view.png",
+      image: "/images/events/intimate.jpg",
       color: "text-red-500",
     },
     {
@@ -48,7 +48,7 @@ export default async function EventsPage({ params }: Props) {
         t("eventTypes.bridal.feature3"),
         t("eventTypes.bridal.feature4"),
       ],
-      image: "/images/living7.jpg",
+      image: "/images/events/bride.jpg",
       color: "text-pink-500",
     },
     {
@@ -62,7 +62,7 @@ export default async function EventsPage({ params }: Props) {
         t("eventTypes.business.feature3"),
         t("eventTypes.business.feature4"),
       ],
-      image: "/business-meeting-in-luxury-penthouse.png",
+      image: "/images/events/business.jpg",
       color: "text-blue-500",
     },
     {
@@ -76,7 +76,7 @@ export default async function EventsPage({ params }: Props) {
         t("eventTypes.family.feature3"),
         t("eventTypes.family.feature4"),
       ],
-      image: "/family-celebration-in-penthouse-living-room.png",
+      image: "/images/events/family.jpg",
       color: "text-green-500",
     },
     {
@@ -90,7 +90,7 @@ export default async function EventsPage({ params }: Props) {
         t("eventTypes.culinary.feature3"),
         t("eventTypes.culinary.feature4"),
       ],
-      image: "/elegant-dinner-party-setup-on-penthouse-balcony.png",
+      image: "/images/events/chef.jpg",
       color: "text-orange-500",
     },
   ];
@@ -106,7 +106,7 @@ export default async function EventsPage({ params }: Props) {
         t("spaces.livingRoom.feature4"),
         t("spaces.livingRoom.feature5"),
       ],
-      image: "/images/living-room.jpg",
+      image: "/images/living4.jpg",
     },
     {
       title: t("spaces.balcony.title"),
@@ -118,7 +118,7 @@ export default async function EventsPage({ params }: Props) {
         t("spaces.balcony.feature4"),
         t("spaces.balcony.feature5"),
       ],
-      image: "/images/balcony-evening.jpg",
+      image: "/images/balcony7.jpg",
     },
   ];
 
