@@ -115,15 +115,15 @@ export function Navigation() {
 
         {/* Mobile Navigation - Full Screen Menu */}
         {isOpen && (
-          <div className="fixed inset-0 z-[100] md:hidden">
+          <div className="fixed inset-0 z-[100] md:hidden h-screen w-screen">
             {/* Solid background */}
             <div
-              className="absolute inset-0 bg-white"
+              className="absolute inset-0 bg-white h-full w-full"
               onClick={() => setIsOpen(false)}
             />
 
             {/* Menu content */}
-            <div className="relative z-10 flex flex-col h-full bg-white">
+            <div className="relative z-10 flex flex-col h-screen bg-white">
               {/* Header with logo and close button */}
               <div className="flex items-center justify-between px-6 py-4 bg-white border-b border-accent/20 h-16 flex-shrink-0">
                 <div className="flex items-center space-x-3">
@@ -149,9 +149,9 @@ export function Navigation() {
               </div>
 
               {/* Scrollable content area */}
-              <div className="flex-1 overflow-y-auto">
+              <div className="flex-1 overflow-y-auto bg-white">
                 {/* Navigation links */}
-                <div className="flex flex-col justify-center px-6 bg-white min-h-[50vh]">
+                <div className="flex flex-col justify-center px-6 bg-white py-8">
                   <nav className="space-y-2">
                     {navItems.map((item) => (
                       <Link
@@ -171,7 +171,7 @@ export function Navigation() {
                 </div>
 
                 {/* Bottom section */}
-                <div className="px-6 py-8 bg-white border-t border-accent/20 space-y-4">
+                <div className="px-6 py-8 bg-white border-t border-accent/20 space-y-4 mt-auto">
                   <div className="flex justify-center">
                     <LanguageSwitcher />
                   </div>
