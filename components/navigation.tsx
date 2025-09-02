@@ -115,17 +115,17 @@ export function Navigation() {
 
         {/* Mobile Navigation - Full Screen Menu */}
         {isOpen && (
-          <div className="fixed inset-0 z-[100] md:hidden h-screen w-screen overflow-y-auto">
+          <div className="fixed inset-0 z-[100] md:hidden">
             {/* Solid background */}
             <div
-              className="absolute inset-0 bg-white h-full w-full"
+              className="absolute inset-0 bg-white"
               onClick={() => setIsOpen(false)}
             />
 
             {/* Menu content */}
-            <div className="relative z-10 flex flex-col h-screen bg-white overflow-y-auto">
+            <div className="relative z-10 flex flex-col h-full bg-white">
               {/* Header with logo and close button */}
-              <div className="flex items-center justify-between px-6 py-4 bg-white border-b border-accent/20 h-16">
+              <div className="flex items-center justify-between px-6 py-4 bg-white border-b border-accent/20 h-16 flex-shrink-0">
                 <div className="flex items-center space-x-3">
                   <Image
                     src="/images/logo-crop.png"
@@ -148,37 +148,40 @@ export function Navigation() {
                 </Button>
               </div>
 
-              {/* Navigation links */}
-              <div className="flex-1 flex flex-col justify-center px-6 bg-white">
-                <nav className="space-y-2">
-                  {navItems.map((item) => (
-                    <Link
-                      key={item.name}
-                      href={item.href}
-                      className={`block text-center py-4 text-lg font-medium transition-colors ${
-                        pathname === item.href
-                          ? "text-accent"
-                          : "text-foreground hover:text-accent"
-                      }`}
-                      onClick={() => setIsOpen(false)}
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
-                </nav>
-              </div>
-
-              {/* Bottom section */}
-              <div className="px-6 py-8 bg-white border-t border-accent/20 space-y-4">
-                <div className="flex justify-center">
-                  <LanguageSwitcher />
+              {/* Scrollable content area */}
+              <div className="flex-1 overflow-y-auto">
+                {/* Navigation links */}
+                <div className="flex flex-col justify-center px-6 bg-white min-h-[50vh]">
+                  <nav className="space-y-2">
+                    {navItems.map((item) => (
+                      <Link
+                        key={item.name}
+                        href={item.href}
+                        className={`block text-center py-4 text-lg font-medium transition-colors ${
+                          pathname === item.href
+                            ? "text-accent"
+                            : "text-foreground hover:text-accent"
+                        }`}
+                        onClick={() => setIsOpen(false)}
+                      >
+                        {item.name}
+                      </Link>
+                    ))}
+                  </nav>
                 </div>
-                <Button
-                  className="w-full py-4 text-lg bg-accent hover:bg-accent/90 text-accent-foreground"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {t("bookStay")}
-                </Button>
+
+                {/* Bottom section */}
+                <div className="px-6 py-8 bg-white border-t border-accent/20 space-y-4">
+                  <div className="flex justify-center">
+                    <LanguageSwitcher />
+                  </div>
+                  <Button
+                    className="w-full py-4 text-lg bg-accent hover:bg-accent/90 text-accent-foreground"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {t("bookStay")}
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
