@@ -14,10 +14,10 @@
     "bookStay": "Book Your Stay"
   },
   "hero": {
-    "title": "Your Private Sea View Penthouse",
+    "title": "The Sea View Penthouse",
     "subtitle": "Experience luxury living with breathtaking Mediterranean views in the heart of Ashdod. Where modern elegance meets coastal serenity.",
     "bookStay": "Book Your Stay",
-    "virtualTour": "Virtual Tour",
+    "virtualTour": "Gallery",
     "loading": "Loading luxury experience...",
     "scroll": "SCROLL",
     "pauseSlideshow": "Pause slideshow",
@@ -387,5 +387,15 @@
       }
     },
     "contactUsDirectly": "Contact Us Directly"
+  },
+  "eventOverviews": {
+    "meetingSpace": {
+      "title": "Meeting Space\nEvents & Meetings",
+      "description": "A perfect space for intimate events, the penthouse offers luxury services with breathtaking sea views. Rental of the venue also includes accommodation units for up to 30 guests.\n\nSun and wind terrace units with open sea views and magical sunsets.\n\nElegant and perfect spaces suitable for any event style. Open space and kitchen that are also perfectly suited for luxury business meetings and gatherings that last throughout the day.\n\nAbundant natural light and premium meeting equipment for select guests during the experience. Opportunity for collaboration for select guests to complete the experience."
+    },
+    "bridalPrep": {
+      "title": "Bridal Prep\nBridal Preparation",
+      "description": "✨ The perfect place to start your special day ✨\nOur penthouse offers an unforgettable preparation experience.\n\nOpen and bright space, open terrace, lighting and complete equipment for you.\n\nThe place is accessible with tranquil urban views. With brushes and hospitality, private brushing and care, optimal natural light for guests during preparation.\n\nThe room with quiet services and guest seating spaces for the bride's soul to completely relax with loved ones.\n\nThe preparation day moves in place to be the last night before the wedding in a comfortable and radiant atmosphere with your closest friends."
+    }
   }
 }

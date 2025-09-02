@@ -6,6 +6,7 @@ import { Heart, Briefcase, ChefHat, Camera, Baby } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import { setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
+import { EventOverview } from "@/components/event-overview";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -140,6 +141,20 @@ export default async function EventsPage({ params }: Props) {
           </div>
         </div>
       </section>
+
+      {/* Event Overviews */}
+      <EventOverview
+        eventKey="meetingSpace"
+        imageSrc="/images/events/business.jpg"
+        imageAlt="Meeting space with hands joining together for teamwork"
+      />
+
+      <EventOverview
+        eventKey="bridalPrep"
+        imageSrc="/images/events/bride.jpg"
+        imageAlt="Bridal preparation with bride getting ready for wedding"
+        reverse
+      />
 
       {/* Event Types */}
       <section className="py-16 px-4">

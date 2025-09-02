@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Play, Pause, ChevronDown } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 export function HeroSection() {
   const t = useTranslations("hero");
@@ -106,8 +107,8 @@ export function HeroSection() {
             />
           </div>
         ))}
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/30 via-primary/20 to-primary/40" />
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-black/50" />
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/20 to-transparent" />
       </div>
 
       {/* Hero Content */}
@@ -117,7 +118,7 @@ export function HeroSection() {
         }`}
       >
         <div className="space-y-8 lg:mb-14">
-          <h1 className="font-sans text-4xl sm:text-5xl lg:text-7xl xl:text-8xl font-bold text-balance leading-tight text-shadow-lg">
+          <h1 className="font-sans text-4xl sm:text-5xl lg:text-7xl xl:text-6xl font-bold text-balance leading-tight text-shadow-lg">
             {t("title")}
           </h1>
           <p className="text-lg sm:text-xl lg:text-2xl xl:text-3xl text-balance opacity-90 max-w-4xl mx-auto leading-relaxed text-shadow">
@@ -130,13 +131,15 @@ export function HeroSection() {
             >
               {t("bookStay")}
             </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              className="border-white/40 text-white hover:bg-white/20 text-lg px-8 py-4 h-auto backdrop-blur-sm bg-white/10 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
-            >
-              {t("virtualTour")}
-            </Button>
+            <Link href="/gallery">
+              <Button
+                variant="outline"
+                size="lg"
+                className="border-white/40 text-white hover:bg-white/20 text-lg px-8 py-4 h-auto backdrop-blur-sm bg-white/10 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+              >
+                {t("virtualTour")}
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

@@ -88,9 +88,6 @@ export function Navigation() {
                 }`}
               >
                 {item.name}
-                {pathname === item.href && (
-                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-accent rounded-full" />
-                )}
               </Link>
             ))}
             <Button className="ml-4 bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
@@ -126,7 +123,7 @@ export function Navigation() {
             />
 
             {/* Menu content */}
-            <div className="relative z-10 flex flex-col h-screen bg-white">
+            <div className="relative z-10 flex flex-col h-screen bg-white overflow-y-auto">
               {/* Header with logo and close button */}
               <div className="flex items-center justify-between px-6 py-4 bg-white border-b border-accent/20 h-16">
                 <div className="flex items-center space-x-3">
