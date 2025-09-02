@@ -115,7 +115,7 @@ export function Navigation() {
 
         {/* Mobile Navigation - Full Screen Menu */}
         {isOpen && (
-          <div className="fixed inset-0 z-[100] md:hidden h-screen w-screen">
+          <div className="fixed inset-0 z-[100] md:hidden h-screen w-screen overflow-y-auto">
             {/* Solid background */}
             <div
               className="absolute inset-0 bg-white h-full w-full"
@@ -147,17 +147,15 @@ export function Navigation() {
                   <X className="h-6 w-6" />
                 </Button>
               </div>
-              <div className="flex justify-center">
-                <LanguageSwitcher />
-              </div>
+
               {/* Navigation links */}
               <div className="flex-1 flex flex-col justify-center px-6 bg-white">
-                <nav className="space-y-6">
+                <nav className="space-y-2">
                   {navItems.map((item) => (
                     <Link
                       key={item.name}
                       href={item.href}
-                      className={`block text-center py-4 text-2xl font-medium transition-colors ${
+                      className={`block text-center py-4 text-lg font-medium transition-colors ${
                         pathname === item.href
                           ? "text-accent"
                           : "text-foreground hover:text-accent"
@@ -172,6 +170,9 @@ export function Navigation() {
 
               {/* Bottom section */}
               <div className="px-6 py-8 bg-white border-t border-accent/20 space-y-4">
+                <div className="flex justify-center">
+                  <LanguageSwitcher />
+                </div>
                 <Button
                   className="w-full py-4 text-lg bg-accent hover:bg-accent/90 text-accent-foreground"
                   onClick={() => setIsOpen(false)}
