@@ -1,20 +1,23 @@
 "use client";
 
-import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { Carousel } from "@/components/ui/carousel";
+import Image from "next/image";
 
 interface EventOverviewProps {
   eventKey: string;
-  imageSrc: string;
-  imageAlt: string;
+  imageSrc?: string;
+  imageAlt?: string;
+  images?: string[];
   reverse?: boolean;
 }
 
-export function EventOverview({ 
-  eventKey, 
-  imageSrc, 
-  imageAlt, 
-  reverse = false 
+export function EventOverview({
+  eventKey,
+  imageSrc,
+  imageAlt,
+  images,
+  reverse = false
 }: EventOverviewProps) {
   const t = useTranslations("eventOverviews");
   
@@ -37,16 +40,25 @@ export function EventOverview({
             </div>
           </div>
 
-          {/* Image */}
+          {/* Image/Carousel */}
           <div className={`relative ${reverse ? "lg:col-start-1" : ""}`}>
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
-              <Image
-                src={imageSrc}
-                alt={imageAlt}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
+              {images && images.length > 1 ? (
+                <Carousel
+                  images={images}
+                  alt={imageAlt || "Event space"}
+                  aspectRatio="aspect-[4/3]"
+                  autoplay
+                  autoplayDelay={5000}
+                />
+              ) : (
+                <Image
+                  src={imageSrc || images?.[0] || ""}
+                  alt={imageAlt || "Event space"}
+                  fill
+                  className="object-cover"
+                />
+              )}
             </div>
           </div>
         </div>

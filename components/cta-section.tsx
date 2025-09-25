@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 interface CTASectionProps {
   translationNamespace: string;
@@ -26,19 +27,21 @@ export function CTASection({
           {t("readyToPlanSubtitle")}
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button
-            size="lg"
-            className="bg-accent hover:bg-accent/90 text-accent-foreground"
-          >
-            {primaryButtonText}
-          </Button>
-          <Button
+          <Link href="/contact">
+            <Button
+              size="lg"
+              className="bg-accent hover:bg-accent/90 text-accent-foreground"
+            >
+              {primaryButtonText}
+            </Button>
+          </Link>
+          {/* <Button
             variant="outline"
             size="lg"
             className="border-accent/20 hover:border-accent/40 bg-transparent"
           >
             {secondaryButtonText}
-          </Button>
+          </Button> */}
         </div>
       </div>
     </section>

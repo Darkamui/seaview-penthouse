@@ -517,17 +517,33 @@
   },
   "bridalEvent": {
     "features": {
-      "romanticAtmosphere": {
-        "title": "Romantic Atmosphere",
-        "description": "Create magical moments with soft lighting and elegant decor"
+      "companionsStay": {
+        "title": "Stay for up to 12 Companions",
+        "description": "Comfortable overnight stay for 9–12 bridesmaids"
       },
-      "professionalPhotography": {
-        "title": "Professional Photography",
-        "description": "Stunning backdrops for your getting-ready photos"
+      "barChairs": {
+        "title": "Bar Chairs",
+        "description": "Stylish and comfortable bar seating area"
       },
-      "premiumService": {
-        "title": "Premium Service",
-        "description": "Dedicated support to make your preparation seamless"
+      "mirrors": {
+        "title": "Mirrors",
+        "description": "Large, well-lit mirrors for a perfect preparation"
+      },
+      "makeupHairCorner": {
+        "title": "Makeup & Hair Corner Facing the Sea",
+        "description": "Luxury makeup and hair station with breathtaking sea views"
+      },
+      "coffeeWineFruits": {
+        "title": "Rich Coffee Corner",
+        "description": "Premium coffee, fine wine, and a fresh fruit platter on arrival"
+      },
+      "suppliersAccess": {
+        "title": "Suppliers Access",
+        "description": "Convenient access for suppliers on the preparation day"
+      },
+      "brideGroomMeeting": {
+        "title": "Bride & Groom First Look",
+        "description": "Magical spots for an emotional first look with the groom"
       }
     }
   },
@@ -609,13 +625,17 @@
     }
   },
   "eventOverviews": {
-    "meetingSpace": {
-      "title": "Events & Meetings",
-      "description": "A perfect space for intimate events, the penthouse offers luxury services with breathtaking sea views. Rental of the venue also includes accommodation units for up to 30 guests.\n\nSun and wind terrace units with open sea views and magical sunsets.\n\nElegant and perfect spaces suitable for any event style. Open space and kitchen that are also perfectly suited for luxury business meetings and gatherings that last throughout the day.\n\nAbundant natural light and premium meeting equipment for select guests during the experience. Opportunity for collaboration for select guests to complete the experience."
-    },
     "bridalPrep": {
       "title": "Bridal Preparation",
-      "description": "✨ The perfect place to start your special day ✨\n\nOur penthouse offers an unforgettable preparation experience.\n\nOpen and bright space, open terrace, lighting and complete equipment for you.\n\nThe place is accessible with tranquil urban views. With brushes and hospitality, private brushing and care, optimal natural light for guests during preparation.\n\nThe room with quiet services and guest seating spaces for the bride's soul to completely relax with loved ones.\n\nThe preparation day moves in place to be the last night before the wedding in a comfortable and radiant atmosphere with your closest friends."
+      "description": "The penthouse offers a blend of comfort, beauty, and breathtaking views – an experience that embraces you from the very first moment until your walk down the aisle.\n\nSpacious areas with plenty of room for you and your closest friends.\n\nAbundant natural light that flatters every photo and magical spots for a touching first look with the groom.\n\nCelebrate the last night before your wedding in style, with your dearest friends, in a unique atmosphere that will stay in your memory forever."
+    },
+    "meetingSpace": {
+      "title": "Events & Meetings",
+      "description": "A perfect space for intimate events, the penthouse offers luxury services with breathtaking sea views.\n\nVenue rental also includes accommodation for up to 30 guests.\n\nA sun terrace with open sea views and magical sunsets.\n\nElegant spaces suitable for any style of event.\n\nThe open-plan living and kitchen area make it ideal for prestigious business meetings and all-day gatherings.\n\nPlenty of natural light and premium facilities for selected guests throughout the event.\n\nCollaboration options are also available for unique experiences.\n\nThe penthouse provides a unique venue for boutique events of up to 30 participants.\n\nA perfect balance between luxury and a warm, homely atmosphere.\n\nThe interior spans 150 sqm of open-plan living room and kitchen, creating a relaxed environment for team gatherings, board meetings, workshops, and strategy days.\n\nThe 270 sqm terrace offers stunning open-sea views and sunsets.\n\nAn ideal spot for chef dinners, networking, and meaningful conversations outside the office.\n\nAbundant natural light and flexible elegant spaces turn every business meeting into a rich and unforgettable experience."
+    },
+    "vacationSpace": {
+      "title": "Vacation & Leisure",
+      "description": "Spacious areas and elegant design create a unique blend of comfort and luxury, alongside a warm, homely atmosphere.\n\nHere you can enjoy quality time with family and friends on huge terraces facing the sunset, while enjoying full privacy in each of the luxurious bedrooms.\n\nThe penthouse offers everything you need for an unforgettable vacation – endless views, space to cook and celebrate, and moments that will stay in your heart forever."
     }
   }
 }

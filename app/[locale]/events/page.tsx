@@ -26,12 +26,17 @@ export default async function EventsPage({ params }: Props) {
       <div className="max-w-7xl mx-auto">
         <EventOverview
           eventKey="meetingSpace"
-          imageSrc="/images/events/business.jpg"
-          imageAlt="Meeting space with hands joining together for teamwork"
+          images={[
+            "/images/events/business.jpg",
+            "/images/living3.jpg",
+            "/images/balcony.jpg",
+            "/images/kitchen2.jpg",
+          ]}
+          imageAlt="Business meeting space and professional venues"
         />
 
         {/* Features */}
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
+        {/* <div className="grid md:grid-cols-3 gap-8 mb-16">
           <Card className="border-accent/20 hover:border-accent/40 transition-colors">
             <CardContent className="p-6">
               <div className="aspect-video relative mb-4 rounded-lg overflow-hidden">
@@ -88,7 +93,7 @@ export default async function EventsPage({ params }: Props) {
               </p>
             </CardContent>
           </Card>
-        </div>
+        </div> */}
 
         {/* Capacity & Services */}
         <div className="bg-primary/5 rounded-2xl p-8 mb-16">

@@ -11,6 +11,7 @@ interface CarouselProps {
   className?: string;
   autoplay?: boolean;
   autoplayDelay?: number;
+  aspectRatio?: string;
 }
 
 export function Carousel({
@@ -18,11 +19,15 @@ export function Carousel({
   alt,
   className,
   autoplay = false,
-  autoplayDelay = 3000
+  autoplayDelay = 3000,
+  aspectRatio
 }: CarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const touchStartX = useRef<number | null>(null);
+  const touchEndX = useRef<number | null>(null);
+  const minSwipeDistance = 50;
 
   const goToPrevious = useCallback(() => {
     setCurrentIndex((prevIndex) =>
@@ -55,6 +60,29 @@ export function Carousel({
     if (autoplay) setIsPaused(false);
   };
 
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchEndX.current = null;
+    touchStartX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStartX.current || !touchEndX.current) return;
+
+    const distance = touchStartX.current - touchEndX.current;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) {
+      goToNext();
+    } else if (isRightSwipe) {
+      goToPrevious();
+    }
+  };
+
   if (!images || images.length === 0) {
     return (
       <div className={cn("aspect-video relative bg-muted", className)}>
@@ -67,7 +95,7 @@ export function Carousel({
 
   if (images.length === 1) {
     return (
-      <div className={cn("aspect-video relative", className)}>
+      <div className={cn(aspectRatio || "aspect-video", "relative", className)}>
         <Image
           src={images[0]}
           alt={alt}
@@ -80,9 +108,12 @@ export function Carousel({
 
   return (
     <div
-      className={cn("aspect-video relative group", className)}
+      className={cn(aspectRatio || "aspect-video", "relative group", className)}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
     >
       <Image
         src={images[currentIndex]}
