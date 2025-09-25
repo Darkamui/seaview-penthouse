@@ -209,26 +209,7 @@ export default function FAQPage() {
             {t("stillHaveQuestionsSubtitle")}
           </p>
 
-          <div className="grid sm:grid-cols-3 gap-6 mb-8">
-            <Card className="border-accent/20 hover:border-accent/40 transition-colors">
-              <CardContent className="p-6 text-center">
-                <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <MessageCircle className="w-6 h-6 text-accent" />
-                </div>
-                <h3 className="font-semibold mb-2">Live Chat</h3>
-                <p className="text-sm text-muted-foreground mb-4">
-                  Available 24/7 for immediate assistance
-                </p>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="border-accent/20 hover:border-accent/40 bg-transparent"
-                >
-                  Start Chat
-                </Button>
-              </CardContent>
-            </Card>
-
+          <div className="grid sm:grid-cols-2  gap-6 mb-8">
             <Card className="border-accent/20 hover:border-accent/40 transition-colors">
               <CardContent className="p-6 text-center">
                 <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mx-auto mb-4">
@@ -267,13 +248,6 @@ export default function FAQPage() {
               </CardContent>
             </Card>
           </div>
-
-          <Button
-            size="lg"
-            className="bg-accent hover:bg-accent/90 text-accent-foreground"
-          >
-            {t("contactUsDirectly")}
-          </Button>
         </div>
       </section>
     </div>

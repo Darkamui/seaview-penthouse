@@ -85,7 +85,7 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative h-[calc(100vh-3rem)] lg:h-[calc(100vh-4rem)] flex items-center justify-center overflow-hidden">
+    <section className="relative h-[calc(100vh-3rem)] lg:h-[calc(100vh-4rem)] flex items-end justify-end overflow-hidden">
       {/* Background Media Carousel */}
       <div className="absolute inset-0 z-0">
         {heroMedia.map((media, index) => (
@@ -107,35 +107,38 @@ export function HeroSection() {
             />
           </div>
         ))}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-black/50" />
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/20 to-transparent" />
+        <div className="absolute inset-0 " />
+        <div className="absolute inset-0 " />
       </div>
 
       {/* Hero Content */}
       <div
-        className={`relative z-10 text-center text-white max-w-6xl mx-auto px-4 transition-all duration-1000 ${
-          isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-        }`}
+        className={`relative z-10 text-center text-white max-w-6xl mx-auto px-4 transition-all duration-1000`}
       >
-        <div className="space-y-8 lg:mb-14">
-          <h1 className="font-sans text-4xl sm:text-5xl lg:text-7xl xl:text-6xl font-bold text-balance leading-tight text-shadow-lg">
+        <div className="space-y-8 mb-32">
+          {/* <h1 className="font-sans text-4xl sm:text-5xl lg:text-7xl xl:text-6xl font-bold text-balance leading-tight text-shadow-lg">
             {t("title")}
           </h1>
           <p className="text-lg sm:text-xl lg:text-2xl xl:text-3xl text-balance opacity-90 max-w-4xl mx-auto leading-relaxed text-shadow">
             {t("subtitle")}
-          </p>
+          </p> */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-            <Button
-              size="lg"
-              className="bg-accent hover:bg-accent/90 text-accent-foreground text-lg px-8 py-4 h-auto font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 btn-hover-lift"
+            <Link
+              href="https://airbnb.com/h/thepenthouseashdod"
+              target="_blank"
             >
-              {t("bookStay")}
-            </Button>
+              <Button
+                size="lg"
+                className="cursor-pointer bg-accent/90 hover:bg-accent text-accent-foreground text-lg px-8 py-4 h-auto font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 btn-hover-lift"
+              >
+                {t("bookStay")}
+              </Button>
+            </Link>
             <Link href="/gallery">
               <Button
                 variant="outline"
                 size="lg"
-                className="border-white/40 text-white hover:bg-white/20 text-lg px-8 py-4 h-auto backdrop-blur-sm bg-white/10 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                className="cursor-pointer border-white/40 text-black bg-white/40 hover:bg-white/20 text-lg px-8 py-4 h-auto backdrop-blur-sm  shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
               >
                 {t("virtualTour")}
               </Button>
@@ -190,11 +193,11 @@ export function HeroSection() {
 
       <button
         onClick={scrollToContent}
-        className="absolute bottom-8 right-8 z-20 group focus-ring"
+        className="absolute bottom-0 right-4 sm:right-16 z-20 group focus-ring"
         aria-label={t("scrollToContent")}
       >
-        <div className="flex flex-col items-center text-white/70 group-hover:text-white transition-all duration-300">
-          <div className="w-px h-8 bg-white/30 mb-2 group-hover:bg-white/50 transition-colors" />
+        <div className="flex flex-col items-center text-white group-hover:text-white transition-all duration-300">
+          <div className="w-px h-8 bg-white mb-2 group-hover:bg-white transition-colors" />
           <ChevronDown className="w-5 h-5 animate-bounce group-hover:animate-pulse" />
           <span className="text-xs font-medium tracking-wider rotate-90 origin-center whitespace-nowrap mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             {t("scroll")}

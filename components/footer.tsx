@@ -12,11 +12,9 @@ export function Footer() {
           alt={t("logoAlt")}
           width={240}
           height={240}
-          className="mx-auto mb-4"
+          className="mx-auto mb-6"
         />
-        <p className="text-sm text-muted-foreground">
-          {t("copyright")}
-        </p>
+        <p className="text-sm text-muted-foreground">{t("copyright")}</p>
       </div>
     </footer>
   );

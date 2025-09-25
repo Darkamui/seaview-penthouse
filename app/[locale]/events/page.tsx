@@ -1,11 +1,8 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { CTASection } from "@/components/cta-section";
+import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
-import { Heart, Briefcase, ChefHat, Camera, Baby } from "lucide-react";
-import { getTranslations } from "next-intl/server";
-import { setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
+import { setRequestLocale, getTranslations } from "next-intl/server";
 import { EventOverview } from "@/components/event-overview";
 
 type Props = {
@@ -23,276 +20,111 @@ export default async function EventsPage({ params }: Props) {
   setRequestLocale(locale);
 
   const t = await getTranslations("events");
-  const eventTypes = [
-    {
-      icon: Heart,
-      title: t("eventTypes.intimate.title"),
-      capacity: t("eventTypes.intimate.capacity"),
-      description: t("eventTypes.intimate.description"),
-      features: [
-        t("eventTypes.intimate.feature1"),
-        t("eventTypes.intimate.feature2"),
-        t("eventTypes.intimate.feature3"),
-        t("eventTypes.intimate.feature4"),
-      ],
-      image: "/images/events/intimate.jpg",
-      color: "text-red-500",
-    },
-    {
-      icon: Camera,
-      title: t("eventTypes.bridal.title"),
-      capacity: t("eventTypes.bridal.capacity"),
-      description: t("eventTypes.bridal.description"),
-      features: [
-        t("eventTypes.bridal.feature1"),
-        t("eventTypes.bridal.feature2"),
-        t("eventTypes.bridal.feature3"),
-        t("eventTypes.bridal.feature4"),
-      ],
-      image: "/images/events/bride.jpg",
-      color: "text-pink-500",
-    },
-    {
-      icon: Briefcase,
-      title: t("eventTypes.business.title"),
-      capacity: t("eventTypes.business.capacity"),
-      description: t("eventTypes.business.description"),
-      features: [
-        t("eventTypes.business.feature1"),
-        t("eventTypes.business.feature2"),
-        t("eventTypes.business.feature3"),
-        t("eventTypes.business.feature4"),
-      ],
-      image: "/images/events/business.jpg",
-      color: "text-blue-500",
-    },
-    {
-      icon: Baby,
-      title: t("eventTypes.family.title"),
-      capacity: t("eventTypes.family.capacity"),
-      description: t("eventTypes.family.description"),
-      features: [
-        t("eventTypes.family.feature1"),
-        t("eventTypes.family.feature2"),
-        t("eventTypes.family.feature3"),
-        t("eventTypes.family.feature4"),
-      ],
-      image: "/images/events/family.jpg",
-      color: "text-green-500",
-    },
-    {
-      icon: ChefHat,
-      title: t("eventTypes.culinary.title"),
-      capacity: t("eventTypes.culinary.capacity"),
-      description: t("eventTypes.culinary.description"),
-      features: [
-        t("eventTypes.culinary.feature1"),
-        t("eventTypes.culinary.feature2"),
-        t("eventTypes.culinary.feature3"),
-        t("eventTypes.culinary.feature4"),
-      ],
-      image: "/images/events/chef.jpg",
-      color: "text-orange-500",
-    },
-  ];
-
-  const spaces = [
-    {
-      title: t("spaces.livingRoom.title"),
-      description: t("spaces.livingRoom.description"),
-      features: [
-        t("spaces.livingRoom.feature1"),
-        t("spaces.livingRoom.feature2"),
-        t("spaces.livingRoom.feature3"),
-        t("spaces.livingRoom.feature4"),
-        t("spaces.livingRoom.feature5"),
-      ],
-      image: "/images/living4.jpg",
-    },
-    {
-      title: t("spaces.balcony.title"),
-      description: t("spaces.balcony.description"),
-      features: [
-        t("spaces.balcony.feature1"),
-        t("spaces.balcony.feature2"),
-        t("spaces.balcony.feature3"),
-        t("spaces.balcony.feature4"),
-        t("spaces.balcony.feature5"),
-      ],
-      image: "/images/balcony7.jpg",
-    },
-  ];
-
+  const eventPageT = await getTranslations("eventPage");
   return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative py-20 px-4 bg-gradient-to-b from-card to-background">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <Badge className="mb-4 bg-accent/10 text-accent-foreground border-accent/20">
-              {t("badge")}
-            </Badge>
-            <h1 className="font-sans text-5xl font-bold text-foreground mb-6">
-              {t("title")}
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-balance leading-relaxed">
-              {t("subtitle")}
-            </p>
-          </div>
-        </div>
-      </section>
+    <section className="py-4 px-4">
+      <div className="max-w-7xl mx-auto">
+        <EventOverview
+          eventKey="meetingSpace"
+          imageSrc="/images/events/business.jpg"
+          imageAlt="Meeting space with hands joining together for teamwork"
+        />
 
-      {/* Event Overviews */}
-      <EventOverview
-        eventKey="meetingSpace"
-        imageSrc="/images/events/business.jpg"
-        imageAlt="Meeting space with hands joining together for teamwork"
-      />
-
-      <EventOverview
-        eventKey="bridalPrep"
-        imageSrc="/images/events/bride.jpg"
-        imageAlt="Bridal preparation with bride getting ready for wedding"
-        reverse
-      />
-
-      {/* Event Types */}
-      <section className="py-16 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="font-sans text-3xl font-bold text-foreground mb-4">
-              {t("eventTypesTitle")}
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              {t("eventTypesSubtitle")}
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {eventTypes.map((event, index) => (
-              <Card
-                key={index}
-                className="border-accent/20 hover:border-accent/40 transition-colors overflow-hidden"
-              >
-                <div className="aspect-video relative">
-                  <Image
-                    src={event.image || "/placeholder.svg"}
-                    alt={event.title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <CardHeader>
-                  <div className="flex items-center gap-3 mb-2">
-                    <div
-                      className={`w-10 h-10 rounded-lg bg-card flex items-center justify-center ${event.color}`}
-                    >
-                      <event.icon className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <CardTitle className="text-lg">{event.title}</CardTitle>
-                      <p className="text-sm text-muted-foreground">
-                        {event.capacity}
-                      </p>
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent className="pt-0">
-                  <p className="text-muted-foreground mb-4 leading-relaxed">
-                    {event.description}
-                  </p>
-                  <div className="space-y-2">
-                    {event.features.map((feature, featureIndex) => (
-                      <div
-                        key={featureIndex}
-                        className="flex items-center gap-2 text-sm"
-                      >
-                        <div className="w-1.5 h-1.5 bg-accent rounded-full" />
-                        <span>{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Spaces */}
-      <section className="py-16 px-4 bg-card/30">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="font-sans text-3xl font-bold text-foreground mb-4">
-              {t("eventSpacesTitle")}
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              {t("eventSpacesSubtitle")}
-            </p>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-12">
-            {spaces.map((space, index) => (
-              <div key={index} className="space-y-6">
-                <div className="aspect-video relative rounded-lg overflow-hidden">
-                  <Image
-                    src={space.image || "/placeholder.svg"}
-                    alt={space.title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div>
-                  <h3 className="font-sans text-2xl font-bold text-foreground mb-3">
-                    {space.title}
-                  </h3>
-                  <p className="text-muted-foreground mb-4 leading-relaxed">
-                    {space.description}
-                  </p>
-                  <div className="space-y-3">
-                    {space.features.map((feature, featureIndex) => (
-                      <div
-                        key={featureIndex}
-                        className="flex items-center gap-3"
-                      >
-                        <div className="w-2 h-2 bg-accent rounded-full" />
-                        <span className="text-foreground">{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+        {/* Features */}
+        <div className="grid md:grid-cols-3 gap-8 mb-16">
+          <Card className="border-accent/20 hover:border-accent/40 transition-colors">
+            <CardContent className="p-6">
+              <div className="aspect-video relative mb-4 rounded-lg overflow-hidden">
+                <Image
+                  src="/images/room6.jpg"
+                  alt={eventPageT("altTexts.elegantInterior")}
+                  fill
+                  className="object-cover"
+                />
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
+              <h3 className="font-sans text-xl font-semibold mb-2">
+                {eventPageT("features.interior.title")}
+              </h3>
+              <p className="text-muted-foreground">
+                {eventPageT("features.interior.description")}
+              </p>
+            </CardContent>
+          </Card>
 
-      {/* CTA Section */}
-      <section className="py-16 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="font-sans text-3xl font-bold text-foreground mb-4">
-            {t("readyToPlan")}
-          </h2>
-          <p className="text-xl text-muted-foreground mb-8 text-balance">
-            {t("readyToPlanSubtitle")}
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              className="bg-accent hover:bg-accent/90 text-accent-foreground"
-            >
-              {t("requestEventQuote")}
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              className="border-accent/20 hover:border-accent/40 bg-transparent"
-            >
-              {t("scheduleViewing")}
-            </Button>
+          <Card className="border-accent/20 hover:border-accent/40 transition-colors">
+            <CardContent className="p-6">
+              <div className="aspect-video relative mb-4 rounded-lg overflow-hidden">
+                <Image
+                  src="/images/balcony4.jpg"
+                  alt={eventPageT("altTexts.outdoorTerrace")}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <h3 className="font-sans text-xl font-semibold mb-2">
+                {eventPageT("features.terrace.title")}
+              </h3>
+              <p className="text-muted-foreground">
+                {eventPageT("features.terrace.description")}
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card className="border-accent/20 hover:border-accent/40 transition-colors">
+            <CardContent className="p-6">
+              <div className="aspect-video relative mb-4 rounded-lg overflow-hidden">
+                <Image
+                  src="/images/kitchen2.jpg"
+                  alt={eventPageT("altTexts.cateringKitchen")}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <h3 className="font-sans text-xl font-semibold mb-2">
+                {eventPageT("features.cateringReady.title")}
+              </h3>
+              <p className="text-muted-foreground">
+                {eventPageT("features.cateringReady.description")}
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Capacity & Services */}
+        <div className="bg-primary/5 rounded-2xl p-8 mb-16">
+          <div className="grid md:grid-cols-2 gap-8">
+            <div>
+              <h3 className="font-sans text-2xl font-bold text-foreground mb-4">
+                {eventPageT("capacity.title")}
+              </h3>
+              <ul className="space-y-2 text-muted-foreground">
+                <li>• {eventPageT("capacity.seatedDinner")}</li>
+                <li>• {eventPageT("capacity.cocktailReception")}</li>
+                <li>• {eventPageT("capacity.businessMeeting")}</li>
+                <li>• {eventPageT("capacity.presentationSetup")}</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-sans text-2xl font-bold text-foreground mb-4">
+                {eventPageT("services.title")}
+              </h3>
+              <ul className="space-y-2 text-muted-foreground">
+                <li>• {eventPageT("services.eventPlanning")}</li>
+                <li>• {eventPageT("services.cateringCoordination")}</li>
+                <li>• {eventPageT("services.avEquipment")}</li>
+                <li>• {eventPageT("services.eventSupport")}</li>
+              </ul>
+            </div>
           </div>
         </div>
-      </section>
-    </div>
+
+        {/* CTA Section */}
+        <CTASection
+          translationNamespace="events"
+          primaryButtonText={t("requestEventQuote")}
+          secondaryButtonText={t("scheduleViewing")}
+        />
+      </div>
+    </section>
   );
 }

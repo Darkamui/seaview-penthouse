@@ -11,12 +11,13 @@
     "faq": "FAQ",
     "contact": "Contact",
     "siteTitle": "The Sea View Penthouse",
-    "bookStay": "Book Your Stay"
+    "ashdod": "Ahsdod",
+    "bookStay": "Book Your Private Penthouse"
   },
   "hero": {
     "title": "The Sea View Penthouse",
     "subtitle": "Experience luxury living with breathtaking Mediterranean views in the heart of Ashdod. Where modern elegance meets coastal serenity.",
-    "bookStay": "Book Your Stay",
+    "bookStay": "Book Your Private Penthouse",
     "virtualTour": "Gallery",
     "loading": "Loading luxury experience...",
     "scroll": "SCROLL",
@@ -34,29 +35,20 @@
     "luxuryRedefined": "Luxury Redefined",
     "subtitle": "Discover an extraordinary penthouse experience where modern elegance meets coastal serenity",
     "livingSpace": {
-      "title": "150m² Living Space",
-      "description": "Expansive kitchen and living room designed for comfort and entertaining",
-      "alt": "Spacious living room with sea views"
+      "title": "Total Area: 570 sqm",
+      "description": "Spacious kitchen and living areas designed for comfort and entertaining",
+      "alt": "Spacious living room with sea view"
     },
     "balcony": {
-      "title": "270m² Balcony",
+      "title": "Maximum Guests for Accommodation: 12",
       "description": "Stunning outdoor terrace perfect for events and relaxation",
-      "alt": "270 square meter balcony with sea view"
+      "alt": "270 square meter terrace with sea view"
     },
     "amenities": {
-      "title": "Premium Amenities",
+      "title": "Maximum Guests for Events: 30",
       "description": "Every detail crafted for the ultimate luxury experience",
       "alt": "Luxury bedroom with modern amenities"
-    }
-  },
-  "footer": {
-    "logoAlt": "The Sea View Penthouse",
-    "copyright": "© 2025 J-Web. All rights reserved."
-  },
-  "about": {
-    "badge": "About Our Penthouse",
-    "title": "Penthouse in Details",
-    "subtitle": "Discover every exquisite detail of our luxury sea view penthouse, where modern sophistication meets coastal elegance in the heart of Ashdod.",
+    },
     "location": "Ashdod, Israel",
     "locationTitle": "Prime Coastal Location",
     "locationDescription": "Perched high above the Mediterranean coastline, our penthouse offers unobstructed sea views and easy access to Ashdod's finest beaches, restaurants, and cultural attractions. The strategic location provides both tranquility and convenience.",
@@ -82,15 +74,164 @@
         "description": "Modern bathroom featuring premium fixtures, glass block walls, and luxury amenities for ultimate relaxation."
       }
     },
+    "totalGuests": "Max event attendees",
     "amenitiesTitle": "Premium Amenities",
     "amenitiesSubtitle": "Everything you need for a perfect stay, from modern conveniences to luxury touches",
     "amenitiesItems": {
       "highSpeedWifi": "High-Speed WiFi",
-      "privateParking": "Private Parking",
+      "privateParking": "Private Parking (2 spaces)",
       "fullyEquippedKitchen": "Fully Equipped Kitchen",
-      "luxuryBathroom": "Luxury Bathroom",
-      "premiumBedding": "Premium Bedding",
-      "upToEightGuests": "Up to 8 Guests"
+      "seaView": "Stunning Sea Views",
+      "privateHotTub": "Private Hot Tub",
+      "airConditioning": "Air Conditioning",
+      "privateBalcony": "270m² Private Balcony",
+      "washerDryer": "Washer & Dryer",
+      "viewAllAmenities": "View All Amenities"
+    }
+  },
+  "footer": {
+    "logoAlt": "The Sea View Penthouse",
+    "copyright": "© 2025 J-Web. All rights reserved."
+  },
+  "about": {
+    "badge": "About Our Penthouse",
+    "title": "Penthouse in Details",
+    "subtitle": "Discover every exquisite detail of our luxury sea view penthouse, where modern sophistication meets coastal elegance in the heart of Ashdod.",
+    "location": "Ashdod, Israel",
+    "locationTitle": "Prime Coastal Location",
+    "locationDescription": "Perched high above the Mediterranean coastline, our penthouse offers unobstructed sea views and easy access to Ashdod's finest beaches, restaurants, and cultural attractions. The strategic location provides both tranquility and convenience.",
+    "totalSpace": "Total Space",
+    "maxGuests": "Max Guests",
+    "featuresTitle": "Exceptional Features",
+    "featuresSubtitle": "Every space has been thoughtfully designed to provide the ultimate luxury experience",
+    "features": {
+      "livingSpace": {
+        "title": "Living Space",
+        "description": "The penthouse's central living area combines a luxurious lounge facing the sea and sky, a fully equipped kitchen for culinary experiences, a spacious dining area for shared meals, a TV corner, and a built-in bar. A bright, open space with breathtaking views embraces everything and turns every gathering into an unforgettable experience."
+      },
+      "bedroom": {
+        "title": "Suites and Bedrooms",
+        "description": "The penthouse offers five beautifully designed bedrooms. The lavish master suite includes a private bathroom, a relaxing jacuzzi, and direct access to the balcony. The four additional bedrooms share a spacious, fully equipped bathroom with both shower and bathtub, plus a separate guest restroom for maximum convenience. All rooms feature premium linens, YES+ screens, and personalized heating and cooling systems."
+      },
+      "balcony": {
+        "title": "Balcony",
+        "description": "A 270m² balcony surrounded by sea breeze and open sky. Enjoy sunbeds facing the sea, a fully equipped gas barbecue station, and comfortable seating areas for dining and gatherings under the open air."
+      },
+      "location": {
+        "title": "Prime Location",
+        "description": "Easy walking access to the beach, close to restaurants, water sports, nature, and cultural attractions."
+      }
+    },
+    "amenitiesTitle": "Premium Amenities",
+    "amenitiesSubtitle": "Everything you need for a perfect stay, from modern conveniences to luxury touches",
+    "amenitiesItems": {
+      "highSpeedWifi": "High-Speed WiFi",
+      "privateParking": "Private Parking (2 spaces)",
+      "fullyEquippedKitchen": "Fully Equipped Kitchen",
+      "seaView": "Stunning Sea Views",
+      "privateHotTub": "Private Hot Tub",
+      "airConditioning": "Air Conditioning",
+      "privateBalcony": "270m² Private Balcony",
+      "washerDryer": "Washer & Dryer",
+      "viewAllAmenities": "View All Amenities",
+      "categories": {
+        "views": "Scenic Views",
+        "bathroom": "Bathroom",
+        "bedroom": "Bedroom & Laundry",
+        "essentials": "Essentials",
+        "entertainment": "Entertainment",
+        "climate": "Heating & Cooling",
+        "safety": "Home Safety",
+        "internet": "Internet & Office",
+        "kitchen": "Kitchen & Dining",
+        "location": "Location Features",
+        "outdoor": "Outdoor",
+        "parking": "Parking & Facilities",
+        "services": "Services"
+      },
+      "fullList": {
+        "scenicViews": "Scenic views",
+        "beachView": "Beach view",
+        "harbourView": "Harbour view",
+        "marinaView": "Marina view",
+        "seaViewFull": "Sea view",
+        "bathtub": "Bathtub",
+        "hairDryer": "Hair dryer",
+        "cleaningProducts": "Cleaning products",
+        "shampoo": "Shampoo",
+        "conditioner": "Conditioner",
+        "bodySoap": "Body soap",
+        "bidet": "Bidet",
+        "hotWater": "Hot water",
+        "showerGel": "Shower gel",
+        "washer": "Washer",
+        "freeDryer": "Free dryer – In unit",
+        "towels": "Towels, bed sheets, soap, and toilet paper",
+        "hangers": "Hangers",
+        "bedLinens": "Bed linens",
+        "cottonLinens": "Cotton linens",
+        "extraPillows": "Extra pillows and blankets",
+        "roomDarkening": "Room-darkening shades",
+        "iron": "Iron",
+        "dryingRack": "Drying rack for clothing",
+        "safe": "Safe",
+        "clothingStorage": "Clothing storage: closet and wardrobe",
+        "ethernet": "Ethernet connection",
+        "tv": "TV",
+        "bluetooth": "Bluetooth sound system",
+        "books": "Books and reading material",
+        "centralAC": "Central air conditioning",
+        "centralHeating": "Central heating",
+        "securityCameras": "Exterior security cameras on property",
+        "entranceCamera": "External camera above the entrance door",
+        "fireExtinguisher": "Fire extinguisher",
+        "firstAidKit": "First aid kit",
+        "wifi": "WiFi",
+        "workspace": "Dedicated workspace",
+        "workspacePrivate": "In a private space with printer",
+        "pocketWifi": "Pocket wifi",
+        "kitchenSpace": "Kitchen space where guests can cook their own meals",
+        "refrigerator": "Refrigerator",
+        "microwave": "Microwave",
+        "cookingBasics": "Cooking basics: Pots and pans, oil, salt and pepper",
+        "dishware": "Dishes and silverware: Bowls, chopsticks, plates, cups, etc.",
+        "freezer": "Freezer",
+        "dishwasher": "Dishwasher",
+        "gasStove": "Gas stove",
+        "oven": "Oven",
+        "kettle": "Hot water kettle",
+        "coffeeMaker": "Coffee maker: Nespresso",
+        "wineGlasses": "Wine glasses",
+        "toaster": "Toaster",
+        "bakingSheet": "Baking sheet",
+        "blender": "Blender",
+        "trashCompactor": "Trash compactor",
+        "bbqUtensils": "Barbecue utensils",
+        "bbqGrill": "Grill, charcoal, bamboo skewers/iron skewers, etc.",
+        "diningTable": "Dining table",
+        "coffee": "Coffee",
+        "sharedBeach": "Shared beach access",
+        "beachAccess": "Guests can enjoy a nearby beach",
+        "privateEntrance": "Private entrance",
+        "separateEntrance": "Separate street or building entrance",
+        "laundromat": "Laundromat nearby",
+        "privateBalconyFull": "Private patio or balcony",
+        "outdoorFurniture": "Outdoor furniture",
+        "outdoorDining": "Outdoor dining area",
+        "outdoorKitchen": "Private outdoor kitchen",
+        "privateBBQ": "Private BBQ grill: gas",
+        "sunLoungers": "Sun loungers",
+        "garageParking": "Free residential garage on premises – 2 spaces",
+        "streetParking": "Free street parking",
+        "hotTub": "Private hot tub",
+        "elevator": "Elevator (52 inches deep, 32 inches wide doorway)",
+        "smokingAllowed": "Smoking allowed",
+        "longTermStays": "Long-term stays allowed (28 days or more)",
+        "housekeeping": "Housekeeping available 5 hours a day, every day - available at extra cost",
+        "hostGreets": "Host greets you",
+        "noSmokeAlarm": "No smoke alarm on the property",
+        "noCarbonMonoxide": "No carbon monoxide detector on the property"
+      }
     }
   },
   "contact": {
@@ -125,7 +266,10 @@
       "specialRequests": "Special Requests or Questions",
       "specialRequestsPlaceholder": "Tell us about any special requirements, questions, or how we can make your stay perfect...",
       "sendInquiry": "Send Inquiry",
-      "whatsappUs": "WhatsApp Us"
+      "whatsappUs": "WhatsApp Us",
+      "sending": "Sending...",
+      "successMessage": "Your inquiry has been sent successfully! We will get back to you within 2 hours.",
+      "errorMessage": "Failed to send your inquiry. Please try again or contact us directly."
     },
     "getInTouch": "Get In Touch",
     "contactInfo": {
@@ -174,55 +318,38 @@
   },
   "events": {
     "badge": "Event Hosting",
-    "title": "Unforgettable Events",
+    "title": "Where the Sea and Sky Meet – The Penthouse Experience Begins",
     "subtitle": "Host your most important moments in our luxury penthouse, where every celebration becomes extraordinary against the backdrop of the Mediterranean Sea.",
-    "eventTypesTitle": "Event Types",
+    "eventTypesTitle": "Where the Sea and Sky Meet – The Penthouse Experience Begins",
     "eventTypesSubtitle": "From intimate gatherings to business meetings, our penthouse adapts to your vision",
+    "eventTypesCTA": "Details",
     "eventTypes": {
       "intimate": {
-        "title": "Intimate Events",
-        "capacity": "Up to 30 guests",
-        "description": "Perfect for wedding proposals, anniversary celebrations, and romantic chef dinners",
-        "feature1": "Private chef service",
-        "feature2": "Romantic setup",
-        "feature3": "Sunset views",
-        "feature4": "Premium sound system"
+        "title": "Penthouse Vacations",
+        "capacity": "Up to 9-12 people",
+        "description": "300 sqm penthouse with a massive 270 sqm terrace overlooking breathtaking sea views",
+        "feature1": "5 beautifully designed and equipped bedrooms down to the smallest details",
+        "feature2": "Luxurious master suite with jacuzzi and terrace access",
+        "feature3": "Inviting spaces for gatherings, cooking and shared meals facing the sunset",
+        "feature4": ""
       },
       "bridal": {
         "title": "Bridal Preparation",
-        "capacity": "Bridal party of 8-12",
-        "description": "Elegant space for getting ready with natural light and luxury amenities",
-        "feature1": "Professional lighting",
-        "feature2": "Spacious bedroom",
-        "feature3": "Luxury bathroom",
-        "feature4": "Balcony photo ops"
+        "capacity": "Preparation day including accommodation for up to 9 bridesmaids",
+        "description": "The perfect place to start your big day",
+        "feature1": "Spacious preparation lounge with abundant natural light and open sea views",
+        "feature2": "Makeup station, large mirrors and bar chairs",
+        "feature3": "Bridal suite and 4 bedrooms for bridesmaids with terrace access",
+        "feature4": "Ideal for photography and bride-groom meeting"
       },
       "business": {
-        "title": "Business Events",
-        "capacity": "Up to 25 professionals",
-        "description": "Sophisticated venue for corporate meetings, product launches, and networking",
-        "feature1": "High-speed WiFi",
-        "feature2": "Presentation setup",
-        "feature3": "Catering space",
-        "feature4": "Professional ambiance"
-      },
-      "family": {
-        "title": "Family Vacations",
-        "capacity": "Up to 8 family members",
-        "description": "Spacious accommodation for multi-generational family gatherings",
-        "feature1": "Multiple sleeping areas",
-        "feature2": "Family-friendly amenities",
-        "feature3": "Safe balcony",
-        "feature4": "Kitchen facilities"
-      },
-      "culinary": {
-        "title": "Culinary Experiences",
-        "capacity": "Up to 20 guests",
-        "description": "Premium kitchen space for cooking classes and gourmet dining experiences",
-        "feature1": "Professional kitchen",
-        "feature2": "Dining for 20",
-        "feature3": "Sea view dining",
-        "feature4": "Chef workspace"
+        "title": "Events",
+        "capacity": "Up to 30 guests",
+        "description": "Boutique meetings and elegant events facing the sea and sky",
+        "feature1": "Unique sea and sky views",
+        "feature2": "Indoor spaces with luxurious yet homely atmosphere",
+        "feature3": "Large indoor kitchen and gas BBQ station on terrace, for chef meals or social hosting",
+        "feature4": "Combined accommodation for guests or family members, to complete the experience"
       }
     },
     "eventSpacesTitle": "Event Spaces",
@@ -388,14 +515,107 @@
     },
     "contactUsDirectly": "Contact Us Directly"
   },
+  "bridalEvent": {
+    "features": {
+      "romanticAtmosphere": {
+        "title": "Romantic Atmosphere",
+        "description": "Create magical moments with soft lighting and elegant decor"
+      },
+      "professionalPhotography": {
+        "title": "Professional Photography",
+        "description": "Stunning backdrops for your getting-ready photos"
+      },
+      "premiumService": {
+        "title": "Premium Service",
+        "description": "Dedicated support to make your preparation seamless"
+      }
+    }
+  },
+  "vacation": {
+    "hero": {
+      "oceanfront": {
+        "title": "Oceanfront Paradise",
+        "description": "Wake up to stunning Mediterranean views every morning from your 270m² private balcony overlooking the pristine coastline."
+      },
+      "allDaySunshine": {
+        "title": "All-Day Sunshine",
+        "description": "Enjoy perfect weather year-round with our south-facing terrace, ideal for sunbathing, dining, and entertaining."
+      },
+      "gourmetKitchen": {
+        "title": "Gourmet Kitchen",
+        "description": "Fully equipped modern kitchen with premium appliances, perfect for preparing meals with fresh local ingredients."
+      },
+      "luxuryAccommodations": {
+        "title": "Luxury Accommodations",
+        "description": "Spacious bedrooms with premium linens, en-suite bathrooms, and stunning views for the ultimate comfort."
+      }
+    },
+    "amenities": {
+      "modernConnectivity": {
+        "title": "Modern Connectivity",
+        "description": "High-speed WiFi and smart home technology throughout"
+      },
+      "convenientLocation": {
+        "title": "Convenient Location",
+        "description": "Easy access to Ashdod's attractions and amenities"
+      },
+      "yearRoundComfort": {
+        "title": "Year-Round Comfort",
+        "description": "Climate control and premium amenities for any season"
+      }
+    },
+    "gallery": {
+      "title": "Experience the Views",
+      "altTexts": {
+        "eveningBalcony": "Evening balcony view",
+        "modernKitchen": "Modern kitchen",
+        "luxuryBathroom": "Luxury bathroom"
+      }
+    }
+  },
+  "eventPage": {
+    "features": {
+      "interior": {
+        "title": "150m² Interior",
+        "description": "Spacious and elegant indoor space perfect for presentations and dining"
+      },
+      "terrace": {
+        "title": "270m² Terrace",
+        "description": "Stunning outdoor space with panoramic sea views for cocktail receptions"
+      },
+      "cateringReady": {
+        "title": "Catering Ready",
+        "description": "Fully equipped kitchen for professional catering and food service"
+      }
+    },
+    "capacity": {
+      "title": "Event Capacity",
+      "seatedDinner": "Seated dinner: Up to 16 guests",
+      "cocktailReception": "Cocktail reception: Up to 25 guests",
+      "businessMeeting": "Business meeting: Up to 12 participants",
+      "presentationSetup": "Presentation setup: Up to 20 attendees"
+    },
+    "services": {
+      "title": "Available Services",
+      "eventPlanning": "Professional event planning assistance",
+      "cateringCoordination": "Catering coordination",
+      "avEquipment": "Audio/visual equipment setup",
+      "eventSupport": "Dedicated event support staff"
+    },
+    "altTexts": {
+      "elegantInterior": "Elegant interior space for events",
+      "outdoorTerrace": "Outdoor terrace for events",
+      "cateringKitchen": "Professional catering kitchen"
+    }
+  },
   "eventOverviews": {
     "meetingSpace": {
-      "title": "Meeting Space\nEvents & Meetings",
+      "title": "Events & Meetings",
       "description": "A perfect space for intimate events, the penthouse offers luxury services with breathtaking sea views. Rental of the venue also includes accommodation units for up to 30 guests.\n\nSun and wind terrace units with open sea views and magical sunsets.\n\nElegant and perfect spaces suitable for any event style. Open space and kitchen that are also perfectly suited for luxury business meetings and gatherings that last throughout the day.\n\nAbundant natural light and premium meeting equipment for select guests during the experience. Opportunity for collaboration for select guests to complete the experience."
     },
     "bridalPrep": {
-      "title": "Bridal Prep\nBridal Preparation",
-      "description": "✨ The perfect place to start your special day ✨\nOur penthouse offers an unforgettable preparation experience.\n\nOpen and bright space, open terrace, lighting and complete equipment for you.\n\nThe place is accessible with tranquil urban views. With brushes and hospitality, private brushing and care, optimal natural light for guests during preparation.\n\nThe room with quiet services and guest seating spaces for the bride's soul to completely relax with loved ones.\n\nThe preparation day moves in place to be the last night before the wedding in a comfortable and radiant atmosphere with your closest friends."
+      "title": "Bridal Preparation",
+      "description": "✨ The perfect place to start your special day ✨\n\nOur penthouse offers an unforgettable preparation experience.\n\nOpen and bright space, open terrace, lighting and complete equipment for you.\n\nThe place is accessible with tranquil urban views. With brushes and hospitality, private brushing and care, optimal natural light for guests during preparation.\n\nThe room with quiet services and guest seating spaces for the bride's soul to completely relax with loved ones.\n\nThe preparation day moves in place to be the last night before the wedding in a comfortable and radiant atmosphere with your closest friends."
     }
   }
 }

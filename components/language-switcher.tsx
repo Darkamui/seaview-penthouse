@@ -4,11 +4,11 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useLocale } from "next-intl";
 import { Globe } from "lucide-react";
-import { usePathname, useRouter } from '@/i18n/navigation';
+import { usePathname, useRouter } from "@/i18n/navigation";
 
 const locales = [
-  { code: 'he', name: 'עברית', flag: '🇮🇱' },
-  { code: 'en', name: 'English', flag: '🇺🇸' }
+  { code: "he", name: "עברית", flag: "🇮🇱" },
+  { code: "en", name: "English", flag: "🇺🇸" },
 ];
 
 export function LanguageSwitcher() {
@@ -17,23 +17,27 @@ export function LanguageSwitcher() {
   const router = useRouter();
   const currentLocale = useLocale();
 
-  const handleLocaleChange = (newLocale: 'he' | 'en') => {
+  const handleLocaleChange = (newLocale: "he" | "en") => {
     router.replace(pathname, { locale: newLocale });
     setIsOpen(false);
   };
 
-  const currentLocaleData = locales.find(locale => locale.code === currentLocale);
+  const currentLocaleData = locales.find(
+    (locale) => locale.code === currentLocale
+  );
 
   return (
     <div className="relative">
       <Button
-        variant="ghost"
+        variant="outline"
         size="sm"
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center space-x-2 hover:bg-accent/10 transition-colors"
       >
         <Globe className="w-4 h-4" />
-        <span className="text-sm">{currentLocaleData?.flag} {currentLocaleData?.name}</span>
+        <span className="text-sm">
+          {currentLocaleData?.flag} {currentLocaleData?.name}
+        </span>
       </Button>
 
       {isOpen && (
@@ -41,9 +45,11 @@ export function LanguageSwitcher() {
           {locales.map((locale) => (
             <button
               key={locale.code}
-              onClick={() => handleLocaleChange(locale.code as 'he' | 'en')}
+              onClick={() => handleLocaleChange(locale.code as "he" | "en")}
               className={`w-full px-4 py-2 text-left text-sm hover:bg-accent/10 transition-colors flex items-center space-x-2 ${
-                locale.code === currentLocale ? 'bg-accent/20 text-accent' : 'text-foreground'
+                locale.code === currentLocale
+                  ? "bg-accent/20 text-accent"
+                  : "text-foreground"
               } first:rounded-t-lg last:rounded-b-lg`}
             >
               <span>{locale.flag}</span>
@@ -54,10 +60,7 @@ export function LanguageSwitcher() {
       )}
 
       {isOpen && (
-        <div
-          className="fixed inset-0 z-40"
-          onClick={() => setIsOpen(false)}
-        />
+        <div className="fixed inset-0 z-40" onClick={() => setIsOpen(false)} />
       )}
     </div>
   );

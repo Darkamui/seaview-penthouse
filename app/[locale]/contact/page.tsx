@@ -39,19 +39,59 @@ export default function ContactPage() {
     eventType: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleInputChange = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log("Form submitted:", formData);
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+    setErrorMessage('');
+
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          checkIn: "",
+          checkOut: "",
+          guests: "",
+          eventType: "",
+          message: "",
+        });
+      } else {
+        setSubmitStatus('error');
+        setErrorMessage(result.error || 'Failed to send message');
+      }
+    } catch (error) {
+      setSubmitStatus('error');
+      setErrorMessage('Network error. Please check your connection and try again.');
+      console.error('Error submitting form:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleWhatsApp = () => {
-    const message = `Hi! I'm interested in booking The Sea View Penthouse. 
+    const message = `New message from SeaviewPenthouse
     
 Details:
 - Name: ${formData.name || "Not provided"}
@@ -60,8 +100,7 @@ Details:
 - Guests: ${formData.guests || "Not specified"}
 - Event Type: ${formData.eventType || "Vacation rental"}
 - Message: ${formData.message || "Please send me more information"}
-    
-Looking forward to hearing from you!`;
+`;
 
     const whatsappUrl = `https://wa.me/972546606233?text=${encodeURIComponent(
       message
@@ -73,30 +112,24 @@ Looking forward to hearing from you!`;
     {
       icon: Phone,
       title: t("contactInfo.phone.title"),
-      details: [
-        t("contactInfo.phone.number"),
-        t("contactInfo.phone.availability"),
-      ],
+      details: ["972-546-606-233+", t("contactInfo.phone.availability")],
       action: "tel:+972546606233",
     },
     {
       icon: Mail,
       title: t("contactInfo.email.title"),
-      details: [
-        t("contactInfo.email.address"),
-        t("contactInfo.email.response"),
-      ],
+      details: ["rachel.yer@gmail.com", t("contactInfo.email.response")],
       action: "mailto:rachel.yer@gmail.com",
     },
-    {
-      icon: MapPin,
-      title: t("contactInfo.location.title"),
-      details: [
-        t("contactInfo.location.address"),
-        t("contactInfo.location.distance"),
-      ],
-      action: null,
-    },
+    // {
+    //   icon: MapPin,
+    //   title: t("contactInfo.location.title"),
+    //   details: [
+    //     t("contactInfo.location.address"),
+    //     t("contactInfo.location.distance"),
+    //   ],
+    //   action: null,
+    // },
     {
       icon: Clock,
       title: t("contactInfo.checkInOut.title"),
@@ -110,23 +143,6 @@ Looking forward to hearing from you!`;
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative py-20 px-4 bg-gradient-to-b from-card to-background">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <Badge className="mb-4 bg-accent/10 text-accent-foreground border-accent/20">
-              {t("badge")}
-            </Badge>
-            <h1 className="font-sans text-5xl font-bold text-foreground mb-6">
-              {t("title")}
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-balance leading-relaxed">
-              {t("subtitle")}
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* Contact Form & Info */}
       <section className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
@@ -148,6 +164,7 @@ Looking forward to hearing from you!`;
                     <div className="space-y-2">
                       <Label htmlFor="name">{t("form.fullName")} *</Label>
                       <Input
+                        className="bg-white/80"
                         id="name"
                         value={formData.name}
                         onChange={(e) =>
@@ -160,6 +177,7 @@ Looking forward to hearing from you!`;
                     <div className="space-y-2">
                       <Label htmlFor="email">{t("form.email")} *</Label>
                       <Input
+                        className="bg-white/80"
                         id="email"
                         type="email"
                         value={formData.email}
@@ -175,6 +193,7 @@ Looking forward to hearing from you!`;
                   <div className="space-y-2">
                     <Label htmlFor="phone">{t("form.phone")}</Label>
                     <Input
+                      className="bg-white/80"
                       id="phone"
                       type="tel"
                       value={formData.phone}
@@ -189,6 +208,7 @@ Looking forward to hearing from you!`;
                     <div className="space-y-2">
                       <Label htmlFor="checkIn">{t("form.checkInDate")} *</Label>
                       <Input
+                        className="bg-white/80"
                         id="checkIn"
                         type="date"
                         value={formData.checkIn}
@@ -203,6 +223,7 @@ Looking forward to hearing from you!`;
                         {t("form.checkOutDate")} *
                       </Label>
                       <Input
+                        className="bg-white/80"
                         id="checkOut"
                         type="date"
                         value={formData.checkOut}
@@ -222,32 +243,19 @@ Looking forward to hearing from you!`;
                           handleInputChange("guests", value)
                         }
                       >
-                        <SelectTrigger>
+                        <SelectTrigger className="bg-white/80">
                           <SelectValue placeholder={t("form.selectGuests")} />
                         </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="1">1 {t("form.guest")}</SelectItem>
-                          <SelectItem value="2">
-                            2 {t("form.guests")}
-                          </SelectItem>
-                          <SelectItem value="3">
-                            3 {t("form.guests")}
-                          </SelectItem>
-                          <SelectItem value="4">
-                            4 {t("form.guests")}
-                          </SelectItem>
-                          <SelectItem value="5">
-                            5 {t("form.guests")}
-                          </SelectItem>
-                          <SelectItem value="6">
-                            6 {t("form.guests")}
-                          </SelectItem>
-                          <SelectItem value="7">
-                            7 {t("form.guests")}
-                          </SelectItem>
-                          <SelectItem value="8">
-                            8 {t("form.guests")}
-                          </SelectItem>
+                        <SelectContent className="bg-white">
+                          {[...Array(12)].map((_, i) => {
+                            const value = i + 1;
+                            return (
+                              <SelectItem key={value} value={String(value)}>
+                                {value}{" "}
+                                {t(value === 1 ? "form.guest" : "form.guests")}
+                              </SelectItem>
+                            );
+                          })}
                         </SelectContent>
                       </Select>
                     </div>
@@ -260,10 +268,10 @@ Looking forward to hearing from you!`;
                           handleInputChange("eventType", value)
                         }
                       >
-                        <SelectTrigger>
+                        <SelectTrigger className="bg-white/80">
                           <SelectValue placeholder={t("form.selectPurpose")} />
                         </SelectTrigger>
-                        <SelectContent>
+                        <SelectContent className="bg-white">
                           <SelectItem value="vacation">
                             {t("form.purposes.vacation")}
                           </SelectItem>
@@ -290,6 +298,7 @@ Looking forward to hearing from you!`;
                   <div className="space-y-2">
                     <Label htmlFor="message">{t("form.specialRequests")}</Label>
                     <Textarea
+                      className="bg-white/80"
                       id="message"
                       value={formData.message}
                       onChange={(e) =>
@@ -300,12 +309,27 @@ Looking forward to hearing from you!`;
                     />
                   </div>
 
+                  {/* Status Messages */}
+                  {submitStatus === 'success' && (
+                    <div className="p-4 bg-green-50 border border-green-200 rounded-lg text-green-800">
+                      <p className="font-medium">{t('form.successMessage')}</p>
+                    </div>
+                  )}
+
+                  {submitStatus === 'error' && (
+                    <div className="p-4 bg-red-50 border border-red-200 rounded-lg text-red-800">
+                      <p className="font-medium">{t('form.errorMessage')}</p>
+                      {errorMessage && <p className="text-sm mt-1">{errorMessage}</p>}
+                    </div>
+                  )}
+
                   <div className="flex flex-col sm:flex-row gap-4">
                     <Button
                       type="submit"
-                      className="flex-1 bg-accent hover:bg-accent/90 text-accent-foreground"
+                      disabled={isSubmitting}
+                      className="flex-1 bg-accent hover:bg-accent/90 text-accent-foreground disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      {t("form.sendInquiry")}
+                      {isSubmitting ? t('form.sending') : t("form.sendInquiry")}
                     </Button>
                     <Button
                       type="button"
@@ -323,9 +347,9 @@ Looking forward to hearing from you!`;
             {/* Contact Information */}
             <div className="space-y-8">
               <div>
-                <h2 className="font-sans text-2xl font-bold text-foreground mb-6">
+                {/* <h2 className="font-sans text-2xl font-bold text-foreground mb-6">
                   {t("getInTouch")}
-                </h2>
+                </h2> */}
                 <div className="grid gap-6">
                   {contactInfo.map((info, index) => (
                     <Card
@@ -367,59 +391,13 @@ Looking forward to hearing from you!`;
                   ))}
                 </div>
               </div>
-
-              {/* Quick Stats */}
-              <Card className="border-accent/20">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <Users className="w-5 h-5 text-accent" />
-                    {t("quickFacts")}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="text-center p-4 bg-card rounded-lg">
-                      <div className="font-sans text-2xl font-bold text-accent mb-1">
-                        420m²
-                      </div>
-                      <div className="text-sm text-muted-foreground">
-                        {t("quickFactsItems.totalSpace")}
-                      </div>
-                    </div>
-                    <div className="text-center p-4 bg-card rounded-lg">
-                      <div className="font-sans text-2xl font-bold text-accent mb-1">
-                        8
-                      </div>
-                      <div className="text-sm text-muted-foreground">
-                        {t("quickFactsItems.maxGuests")}
-                      </div>
-                    </div>
-                    <div className="text-center p-4 bg-card rounded-lg">
-                      <div className="font-sans text-2xl font-bold text-accent mb-1">
-                        200m
-                      </div>
-                      <div className="text-sm text-muted-foreground">
-                        {t("quickFactsItems.toBeach")}
-                      </div>
-                    </div>
-                    <div className="text-center p-4 bg-card rounded-lg">
-                      <div className="font-sans text-2xl font-bold text-accent mb-1">
-                        24/7
-                      </div>
-                      <div className="text-sm text-muted-foreground">
-                        {t("quickFactsItems.support")}
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
             </div>
           </div>
         </div>
       </section>
 
       {/* Map Section */}
-      <section className="py-16 px-4 bg-card/30">
+      <section className="py-8 px-4 bg-card/30">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="font-sans text-3xl font-bold text-foreground mb-4">

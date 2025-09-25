@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { Link, usePathname } from "@/i18n/navigation";
@@ -11,16 +11,21 @@ import { Link, usePathname } from "@/i18n/navigation";
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [eventsDropdownOpen, setEventsDropdownOpen] = useState(false);
   const pathname = usePathname();
   const t = useTranslations("navigation");
+  const eventsT = useTranslations("events");
 
   const navItems = [
     { name: t("home"), href: "/" },
-    { name: t("about"), href: "/about" },
     { name: t("gallery"), href: "/gallery" },
-    { name: t("events"), href: "/events" },
-    { name: t("faq"), href: "/faq" },
     { name: t("contact"), href: "/contact" },
+  ];
+
+  const eventsDropdownItems = [
+    { name: eventsT("eventTypes.intimate.title"), href: "/vacation" },
+    { name: eventsT("eventTypes.bridal.title"), href: "/bridal-event" },
+    { name: eventsT("eventTypes.business.title"), href: "/events" },
   ];
 
   useEffect(() => {
@@ -33,7 +38,22 @@ export function Navigation() {
 
   useEffect(() => {
     setIsOpen(false);
+    setEventsDropdownOpen(false);
   }, [pathname]);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Element;
+      if (!target.closest("[data-events-dropdown]")) {
+        setEventsDropdownOpen(false);
+      }
+    };
+
+    if (eventsDropdownOpen) {
+      document.addEventListener("click", handleClickOutside);
+      return () => document.removeEventListener("click", handleClickOutside);
+    }
+  }, [eventsDropdownOpen]);
 
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
@@ -70,9 +90,14 @@ export function Navigation() {
                 className="h-10 w-auto transition-transform duration-300 group-hover:scale-110"
               />
             </div>
-            <span className="font-sans font-semibold text-lg text-foreground group-hover:text-accent transition-colors duration-300">
-              {t("siteTitle")}
-            </span>
+            <div className="flex flex-col">
+              <span className="font-sans font-semibold text-lg text-foreground group-hover:text-accent transition-colors duration-300">
+                {t("siteTitle")}
+              </span>
+              <span className="font-sans font-semibold text-sm text-amber-600 text-center group-hover:text-accent transition-colors duration-300">
+                {t("ashdod")}
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
@@ -90,9 +115,45 @@ export function Navigation() {
                 {item.name}
               </Link>
             ))}
-            <Button className="ml-4 bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-              {t("bookStay")}
-            </Button>
+
+            {/* Events Dropdown */}
+            <div className="relative" data-events-dropdown>
+              <button
+                onClick={() => setEventsDropdownOpen(!eventsDropdownOpen)}
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 relative group flex items-center gap-1 ${
+                  pathname.startsWith("/events")
+                    ? "text-accent bg-accent/10"
+                    : "text-foreground hover:text-accent hover:bg-accent/5"
+                }`}
+              >
+                {t("events")}
+                <ChevronDown
+                  className={`w-4 h-4 transition-transform duration-200 ${
+                    eventsDropdownOpen ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+
+              {eventsDropdownOpen && (
+                <div className="absolute top-full left-0 mt-1 w-56 bg-background border border-accent/20 rounded-lg shadow-lg z-50 backdrop-blur-sm">
+                  {eventsDropdownItems.map((item, index) => (
+                    <Link
+                      key={index}
+                      href={item.href}
+                      className="block px-4 py-3 text-sm text-foreground hover:text-accent hover:bg-accent/5 transition-colors first:rounded-t-lg last:rounded-b-lg"
+                      onClick={() => setEventsDropdownOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+            <Link href="http://airbnb.com/h/thepenthouseashdod" target="_blank">
+              <Button className="ml-4 bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                {t("bookStay")}
+              </Button>
+            </Link>
             <LanguageSwitcher />
           </div>
 
@@ -134,9 +195,14 @@ export function Navigation() {
                     height={32}
                     className="h-8 w-auto"
                   />
-                  <span className="font-sans font-semibold text-lg text-foreground">
-                    {t("siteTitle")}
-                  </span>
+                  <div className="flex flex-col">
+                    <span className="font-sans font-semibold text-lg text-foreground group-hover:text-accent transition-colors duration-300">
+                      {t("siteTitle")}
+                    </span>
+                    <span className="font-sans font-semibold text-sm text-amber-600 text-center group-hover:text-accent transition-colors duration-300">
+                      {t("ashdod")}
+                    </span>
+                  </div>
                 </div>
                 <Button
                   variant="ghost"
@@ -167,6 +233,27 @@ export function Navigation() {
                         {item.name}
                       </Link>
                     ))}
+
+                    {/* Events section in mobile */}
+                    <div className="border-t border-accent/20 pt-4 mt-4">
+                      <div className="text-center text-sm font-medium text-muted-foreground mb-2">
+                        {t("events")}
+                      </div>
+                      {eventsDropdownItems.map((item, index) => (
+                        <Link
+                          key={index}
+                          href={item.href}
+                          className={`block text-center py-3 text-base font-medium transition-colors ${
+                            pathname === item.href
+                              ? "text-accent"
+                              : "text-foreground hover:text-accent"
+                          }`}
+                          onClick={() => setIsOpen(false)}
+                        >
+                          {item.name}
+                        </Link>
+                      ))}
+                    </div>
                   </nav>
                 </div>
 
@@ -175,12 +262,17 @@ export function Navigation() {
                   <div className="flex justify-center">
                     <LanguageSwitcher />
                   </div>
-                  <Button
-                    className="w-full py-4 text-lg bg-accent hover:bg-accent/90 text-accent-foreground"
-                    onClick={() => setIsOpen(false)}
+                  <Link
+                    href="http://airbnb.com/h/thepenthouseashdod"
+                    target="_blank"
                   >
-                    {t("bookStay")}
-                  </Button>
+                    <Button
+                      className="w-full py-4 text-lg bg-accent hover:bg-accent/90 text-accent-foreground"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {t("bookStay")}
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </div>

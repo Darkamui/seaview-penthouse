@@ -1,16 +1,16 @@
 "use client";
 
-import { useState } from "react";
-import { Badge } from "@/components/ui/badge";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { X, ChevronLeft, ChevronRight, Play } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { useSearchParams } from "next/navigation";
 
-const galleryCategories = [
+const getGalleryCategories = (t: (key: string) => string) => [
   {
     id: "inside-spaces",
-    name: "Inside Spaces",
+    name: t("categories.insideSpaces"),
     images: [
       {
         src: "/images/living.jpg",
@@ -96,7 +96,7 @@ const galleryCategories = [
   },
   {
     id: "balcony-sea-view",
-    name: "Balcony & Sea View",
+    name: t("categories.balconySeaView"),
     images: [
       {
         src: "/images/balcony.jpg",
@@ -146,27 +146,27 @@ const galleryCategories = [
   },
   {
     id: "events",
-    name: "Events",
+    name: t("categories.events"),
     images: [],
   },
   {
     id: "video",
-    name: "Video",
+    name: t("categories.video"),
     videos: [
       {
         thumbnail: "/penthouse-virtual-tour-thumbnail.png",
-        title: "Virtual Tour",
-        description: "Complete walkthrough of the penthouse",
+        title: t("videoItems.virtualTour.title"),
+        description: t("videoItems.virtualTour.description"),
       },
       {
         thumbnail: "/sunset-timelapse-from-balcony.png",
-        title: "Sunset Timelapse",
-        description: "Beautiful Mediterranean sunset from the balcony",
+        title: t("videoItems.sunsetTimelapse.title"),
+        description: t("videoItems.sunsetTimelapse.description"),
       },
       {
         thumbnail: "/penthouse-amenities-showcase.png",
-        title: "Amenities Showcase",
-        description: "Detailed look at all premium amenities",
+        title: t("videoItems.amenitiesShowcase.title"),
+        description: t("videoItems.amenitiesShowcase.description"),
       },
     ],
   },
@@ -174,6 +174,7 @@ const galleryCategories = [
 
 export default function GalleryPage() {
   const t = useTranslations("gallery");
+  const searchParams = useSearchParams();
   const [activeCategory, setActiveCategory] = useState("inside-spaces");
   const [lightboxImage, setLightboxImage] = useState<{
     src: string;
@@ -181,6 +182,15 @@ export default function GalleryPage() {
   } | null>(null);
   const [lightboxIndex, setLightboxIndex] = useState(0);
 
+  // Set active category from URL parameter on component mount
+  useEffect(() => {
+    const tabParam = searchParams.get("tab");
+    if (tabParam) {
+      setActiveCategory(tabParam);
+    }
+  }, [searchParams]);
+
+  const galleryCategories = getGalleryCategories(t);
   const currentCategory = galleryCategories.find(
     (cat) => cat.id === activeCategory
   );
@@ -214,7 +224,7 @@ export default function GalleryPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 px-4 bg-gradient-to-b from-card to-background">
+      {/* <section className="relative py-20 px-4 bg-gradient-to-b from-card to-background">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <Badge className="mb-4 bg-accent/10 text-accent-foreground border-accent/20">
@@ -228,10 +238,10 @@ export default function GalleryPage() {
             </p>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Category Navigation */}
-      <section className="py-8 px-4 border-b border-accent/20">
+      <section className="py-8 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-wrap justify-center gap-4">
             {galleryCategories.map((category) => (
@@ -253,7 +263,7 @@ export default function GalleryPage() {
       </section>
 
       {/* Gallery Grid */}
-      <section className="py-16 px-4">
+      <section className="py-8 px-4">
         <div className="max-w-7xl mx-auto">
           {activeCategory === "video" ? (
             // Video Grid

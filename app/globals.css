@@ -4,40 +4,40 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Updated color tokens for luxury penthouse theme with deep blue, white, cream, and gold */
+  /* Updated color tokens to clean white & blue theme, removing gold/yellow accents */
   --background: oklch(1 0 0); /* Pure white */
   --foreground: oklch(0.205 0.118 264.376); /* Deep blue #00274d */
-  --card: oklch(0.985 0.02 85.87); /* Light cream #fefce8 */
+  --card: oklch(0.98 0.005 240); /* Very light blue-tinted white */
   --card-foreground: oklch(0.205 0.118 264.376); /* Deep blue */
   --popover: oklch(1 0 0); /* White */
   --popover-foreground: oklch(0.205 0.118 264.376); /* Deep blue */
   --primary: oklch(0.205 0.118 264.376); /* Deep blue #00274d */
   --primary-foreground: oklch(1 0 0); /* White */
-  --secondary: oklch(0.769 0.188 70.08); /* Gold #d4af37 */
-  --secondary-foreground: oklch(0.205 0.118 264.376); /* Deep blue */
-  --muted: oklch(0.985 0.02 85.87); /* Light cream */
+  --secondary: oklch(0.556 0.059 264.376); /* Medium blue */
+  --secondary-foreground: oklch(1 0 0); /* White */
+  --muted: oklch(0.96 0.01 240); /* Light blue-gray */
   --muted-foreground: oklch(0.556 0.059 264.376); /* Muted blue */
-  --accent: oklch(0.769 0.188 70.08); /* Gold #d4af37 */
-  --accent-foreground: oklch(0.205 0.118 264.376); /* Deep blue */
+  --accent: oklch(0.439 0.118 264.376); /* Accent blue */
+  --accent-foreground: oklch(1 0 0); /* White */
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(1 0 0);
-  --border: oklch(0.769 0.188 70.08); /* Gold border */
-  --input: oklch(0.97 0.01 85.87); /* Light input background */
-  --ring: oklch(0.769 0.188 70.08 / 0.5); /* Gold ring with opacity */
-  --chart-1: oklch(0.769 0.188 70.08); /* Gold */
-  --chart-2: oklch(0.205 0.118 264.376); /* Deep blue */
-  --chart-3: oklch(0.985 0.02 85.87); /* Light cream */
+  --border: oklch(0.9 0.02 240); /* Light blue-gray border */
+  --input: oklch(0.98 0.005 240); /* Light input background */
+  --ring: oklch(0.439 0.118 264.376 / 0.5); /* Blue ring with opacity */
+  --chart-1: oklch(0.205 0.118 264.376); /* Deep blue */
+  --chart-2: oklch(0.439 0.118 264.376); /* Medium blue */
+  --chart-3: oklch(0.556 0.059 264.376); /* Light blue */
   --chart-4: oklch(1 0 0); /* White */
-  --chart-5: oklch(0.439 0.059 264.376); /* Medium blue */
+  --chart-5: oklch(0.8 0.03 240); /* Very light blue */
   --radius: 0.5rem;
   --sidebar: oklch(1 0 0); /* White */
   --sidebar-foreground: oklch(0.205 0.118 264.376); /* Deep blue */
-  --sidebar-primary: oklch(0.769 0.188 70.08); /* Gold */
-  --sidebar-primary-foreground: oklch(0.205 0.118 264.376); /* Deep blue */
-  --sidebar-accent: oklch(0.985 0.02 85.87); /* Light cream */
+  --sidebar-primary: oklch(0.205 0.118 264.376); /* Deep blue */
+  --sidebar-primary-foreground: oklch(1 0 0); /* White */
+  --sidebar-accent: oklch(0.96 0.01 240); /* Light blue-gray */
   --sidebar-accent-foreground: oklch(0.205 0.118 264.376); /* Deep blue */
-  --sidebar-border: oklch(0.769 0.188 70.08); /* Gold */
-  --sidebar-ring: oklch(0.769 0.188 70.08 / 0.5); /* Gold ring */
+  --sidebar-border: oklch(0.9 0.02 240); /* Light blue-gray */
+  --sidebar-ring: oklch(0.439 0.118 264.376 / 0.5); /* Blue ring */
 }
 
 .dark {
@@ -339,7 +339,8 @@
 
   /* RTL Support */
   [dir="rtl"] {
-    font-family: 'Noto Sans Hebrew', var(--font-serif), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+    font-family: "Noto Sans Hebrew", var(--font-serif), ui-serif, Georgia,
+      Cambria, "Times New Roman", Times, serif;
   }
 
   [dir="rtl"] .text-left {
