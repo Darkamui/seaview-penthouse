@@ -85,7 +85,7 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative h-[calc(100vh-3rem)] lg:h-[calc(100vh-4rem)] flex items-end justify-end overflow-hidden">
+    <section className="relative h-[calc(100vh-6rem)] lg:h-[calc(100vh-4rem)] flex items-end justify-end overflow-hidden">
       {/* Background Media Carousel */}
       <div className="absolute inset-0 z-0">
         {heroMedia.map((media, index) => (

@@ -19,13 +19,10 @@ export function Navigation() {
   const navItems = [
     { name: t("home"), href: "/" },
     { name: t("gallery"), href: "/gallery" },
-    { name: t("contact"), href: "/contact" },
-  ];
-
-  const eventsDropdownItems = [
     { name: eventsT("eventTypes.intimate.title"), href: "/vacation" },
     { name: eventsT("eventTypes.bridal.title"), href: "/bridal-event" },
     { name: eventsT("eventTypes.business.title"), href: "/events" },
+    { name: t("contact"), href: "/contact" },
   ];
 
   useEffect(() => {
@@ -117,38 +114,7 @@ export function Navigation() {
             ))}
 
             {/* Events Dropdown */}
-            <div className="relative" data-events-dropdown>
-              <button
-                onClick={() => setEventsDropdownOpen(!eventsDropdownOpen)}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 relative group flex items-center gap-1 ${
-                  pathname.startsWith("/events")
-                    ? "text-accent bg-accent/10"
-                    : "text-foreground hover:text-accent hover:bg-accent/5"
-                }`}
-              >
-                {t("events")}
-                <ChevronDown
-                  className={`w-4 h-4 transition-transform duration-200 ${
-                    eventsDropdownOpen ? "rotate-180" : ""
-                  }`}
-                />
-              </button>
 
-              {eventsDropdownOpen && (
-                <div className="absolute top-full left-0 mt-1 w-56 bg-background border border-accent/20 rounded-lg shadow-lg z-50 backdrop-blur-sm">
-                  {eventsDropdownItems.map((item, index) => (
-                    <Link
-                      key={index}
-                      href={item.href}
-                      className="block px-4 py-3 text-sm text-foreground hover:text-accent hover:bg-accent/5 transition-colors first:rounded-t-lg last:rounded-b-lg"
-                      onClick={() => setEventsDropdownOpen(false)}
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
             <Link href="http://airbnb.com/h/thepenthouseashdod" target="_blank">
               <Button className="ml-4 bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
                 {t("bookStay")}
@@ -233,27 +199,6 @@ export function Navigation() {
                         {item.name}
                       </Link>
                     ))}
-
-                    {/* Events section in mobile */}
-                    <div className="border-t border-accent/20 pt-4 mt-4">
-                      <div className="text-center text-sm font-medium text-muted-foreground mb-2">
-                        {t("events")}
-                      </div>
-                      {eventsDropdownItems.map((item, index) => (
-                        <Link
-                          key={index}
-                          href={item.href}
-                          className={`block text-center py-3 text-base font-medium transition-colors ${
-                            pathname === item.href
-                              ? "text-accent"
-                              : "text-foreground hover:text-accent"
-                          }`}
-                          onClick={() => setIsOpen(false)}
-                        >
-                          {item.name}
-                        </Link>
-                      ))}
-                    </div>
                   </nav>
                 </div>
 
