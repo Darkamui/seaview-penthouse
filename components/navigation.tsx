@@ -198,17 +198,6 @@ export function Navigation() {
                   <div className="flex justify-center">
                     <LanguageSwitcher />
                   </div>
-                  <Link
-                    href="http://airbnb.com/h/thepenthouseashdod"
-                    target="_blank"
-                  >
-                    <Button
-                      className="w-full py-4 text-lg bg-accent hover:bg-accent/90 text-accent-foreground"
-                      onClick={() => setIsOpen(false)}
-                    >
-                      {t("bookStay")}
-                    </Button>
-                  </Link>
                 </div>
               </div>
             </div>
