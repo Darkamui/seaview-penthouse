@@ -20,6 +20,13 @@ const buttonVariants = cva(
         ghost:
           "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
         link: "text-primary underline-offset-4 hover:underline",
+        // Phase 2: Luxury variants
+        "luxury-primary":
+          "bg-primary text-primary-foreground btn-luxury-subtle luxury-hover-subtle shadow-luxury-medium hover:shadow-luxury-lg",
+        "luxury-secondary":
+          "bg-accent/10 text-accent border border-accent/20 luxury-hover-subtle shadow-luxury-soft hover:shadow-luxury-medium hover:bg-accent/20",
+        "luxury-ghost":
+          "glass-luxury text-foreground hover:bg-white/90 shadow-luxury-soft",
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",

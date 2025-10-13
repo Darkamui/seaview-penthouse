@@ -70,10 +70,7 @@ export function Navigation() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-14">
             {/* Mobile: Logo only (left side) */}
-            <Link
-              href="/"
-              className="flex items-center gap-2 group lg:hidden"
-            >
+            <Link href="/" className="flex items-center gap-2 group lg:hidden">
               <Image
                 src="/images/logo-clean.png"
                 alt="The Seaview Penthouse"
@@ -97,99 +94,48 @@ export function Navigation() {
 
             {/* Desktop Layout - Respects RTL/LTR */}
             <div className="hidden lg:flex items-center flex-1 w-full">
-              {isRTL ? (
-                <>
-                  {/* RTL: Language Switcher (left) */}
-                  <div className="flex-shrink-0">
-                    <LanguageSwitcher />
-                  </div>
+              <Link
+                href="/"
+                className="flex items-center gap-2 group flex-shrink-0"
+              >
+                <Image
+                  src="/images/logo-clean.png"
+                  alt="The Seaview Penthouse"
+                  width={32}
+                  height={32}
+                  className="w-8 h-8 transition-transform group-hover:scale-105"
+                />
+                <div className="flex flex-col -space-y-1">
+                  <span className="text-lg font-semibold text-foreground group-hover:text-accent transition-colors whitespace-nowrap">
+                    The Seaview Penthouse
+                  </span>
+                  <span className="text-xs font-medium text-muted-foreground group-hover:text-accent transition-colors text-center">
+                    Ashdod
+                  </span>
+                </div>
+              </Link>
 
-                  {/* RTL: Navigation Links (center) */}
-                  <div className="flex items-center gap-1 flex-1 justify-center">
-                    {navItems.map((item) => (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        className={`px-3 py-1.5 text-sm font-medium rounded-md transition-colors ${
-                          pathname === item.href
-                            ? "text-accent bg-accent/10"
-                            : "text-foreground hover:text-accent hover:bg-accent/5"
-                        }`}
-                      >
-                        {item.name}
-                      </Link>
-                    ))}
-                  </div>
-
-                  {/* RTL: Logo + Title (right) */}
+              {/* LTR: Navigation Links (center) */}
+              <div className="flex items-center gap-1 flex-1 justify-center">
+                {navItems.map((item) => (
                   <Link
-                    href="/"
-                    className="flex items-center gap-2 group flex-shrink-0"
+                    key={item.href}
+                    href={item.href}
+                    className={`px-3 py-1.5 text-sm font-medium rounded-md transition-colors ${
+                      pathname === item.href
+                        ? "text-accent bg-accent/10"
+                        : "text-foreground hover:text-accent hover:bg-accent/5"
+                    }`}
                   >
-                    <Image
-                      src="/images/logo-clean.png"
-                      alt="The Seaview Penthouse"
-                      width={32}
-                      height={32}
-                      className="w-8 h-8 transition-transform group-hover:scale-105"
-                    />
-                    <div className="flex flex-col -space-y-1">
-                      <span className="text-lg font-semibold text-foreground group-hover:text-accent transition-colors whitespace-nowrap">
-                        The Seaview Penthouse
-                      </span>
-                      <span className="text-xs font-medium text-muted-foreground group-hover:text-accent transition-colors text-center">
-                        Ashdod
-                      </span>
-                    </div>
+                    {item.name}
                   </Link>
-                </>
-              ) : (
-                <>
-                  {/* LTR: Logo + Title (left) */}
-                  <Link
-                    href="/"
-                    className="flex items-center gap-2 group flex-shrink-0"
-                  >
-                    <Image
-                      src="/images/logo-clean.png"
-                      alt="The Seaview Penthouse"
-                      width={32}
-                      height={32}
-                      className="w-8 h-8 transition-transform group-hover:scale-105"
-                    />
-                    <div className="flex flex-col -space-y-1">
-                      <span className="text-lg font-semibold text-foreground group-hover:text-accent transition-colors whitespace-nowrap">
-                        The Seaview Penthouse
-                      </span>
-                      <span className="text-xs font-medium text-muted-foreground group-hover:text-accent transition-colors text-center">
-                        Ashdod
-                      </span>
-                    </div>
-                  </Link>
+                ))}
+              </div>
 
-                  {/* LTR: Navigation Links (center) */}
-                  <div className="flex items-center gap-1 flex-1 justify-center">
-                    {navItems.map((item) => (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        className={`px-3 py-1.5 text-sm font-medium rounded-md transition-colors ${
-                          pathname === item.href
-                            ? "text-accent bg-accent/10"
-                            : "text-foreground hover:text-accent hover:bg-accent/5"
-                        }`}
-                      >
-                        {item.name}
-                      </Link>
-                    ))}
-                  </div>
-
-                  {/* LTR: Language Switcher (right) */}
-                  <div className="flex-shrink-0">
-                    <LanguageSwitcher />
-                  </div>
-                </>
-              )}
+              {/* LTR: Language Switcher (right) */}
+              <div className="flex-shrink-0">
+                <LanguageSwitcher />
+              </div>
             </div>
 
             {/* Mobile Right side - Menu button */}

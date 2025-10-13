@@ -138,7 +138,7 @@ export function HeroSection() {
             >
               <Button
                 size="lg"
-                className="cursor-pointer bg-accent/90 hover:bg-accent text-accent-foreground text-lg px-8 py-4 h-auto font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 btn-hover-lift"
+                className="cursor-pointer bg-accent/90 hover:bg-accent text-accent-foreground text-lg px-8 py-4 h-auto font-semibold btn-luxury-subtle luxury-hover-subtle shadow-luxury-lg"
               >
                 {t("bookStay")}
               </Button>
@@ -147,7 +147,7 @@ export function HeroSection() {
               <Button
                 variant="outline"
                 size="lg"
-                className="cursor-pointer border-white/40 text-black bg-white/40 hover:bg-white/20 text-lg px-8 py-4 h-auto backdrop-blur-sm  shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                className="cursor-pointer glass-luxury text-black hover:bg-white/90 text-lg px-8 py-4 h-auto shadow-luxury-medium hover:shadow-luxury-lg transition-all duration-500 hover:scale-105"
               >
                 {t("virtualTour")}
               </Button>

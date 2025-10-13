@@ -13,7 +13,9 @@ interface ScrollAnimationProps {
     | "right"
     | "scale"
     | "fade"
-    | "stagger";
+    | "stagger"
+    | "parallax";
+  parallaxSpeed?: "slow" | "medium" | "fast";
   className?: string;
   as?: ElementType;
   threshold?: number;
@@ -28,6 +30,7 @@ export const ScrollAnimation = forwardRef<HTMLElement, ScrollAnimationProps>(
   ({
     children,
     animation = "up",
+    parallaxSpeed = "medium",
     className,
     as: Component = "div",
     threshold = 0.1,
@@ -38,7 +41,12 @@ export const ScrollAnimation = forwardRef<HTMLElement, ScrollAnimationProps>(
     style: customStyle,
     ...props
   }, forwardedRef) => {
-    const internalRef = useScrollAnimation({ threshold, rootMargin, triggerOnce });
+    const internalRef = useScrollAnimation({
+      threshold,
+      rootMargin,
+      triggerOnce,
+      enableParallax: animation === "parallax"
+    });
 
     // Merge both refs properly to avoid hydration issues
     const mergedRef = useCallback(
@@ -62,6 +70,8 @@ export const ScrollAnimation = forwardRef<HTMLElement, ScrollAnimationProps>(
 
     const animationClass = animation === "up"
       ? "scroll-animation"
+      : animation === "parallax"
+      ? `parallax-bg parallax-${parallaxSpeed}`
       : `scroll-animation-${animation}`;
 
     const style = {

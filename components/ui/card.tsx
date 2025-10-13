@@ -81,6 +81,59 @@ function CardFooter({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
+// Phase 2: Luxury Card Variants
+function LuxuryCard({ className, ...props }: React.ComponentProps<"div">) {
+  return (
+    <div
+      data-slot="card"
+      className={cn(
+        "luxury-card text-card-foreground flex flex-col gap-6 rounded-xl py-6 shadow-luxury-medium hover:shadow-luxury-lg transition-all duration-500",
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
+function ElevatedCard({ className, ...props }: React.ComponentProps<"div">) {
+  return (
+    <div
+      data-slot="card"
+      className={cn(
+        "bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-luxury-soft luxury-hover-subtle",
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
+function GlassCard({ className, ...props }: React.ComponentProps<"div">) {
+  return (
+    <div
+      data-slot="card"
+      className={cn(
+        "glass-luxury text-card-foreground flex flex-col gap-6 rounded-xl py-6 shadow-luxury-soft",
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
+function TexturedCard({ className, ...props }: React.ComponentProps<"div">) {
+  return (
+    <div
+      data-slot="card"
+      className={cn(
+        "texture-subtle bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm",
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
 export {
   Card,
   CardHeader,
@@ -89,4 +142,9 @@ export {
   CardAction,
   CardDescription,
   CardContent,
+  // Luxury variants
+  LuxuryCard,
+  ElevatedCard,
+  GlassCard,
+  TexturedCard,
 }

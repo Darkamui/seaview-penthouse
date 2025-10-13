@@ -1,12 +1,29 @@
 import { HeroSection } from "@/components/hero-section";
-import { EventTypes } from "@/components/event-types";
-import { AmenitiesSection } from "@/components/amenities-section";
-import { LocationOverview } from "@/components/location-overview";
 import { setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
-import { FeaturesGrid } from "@/components/features-grid";
-import { CTASection } from "@/components/cta-section";
 import { ScrollAnimation } from "@/components/scroll-animation";
+import dynamic from "next/dynamic";
+
+// Phase 5: Code splitting for below-fold components
+const EventTypes = dynamic(() => import("@/components/event-types").then(mod => ({ default: mod.EventTypes })), {
+  loading: () => <div className="h-96" />
+});
+
+const AmenitiesSection = dynamic(() => import("@/components/amenities-section").then(mod => ({ default: mod.AmenitiesSection })), {
+  loading: () => <div className="h-96" />
+});
+
+const LocationOverview = dynamic(() => import("@/components/location-overview").then(mod => ({ default: mod.LocationOverview })), {
+  loading: () => <div className="h-96" />
+});
+
+const FeaturesGrid = dynamic(() => import("@/components/features-grid").then(mod => ({ default: mod.FeaturesGrid })), {
+  loading: () => <div className="h-96" />
+});
+
+const CTASection = dynamic(() => import("@/components/cta-section").then(mod => ({ default: mod.CTASection })), {
+  loading: () => <div className="h-96" />
+});
 
 type Props = {
   params: Promise<{ locale: string }>;

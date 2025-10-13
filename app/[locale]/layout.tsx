@@ -1,6 +1,13 @@
 import type React from "react";
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono, Manrope } from "next/font/google";
+import {
+  Inter,
+  JetBrains_Mono,
+  Manrope,
+  Playfair_Display,
+  Poppins,
+  Crimson_Text,
+} from "next/font/google";
 import { Suspense } from "react";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
@@ -11,6 +18,7 @@ import "../globals.css";
 import { Footer } from "@/components/footer";
 import { ScrollAnimationObserver } from "@/components/scroll-animation-observer";
 
+// Base fonts (keeping for compatibility)
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
@@ -27,6 +35,28 @@ const manrope = Manrope({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-manrope",
+});
+
+// Luxury fonts for Phase 1
+const playfairDisplay = Playfair_Display({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-display",
+  weight: ["400", "500", "600", "700"],
+});
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-sans-refined",
+  weight: ["300", "400", "500", "600", "700"],
+});
+
+const crimsonText = Crimson_Text({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-serif-luxury",
+  weight: ["400", "600", "700"],
 });
 
 type Props = {
@@ -65,8 +95,14 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   return (
     <html lang={locale} dir={isRtl ? "rtl" : "ltr"}>
+      <head>
+        {/* Phase 5: Resource hints for performance */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://airbnb.com" />
+      </head>
       <body
-        className={`font-serif ${inter.variable} ${jetbrainsMono.variable} ${manrope.variable}`}
+        className={`font-serif ${inter.variable} ${jetbrainsMono.variable} ${manrope.variable} ${playfairDisplay.variable} ${poppins.variable} ${crimsonText.variable}`}
       >
         <NextIntlClientProvider messages={messages}>
           <Navigation />

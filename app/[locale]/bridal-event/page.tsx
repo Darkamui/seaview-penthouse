@@ -1,6 +1,6 @@
 import { CTASection } from "@/components/cta-section";
 import { EventOverview } from "@/components/event-overview";
-import { Card, CardContent } from "@/components/ui/card";
+import { ElevatedCard, CardContent } from "@/components/ui/card";
 import { routing } from "@/i18n/routing";
 import { BedDouble, Armchair, Eye, Wine, Gem, Waves } from "lucide-react";
 import { setRequestLocale, getTranslations } from "next-intl/server";
@@ -39,7 +39,7 @@ export default async function BridalEventPage({ params }: Props) {
       {/* Features Grid */}
       <div className="grid md:grid-cols-3 gap-8 mb-16 px-4">
         <ScrollAnimation animation="stagger" delay={100}>
-          <Card className="border-accent/20 hover:border-accent/40 transition-colors">
+          <ElevatedCard className="border-accent/20">
             <CardContent className="p-6 text-center">
               <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Waves className="w-8 h-8 text-primary" />
@@ -51,11 +51,11 @@ export default async function BridalEventPage({ params }: Props) {
                 {bridalT("features.makeupHairCorner.description")}
               </p>
             </CardContent>
-          </Card>
+          </ElevatedCard>
         </ScrollAnimation>
 
         <ScrollAnimation animation="stagger" delay={200}>
-          <Card className="border-accent/20 hover:border-accent/40 transition-colors">
+          <ElevatedCard className="border-accent/20">
             <CardContent className="p-6 text-center">
               <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <BedDouble className="w-8 h-8 text-primary" />
@@ -67,11 +67,11 @@ export default async function BridalEventPage({ params }: Props) {
                 {bridalT("features.companionsStay.description")}
               </p>
             </CardContent>
-          </Card>
+          </ElevatedCard>
         </ScrollAnimation>
 
         <ScrollAnimation animation="stagger" delay={300}>
-          <Card className="border-accent/20 hover:border-accent/40 transition-colors">
+          <ElevatedCard className="border-accent/20">
             <CardContent className="p-6 text-center">
               <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Armchair className="w-8 h-8 text-primary" />
@@ -83,11 +83,11 @@ export default async function BridalEventPage({ params }: Props) {
                 {bridalT("features.barChairs.description")}
               </p>
             </CardContent>
-          </Card>
+          </ElevatedCard>
         </ScrollAnimation>
 
         <ScrollAnimation animation="stagger" delay={400}>
-          <Card className="border-accent/20 hover:border-accent/40 transition-colors">
+          <ElevatedCard className="border-accent/20">
             <CardContent className="p-6 text-center">
               <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Eye className="w-8 h-8 text-primary" />
@@ -99,11 +99,11 @@ export default async function BridalEventPage({ params }: Props) {
                 {bridalT("features.mirrors.description")}
               </p>
             </CardContent>
-          </Card>
+          </ElevatedCard>
         </ScrollAnimation>
 
         <ScrollAnimation animation="stagger" delay={500}>
-          <Card className="border-accent/20 hover:border-accent/40 transition-colors">
+          <ElevatedCard className="border-accent/20">
             <CardContent className="p-6 text-center">
               <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Wine className="w-8 h-8 text-primary" />
@@ -115,11 +115,11 @@ export default async function BridalEventPage({ params }: Props) {
                 {bridalT("features.coffeeWineFruits.description")}
               </p>
             </CardContent>
-          </Card>
+          </ElevatedCard>
         </ScrollAnimation>
 
         <ScrollAnimation animation="stagger" delay={600}>
-          <Card className="border-accent/20 hover:border-accent/40 transition-colors">
+          <ElevatedCard className="border-accent/20">
             <CardContent className="p-6 text-center">
               <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Gem className="w-8 h-8 text-primary" />
@@ -131,7 +131,7 @@ export default async function BridalEventPage({ params }: Props) {
                 {bridalT("features.brideGroomMeeting.description")}
               </p>
             </CardContent>
-          </Card>
+          </ElevatedCard>
         </ScrollAnimation>
       </div>
       <ScrollAnimation animation="up">

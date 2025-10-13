@@ -1,5 +1,5 @@
 import { useTranslations, useLocale } from "next-intl";
-import { Card, CardContent } from "@/components/ui/card";
+import { ElevatedCard, CardContent } from "@/components/ui/card";
 import { Carousel } from "@/components/ui/carousel";
 import Link from "next/link";
 import { ScrollAnimation } from "./scroll-animation";
@@ -105,7 +105,7 @@ export function FeaturesGrid({
                 href={`/${locale}/gallery?tab=${feature.galleryCategory}`}
                 className="group block"
               >
-                <Card className="border-accent/20 hover:border-accent/40 transition-all hover:scale-[1.02] cursor-pointer overflow-hidden group-hover:shadow-lg h-full">
+                <ElevatedCard className="border-accent/20 cursor-pointer overflow-hidden h-full">
                   <Carousel
                     images={feature.images}
                     alt={feature.title}
@@ -120,7 +120,7 @@ export function FeaturesGrid({
                       {feature.description}
                     </p>
                   </CardContent>
-                </Card>
+                </ElevatedCard>
               </Link>
             </ScrollAnimation>
           ))}
