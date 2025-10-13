@@ -167,59 +167,130 @@ export function AmenitiesModal({ children }: AmenitiesModalProps) {
   const amenityCategories = [
     {
       title: t("categories.views"),
-      items: ["scenicViews", "beachView", "harbourView", "marinaView", "seaViewFull"]
+      items: [
+        "scenicViews",
+        "beachView",
+        "harbourView",
+        "marinaView",
+        "seaViewFull",
+      ],
     },
     {
       title: t("categories.bathroom"),
-      items: ["bathtub", "hairDryer", "cleaningProducts", "shampoo", "conditioner", "bodySoap", "bidet", "hotWater", "showerGel"]
+      items: [
+        "bathtub",
+        "hairDryer",
+        "cleaningProducts",
+        "shampoo",
+        "conditioner",
+        "bodySoap",
+        "bidet",
+        "hotWater",
+        "showerGel",
+      ],
     },
     {
       title: t("categories.bedroom"),
-      items: ["washer", "freeDryer", "towels", "hangers", "bedLinens", "cottonLinens", "extraPillows", "roomDarkening", "iron", "dryingRack", "safe", "clothingStorage"]
+      items: [
+        "washer",
+        "freeDryer",
+        "towels",
+        "hangers",
+        "bedLinens",
+        "cottonLinens",
+        "extraPillows",
+        "roomDarkening",
+        "iron",
+        "dryingRack",
+        "safe",
+        "clothingStorage",
+      ],
     },
     {
       title: t("categories.entertainment"),
-      items: ["ethernet", "tv", "bluetooth", "books"]
+      items: ["ethernet", "tv", "bluetooth", "books"],
     },
     {
       title: t("categories.climate"),
-      items: ["centralAC", "centralHeating"]
+      items: ["centralAC", "centralHeating"],
     },
     {
       title: t("categories.safety"),
-      items: ["securityCameras", "entranceCamera", "fireExtinguisher", "firstAidKit"]
+      items: [
+        "securityCameras",
+        "entranceCamera",
+        "fireExtinguisher",
+        "firstAidKit",
+      ],
     },
     {
       title: t("categories.internet"),
-      items: ["wifi", "workspace", "workspacePrivate", "pocketWifi"]
+      items: ["wifi", "workspace", "workspacePrivate", "pocketWifi"],
     },
     {
       title: t("categories.kitchen"),
-      items: ["kitchenSpace", "refrigerator", "microwave", "cookingBasics", "dishware", "freezer", "dishwasher", "gasStove", "oven", "kettle", "coffeeMaker", "wineGlasses", "toaster", "bakingSheet", "blender", "trashCompactor", "bbqUtensils", "bbqGrill", "diningTable", "coffee"]
+      items: [
+        "kitchenSpace",
+        "refrigerator",
+        "microwave",
+        "cookingBasics",
+        "dishware",
+        "freezer",
+        "dishwasher",
+        "gasStove",
+        "oven",
+        "kettle",
+        "coffeeMaker",
+        "wineGlasses",
+        "toaster",
+        "bakingSheet",
+        "blender",
+        "trashCompactor",
+        "bbqUtensils",
+        "bbqGrill",
+        "diningTable",
+        "coffee",
+      ],
     },
     {
       title: t("categories.location"),
-      items: ["sharedBeach", "beachAccess", "privateEntrance", "separateEntrance", "laundromat"]
+      items: [
+        "sharedBeach",
+        "beachAccess",
+        "privateEntrance",
+        "separateEntrance",
+        "laundromat",
+      ],
     },
     {
       title: t("categories.outdoor"),
-      items: ["privateBalconyFull", "outdoorFurniture", "outdoorDining", "outdoorKitchen", "privateBBQ", "sunLoungers"]
+      items: [
+        "privateBalconyFull",
+        "outdoorFurniture",
+        "outdoorDining",
+        "outdoorKitchen",
+        "privateBBQ",
+        "sunLoungers",
+      ],
     },
     {
       title: t("categories.parking"),
-      items: ["garageParking", "streetParking", "hotTub", "elevator"]
+      items: ["garageParking", "streetParking", "hotTub", "elevator"],
     },
     {
       title: t("categories.services"),
-      items: ["smokingAllowed", "longTermStays", "housekeeping", "hostGreets", "noSmokeAlarm", "noCarbonMonoxide"]
-    }
+      items: [
+        "smokingForbidden",
+        "longTermStays",
+        "housekeeping",
+        "hostGreets",
+      ],
+    },
   ];
 
   return (
     <Dialog>
-      <DialogTrigger asChild>
-        {children}
-      </DialogTrigger>
+      <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold">

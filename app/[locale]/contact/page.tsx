@@ -26,6 +26,8 @@ import {
   Calendar,
 } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { ScrollAnimation } from "@/components/scroll-animation";
+import { CTASection } from "@/components/cta-section";
 
 export default function ContactPage() {
   const t = useTranslations("contact");
@@ -40,8 +42,10 @@ export default function ContactPage() {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-  const [errorMessage, setErrorMessage] = useState('');
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleInputChange = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
@@ -50,14 +54,14 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setSubmitStatus('idle');
-    setErrorMessage('');
+    setSubmitStatus("idle");
+    setErrorMessage("");
 
     try {
-      const response = await fetch('/api/send-email', {
-        method: 'POST',
+      const response = await fetch("/api/send-email", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
@@ -65,7 +69,7 @@ export default function ContactPage() {
       const result = await response.json();
 
       if (response.ok) {
-        setSubmitStatus('success');
+        setSubmitStatus("success");
         // Reset form
         setFormData({
           name: "",
@@ -78,13 +82,15 @@ export default function ContactPage() {
           message: "",
         });
       } else {
-        setSubmitStatus('error');
-        setErrorMessage(result.error || 'Failed to send message');
+        setSubmitStatus("error");
+        setErrorMessage(result.error || "Failed to send message");
       }
     } catch (error) {
-      setSubmitStatus('error');
-      setErrorMessage('Network error. Please check your connection and try again.');
-      console.error('Error submitting form:', error);
+      setSubmitStatus("error");
+      setErrorMessage(
+        "Network error. Please check your connection and try again."
+      );
+      console.error("Error submitting form:", error);
     } finally {
       setIsSubmitting(false);
     }
@@ -142,262 +148,9 @@ Details:
   ];
 
   return (
-    <div className="min-h-screen">
-      {/* Contact Form & Info */}
-      <section className="py-16 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* Contact Form */}
-            <Card className="border-accent/20">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Calendar className="w-5 h-5 text-accent" />
-                  {t("bookingInquiry")}
-                </CardTitle>
-                <p className="text-muted-foreground">
-                  {t("bookingInquirySubtitle")}
-                </p>
-              </CardHeader>
-              <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="name">{t("form.fullName")} *</Label>
-                      <Input
-                        className="bg-white/80"
-                        id="name"
-                        value={formData.name}
-                        onChange={(e) =>
-                          handleInputChange("name", e.target.value)
-                        }
-                        placeholder={t("form.fullNamePlaceholder")}
-                        required
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="email">{t("form.email")} *</Label>
-                      <Input
-                        className="bg-white/80"
-                        id="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={(e) =>
-                          handleInputChange("email", e.target.value)
-                        }
-                        placeholder={t("form.emailPlaceholder")}
-                        required
-                      />
-                    </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="phone">{t("form.phone")}</Label>
-                    <Input
-                      className="bg-white/80"
-                      id="phone"
-                      type="tel"
-                      value={formData.phone}
-                      onChange={(e) =>
-                        handleInputChange("phone", e.target.value)
-                      }
-                      placeholder={t("form.phonePlaceholder")}
-                    />
-                  </div>
-
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="checkIn">{t("form.checkInDate")} *</Label>
-                      <Input
-                        className="bg-white/80"
-                        id="checkIn"
-                        type="date"
-                        value={formData.checkIn}
-                        onChange={(e) =>
-                          handleInputChange("checkIn", e.target.value)
-                        }
-                        required
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="checkOut">
-                        {t("form.checkOutDate")} *
-                      </Label>
-                      <Input
-                        className="bg-white/80"
-                        id="checkOut"
-                        type="date"
-                        value={formData.checkOut}
-                        onChange={(e) =>
-                          handleInputChange("checkOut", e.target.value)
-                        }
-                        required
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="guests">{t("form.numberOfGuests")}</Label>
-                      <Select
-                        onValueChange={(value) =>
-                          handleInputChange("guests", value)
-                        }
-                      >
-                        <SelectTrigger className="bg-white/80">
-                          <SelectValue placeholder={t("form.selectGuests")} />
-                        </SelectTrigger>
-                        <SelectContent className="bg-white">
-                          {[...Array(12)].map((_, i) => {
-                            const value = i + 1;
-                            return (
-                              <SelectItem key={value} value={String(value)}>
-                                {value}{" "}
-                                {t(value === 1 ? "form.guest" : "form.guests")}
-                              </SelectItem>
-                            );
-                          })}
-                        </SelectContent>
-                      </Select>
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="eventType">
-                        {t("form.purposeOfStay")}
-                      </Label>
-                      <Select
-                        onValueChange={(value) =>
-                          handleInputChange("eventType", value)
-                        }
-                      >
-                        <SelectTrigger className="bg-white/80">
-                          <SelectValue placeholder={t("form.selectPurpose")} />
-                        </SelectTrigger>
-                        <SelectContent className="bg-white">
-                          <SelectItem value="vacation">
-                            {t("form.purposes.vacation")}
-                          </SelectItem>
-                          <SelectItem value="business">
-                            {t("form.purposes.business")}
-                          </SelectItem>
-                          <SelectItem value="wedding">
-                            {t("form.purposes.wedding")}
-                          </SelectItem>
-                          <SelectItem value="family">
-                            {t("form.purposes.family")}
-                          </SelectItem>
-                          <SelectItem value="event">
-                            {t("form.purposes.event")}
-                          </SelectItem>
-                          <SelectItem value="other">
-                            {t("form.purposes.other")}
-                          </SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="message">{t("form.specialRequests")}</Label>
-                    <Textarea
-                      className="bg-white/80"
-                      id="message"
-                      value={formData.message}
-                      onChange={(e) =>
-                        handleInputChange("message", e.target.value)
-                      }
-                      placeholder={t("form.specialRequestsPlaceholder")}
-                      rows={4}
-                    />
-                  </div>
-
-                  {/* Status Messages */}
-                  {submitStatus === 'success' && (
-                    <div className="p-4 bg-green-50 border border-green-200 rounded-lg text-green-800">
-                      <p className="font-medium">{t('form.successMessage')}</p>
-                    </div>
-                  )}
-
-                  {submitStatus === 'error' && (
-                    <div className="p-4 bg-red-50 border border-red-200 rounded-lg text-red-800">
-                      <p className="font-medium">{t('form.errorMessage')}</p>
-                      {errorMessage && <p className="text-sm mt-1">{errorMessage}</p>}
-                    </div>
-                  )}
-
-                  <div className="flex flex-col sm:flex-row gap-4">
-                    <Button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="flex-1 bg-accent hover:bg-accent/90 text-accent-foreground disabled:opacity-50 disabled:cursor-not-allowed"
-                    >
-                      {isSubmitting ? t('form.sending') : t("form.sendInquiry")}
-                    </Button>
-                    <Button
-                      type="button"
-                      onClick={handleWhatsApp}
-                      className="flex-1 bg-green-600 hover:bg-green-700 text-white"
-                    >
-                      <MessageSquare className="w-4 h-4 mr-2" />
-                      {t("form.whatsappUs")}
-                    </Button>
-                  </div>
-                </form>
-              </CardContent>
-            </Card>
-
-            {/* Contact Information */}
-            <div className="space-y-8">
-              <div>
-                {/* <h2 className="font-sans text-2xl font-bold text-foreground mb-6">
-                  {t("getInTouch")}
-                </h2> */}
-                <div className="grid gap-6">
-                  {contactInfo.map((info, index) => (
-                    <Card
-                      key={index}
-                      className="border-accent/20 hover:border-accent/40 transition-colors"
-                    >
-                      <CardContent className="p-6">
-                        <div className="flex items-start gap-4">
-                          <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <info.icon className="w-6 h-6 text-accent" />
-                          </div>
-                          <div className="flex-1">
-                            <h3 className="font-semibold text-foreground mb-1">
-                              {info.title}
-                            </h3>
-                            {info.details.map((detail, detailIndex) => (
-                              <p
-                                key={detailIndex}
-                                className="text-muted-foreground text-sm"
-                              >
-                                {detail}
-                              </p>
-                            ))}
-                            {info.action && (
-                              <Button
-                                variant="link"
-                                className="p-0 h-auto text-accent hover:text-accent/80 mt-2"
-                                onClick={() =>
-                                  window.open(info.action!, "_blank")
-                                }
-                              >
-                                {t("contactNow")}
-                              </Button>
-                            )}
-                          </div>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
+    <div className="md:min-h-[75vh] grid grid-cols-1 items-center justify-center">
       {/* Map Section */}
-      <section className="py-8 px-4 bg-card/30">
+      <section className=" py-8 md:py-16 px-4 bg-card/30 flex-1">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="font-sans text-3xl font-bold text-foreground mb-4">
@@ -481,6 +234,7 @@ Details:
           </div>
         </div>
       </section>
+      <CTASection translationNamespace="events" />
     </div>
   );
 }

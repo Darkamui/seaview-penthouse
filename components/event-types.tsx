@@ -4,6 +4,7 @@ import { Card, CardHeader, CardTitle, CardContent } from "./ui/card";
 import { Carousel } from "./ui/carousel";
 import { Button } from "./ui/button";
 import Link from "next/link";
+import { ScrollAnimation } from "./scroll-animation";
 
 export async function EventTypes() {
   const t = await getTranslations("events");
@@ -19,9 +20,14 @@ export async function EventTypes() {
         t("eventTypes.intimate.feature3"),
       ],
       images: [
-        "/images/living.jpg",
-        "/images/living1.jpg",
-        "/images/living2.jpg",
+        "/images/room.jpg",
+        "/images/room1.jpg",
+        "/images/room2.jpg",
+        "/images/room2.jpg",
+        "/images/room3.jpg",
+        "/images/room4.jpg",
+        "/images/room5.jpg",
+        "/images/room6.jpg",
       ],
       color: "text-red-500",
       href: "/vacation",
@@ -37,7 +43,11 @@ export async function EventTypes() {
         t("eventTypes.bridal.feature3"),
         t("eventTypes.bridal.feature4"),
       ],
-      images: ["/images/room.jpg", "/images/room1.jpg", "/images/room2.jpg"],
+      images: [
+        "/images/events/bride.jpg",
+        "/images/events/bridalPrep2.jpg",
+        "/images/events/bridalPrep3.jpg",
+      ],
       color: "text-pink-500",
       href: "/bridal-event",
     },
@@ -64,61 +74,64 @@ export async function EventTypes() {
   return (
     <section className="py-16 px-4">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
+        <ScrollAnimation animation="up" className="text-center mb-12">
           <h2 className="font-sans text-3xl font-bold text-foreground mb-4">
             {t("eventTypesTitle")}
           </h2>
           {/* <p className="text-muted-foreground max-w-2xl mx-auto">
             {t("eventTypesSubtitle")}
           </p> */}
-        </div>
+        </ScrollAnimation>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {eventTypes.map((event, index) => (
-            <Card
+            <ScrollAnimation
               key={index}
-              className="border-accent/20 hover:border-accent/40 transition-colors overflow-hidden flex flex-col"
+              animation={index % 2 === 0 ? "left" : "right"}
+              delay={index * 200}
             >
-              <Carousel images={event.images} alt={event.title} />
-              <CardHeader>
-                <div className="flex items-start gap-3">
-                  <div
-                    className={`w-10 h-10 rounded-lg bg-card flex items-center justify-center flex-shrink-0 ${event.color}`}
-                  >
-                    <event.icon className="w-5 h-5" />
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <CardTitle className="text-lg leading-tight mb-1">
-                      {event.title}
-                    </CardTitle>
-                    <p className="text-sm text-muted-foreground">
-                      {event.capacity}
-                    </p>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent className="pt-0 flex-1 flex flex-col">
-                <p className="text-muted-foreground mb-6 leading-relaxed">
-                  {event.description}
-                </p>
-                <div className="space-y-3 mt-auto">
-                  {event.features.map((feature, featureIndex) => (
+              <Card className="border-accent/20 hover:border-accent/40 transition-colors overflow-hidden flex flex-col h-full">
+                <Carousel images={event.images} alt={event.title} />
+                <CardHeader>
+                  <div className="flex items-start gap-3">
                     <div
-                      key={featureIndex}
-                      className="flex items-start gap-3 text-sm"
+                      className={`w-10 h-10 rounded-lg bg-card flex items-center justify-center flex-shrink-0 ${event.color}`}
                     >
-                      <div className="w-1.5 h-1.5 bg-accent rounded-full flex-shrink-0 mt-2" />
-                      <span className="leading-relaxed">{feature}</span>
+                      <event.icon className="w-5 h-5" />
                     </div>
-                  ))}
-                </div>
-                <Link href={event.href} className="mx-auto">
-                  <Button variant="default" className="mt-6 ">
-                    {t("eventTypesCTA")}
-                  </Button>
-                </Link>
-              </CardContent>
-            </Card>
+                    <div className="min-w-0 flex-1">
+                      <CardTitle className="text-lg leading-tight mb-1">
+                        {event.title}
+                      </CardTitle>
+                      <p className="text-sm text-muted-foreground">
+                        {event.capacity}
+                      </p>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent className="pt-0 flex-1 flex flex-col">
+                  <p className="text-muted-foreground mb-6 leading-relaxed">
+                    {event.description}
+                  </p>
+                  <div className="space-y-3 mt-auto">
+                    {event.features.map((feature, featureIndex) => (
+                      <div
+                        key={featureIndex}
+                        className="flex items-start gap-3 text-sm"
+                      >
+                        <div className="w-1.5 h-1.5 bg-accent rounded-full flex-shrink-0 mt-2" />
+                        <span className="leading-relaxed">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <Link href={event.href} className="mx-auto">
+                    <Button variant="default" className="mt-6 ">
+                      {t("eventTypesCTA")}
+                    </Button>
+                  </Link>
+                </CardContent>
+              </Card>
+            </ScrollAnimation>
           ))}
         </div>
       </div>

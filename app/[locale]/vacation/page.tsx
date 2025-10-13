@@ -1,12 +1,9 @@
 import { CTASection } from "@/components/cta-section";
-import { Card, CardContent } from "@/components/ui/card";
-import { Waves, Sun, Utensils, Bed, Wifi, Car } from "lucide-react";
-import Image from "next/image";
 import { routing } from "@/i18n/routing";
 import { setRequestLocale, getTranslations } from "next-intl/server";
-import { Carousel } from "@/components/ui/carousel";
 import { EventOverview } from "@/components/event-overview";
-import { AmenitiesSection } from "@/components/amenities-section";
+import { ScrollAnimation } from "@/components/scroll-animation";
+import Image from "next/image";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -23,172 +20,49 @@ export default async function VacationPage({ params }: Props) {
   setRequestLocale(locale);
 
   const t = await getTranslations("events");
-  const vacationT = await getTranslations("vacation");
+  const tVacation = await getTranslations("vacation");
   return (
-    <div className="max-w-7xl mx-auto">
-      <EventOverview
-        eventKey="vacationSpace"
-        images={[
-          "/images/balcony1.jpg",
-          "/images/living.jpg",
-          "/images/room.jpg",
-          "/images/balcony4.jpg",
-        ]}
-        imageAlt="Bridal preparation and luxury penthouse spaces"
-      />
-      {/* <div className="grid md:grid-cols-2 gap-12 mb-16">
-          <div className="relative">
-            <div className="aspect-[3/2] rounded-lg overflow-hidden shadow-lg">
-              <Carousel
-                images={[
-                  "/images/room.jpg",
-                  "/images/living.jpg",
-                  "/images/balcony4.jpg",
-                  "/images/kitchen.jpg",
-                ]}
-                alt="Luxury penthouse vacation spaces"
-                aspectRatio="aspect-[3/2]"
-                autoplay
-                autoplayDelay={4000}
+    <div className="min-h-[75vh] max-w-7xl mx-auto">
+      <ScrollAnimation animation="up">
+        <EventOverview
+          eventKey="vacationSpace"
+          images={[
+            "/images/events/family.jpg",
+            "/images/events/family2.jpg",
+            "/images/events/family3.jpg",
+            "/images/events/family4.jpg",
+          ]}
+          imageAlt="Family enjoying their vacation"
+        />
+      </ScrollAnimation>
+
+      {/* Location Block */}
+      <ScrollAnimation animation="up">
+        <div className="py-12 px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row items-center gap-6 bg-card rounded-lg p-6 shadow-lg">
+            <div className="relative w-full md:w-1/3 h-64 rounded-lg overflow-hidden">
+              <Image
+                src="/images/ashdod.jpg"
+                alt={tVacation("locationBlock.title")}
+                fill
+                className="object-cover"
               />
             </div>
-          </div>
-
-          <div className="space-y-6">
-            <div className="flex items-start space-x-4">
-              <Waves className="w-8 h-8 text-primary mt-1 flex-shrink-0" />
-              <div>
-                <h3 className="font-sans text-xl font-semibold mb-2">
-                  {vacationT("hero.oceanfront.title")}
-                </h3>
-                <p className="text-muted-foreground">
-                  {vacationT("hero.oceanfront.description")}
-                </p>
-              </div>
+            <div className="flex-1 text-center md:text-start">
+              <h2 className="text-3xl font-bold text-foreground mb-2">
+                {tVacation("locationBlock.title")}
+              </h2>
+              <p className="text-lg text-muted-foreground">
+                {tVacation("locationBlock.description")}
+              </p>
             </div>
-
-            <div className="flex items-start space-x-4">
-              <Sun className="w-8 h-8 text-primary mt-1 flex-shrink-0" />
-              <div>
-                <h3 className="font-sans text-xl font-semibold mb-2">
-                  {vacationT("hero.allDaySunshine.title")}
-                </h3>
-                <p className="text-muted-foreground">
-                  {vacationT("hero.allDaySunshine.description")}
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-start space-x-4">
-              <Utensils className="w-8 h-8 text-primary mt-1 flex-shrink-0" />
-              <div>
-                <h3 className="font-sans text-xl font-semibold mb-2">
-                  {vacationT("hero.gourmetKitchen.title")}
-                </h3>
-                <p className="text-muted-foreground">
-                  {vacationT("hero.gourmetKitchen.description")}
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-start space-x-4">
-              <Bed className="w-8 h-8 text-primary mt-1 flex-shrink-0" />
-              <div>
-                <h3 className="font-sans text-xl font-semibold mb-2">
-                  {vacationT("hero.luxuryAccommodations.title")}
-                </h3>
-                <p className="text-muted-foreground">
-                  {vacationT("hero.luxuryAccommodations.description")}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div> */}
-
-      {/* Amenities Grid */}
-      <div className="grid md:grid-cols-3 gap-8 mb-16">
-        <Card className="border-accent/20 hover:border-accent/40 transition-colors">
-          <CardContent className="p-6 text-center">
-            <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Wifi className="w-8 h-8 text-primary" />
-            </div>
-            <h3 className="font-sans text-xl font-semibold mb-2">
-              {vacationT("amenities.modernConnectivity.title")}
-            </h3>
-            <p className="text-muted-foreground">
-              {vacationT("amenities.modernConnectivity.description")}
-            </p>
-          </CardContent>
-        </Card>
-
-        <Card className="border-accent/20 hover:border-accent/40 transition-colors">
-          <CardContent className="p-6 text-center">
-            <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Car className="w-8 h-8 text-primary" />
-            </div>
-            <h3 className="font-sans text-xl font-semibold mb-2">
-              {vacationT("amenities.convenientLocation.title")}
-            </h3>
-            <p className="text-muted-foreground">
-              {vacationT("amenities.convenientLocation.description")}
-            </p>
-          </CardContent>
-        </Card>
-
-        <Card className="border-accent/20 hover:border-accent/40 transition-colors">
-          <CardContent className="p-6 text-center">
-            <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Sun className="w-8 h-8 text-primary" />
-            </div>
-            <h3 className="font-sans text-xl font-semibold mb-2">
-              {vacationT("amenities.yearRoundComfort.title")}
-            </h3>
-            <p className="text-muted-foreground">
-              {vacationT("amenities.yearRoundComfort.description")}
-            </p>
-          </CardContent>
-        </Card>
-      </div>
-
-      {/* Gallery Preview */}
-      <div className="mb-16">
-        <h3 className="font-sans text-3xl font-bold text-center mb-8">
-          {vacationT("gallery.title")}
-        </h3>
-        <div className="grid md:grid-cols-3 gap-6">
-          <div className="relative aspect-video rounded-lg overflow-hidden">
-            <Image
-              src="/images/balcony2.jpg"
-              alt={vacationT("gallery.altTexts.eveningBalcony")}
-              fill
-              className="object-cover hover:scale-105 transition-transform duration-300"
-            />
-          </div>
-          <div className="relative aspect-video rounded-lg overflow-hidden">
-            <Image
-              src="/images/kitchen1.jpg"
-              alt={vacationT("gallery.altTexts.modernKitchen")}
-              fill
-              className="object-cover hover:scale-105 transition-transform duration-300"
-            />
-          </div>
-          <div className="relative aspect-video rounded-lg overflow-hidden">
-            <Image
-              src="/images/balcony5.jpg"
-              alt={vacationT("gallery.altTexts.luxuryBathroom")}
-              fill
-              className="object-cover hover:scale-105 transition-transform duration-300"
-            />
           </div>
         </div>
-      </div>
-      <AmenitiesSection />
-      {/* CTA Section */}
-      <CTASection
-        translationNamespace="events"
-        primaryButtonText={t("requestEventQuote")}
-        secondaryButtonText={t("scheduleViewing")}
-      />
+      </ScrollAnimation>
+
+      <ScrollAnimation animation="up">
+        <CTASection translationNamespace="events" />
+      </ScrollAnimation>
     </div>
   );
 }

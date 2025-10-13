@@ -225,12 +225,10 @@
         "streetParking": "Free street parking",
         "hotTub": "Private hot tub",
         "elevator": "Elevator (52 inches deep, 32 inches wide doorway)",
-        "smokingAllowed": "Smoking allowed",
+        "smokingForbidden": "Smoking forbidden",
         "longTermStays": "Long-term stays allowed (28 days or more)",
         "housekeeping": "Housekeeping available 5 hours a day, every day - available at extra cost",
-        "hostGreets": "Host greets you",
-        "noSmokeAlarm": "No smoke alarm on the property",
-        "noCarbonMonoxide": "No carbon monoxide detector on the property"
+        "hostGreets": "Host greets you"
       }
     }
   },
@@ -326,7 +324,7 @@
     "eventTypes": {
       "intimate": {
         "title": "Penthouse Vacations",
-        "capacity": "Up to 9-12 people",
+        "capacity": "Up to 12 people",
         "description": "300 sqm penthouse with a massive 270 sqm terrace overlooking breathtaking sea views",
         "feature1": "5 beautifully designed and equipped bedrooms down to the smallest details",
         "feature2": "Luxurious master suite with jacuzzi and terrace access",
@@ -377,7 +375,11 @@
     "readyToPlan": "Ready to Plan Your Event?",
     "readyToPlanSubtitle": "Let us help you create an unforgettable experience in our luxury penthouse",
     "requestEventQuote": "Request Event Quote",
-    "scheduleViewing": "Schedule Viewing"
+    "scheduleViewing": "Schedule Viewing",
+    "ctaTitle": "For a Quote and More Details",
+    "whatsappText": "Contact Us Now",
+    "phoneNumber": "+972-546-606-233",
+    "followUs": "Follow Us"
   },
   "gallery": {
     "badge": "Visual Experience",
@@ -548,6 +550,10 @@
     }
   },
   "vacation": {
+    "locationBlock": {
+      "title": "Location - Facing the Sea",
+      "description": "5-minute walk from lifeguarded beach"
+    },
     "hero": {
       "oceanfront": {
         "title": "Oceanfront Paradise",

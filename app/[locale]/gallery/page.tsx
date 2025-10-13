@@ -6,6 +6,8 @@ import Image from "next/image";
 import { X, ChevronLeft, ChevronRight, Play } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useSearchParams } from "next/navigation";
+import { ScrollAnimation } from "@/components/scroll-animation";
+import { CTASection } from "@/components/cta-section";
 
 const getGalleryCategories = (t: (key: string) => string) => [
   {
@@ -243,22 +245,33 @@ export default function GalleryPage() {
       {/* Category Navigation */}
       <section className="py-8 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-wrap justify-center gap-4">
-            {galleryCategories.map((category) => (
-              <Button
+          <ScrollAnimation
+            animation="up"
+            className="flex flex-wrap justify-center gap-4"
+          >
+            {galleryCategories.map((category, index) => (
+              <ScrollAnimation
                 key={category.id}
-                variant={activeCategory === category.id ? "default" : "outline"}
-                onClick={() => setActiveCategory(category.id)}
-                className={
-                  activeCategory === category.id
-                    ? "bg-accent hover:bg-accent/90 text-accent-foreground"
-                    : "cursor-pointer border-accent/20 hover:border-accent/40 hover:bg-accent/5"
-                }
+                animation="stagger"
+                delay={index * 100}
+                as="div"
               >
-                {category.name}
-              </Button>
+                <Button
+                  variant={
+                    activeCategory === category.id ? "default" : "outline"
+                  }
+                  onClick={() => setActiveCategory(category.id)}
+                  className={
+                    activeCategory === category.id
+                      ? "bg-accent hover:bg-accent/90 text-accent-foreground"
+                      : "cursor-pointer border-accent/20 hover:border-accent/40 hover:bg-accent/5"
+                  }
+                >
+                  {category.name}
+                </Button>
+              </ScrollAnimation>
             ))}
-          </div>
+          </ScrollAnimation>
         </div>
       </section>
 
@@ -269,7 +282,12 @@ export default function GalleryPage() {
             // Video Grid
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {currentCategory?.videos?.map((video, index) => (
-                <div key={index} className="group cursor-pointer">
+                <ScrollAnimation
+                  key={index}
+                  animation="stagger"
+                  delay={index * 150}
+                  className="group cursor-pointer"
+                >
                   <div className="relative aspect-video rounded-lg overflow-hidden bg-card border border-accent/20 hover:border-accent/40 transition-colors">
                     <Image
                       src={video.thumbnail || "/placeholder.svg"}
@@ -291,19 +309,23 @@ export default function GalleryPage() {
                       {video.description}
                     </p>
                   </div>
-                </div>
+                </ScrollAnimation>
               ))}
             </div>
           ) : (
             // Image Grid
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {currentImages.map((image, index) => (
-                <div
+                <ScrollAnimation
                   key={index}
+                  animation="stagger"
+                  delay={index * 50}
                   className="group cursor-pointer"
-                  onClick={() => openLightbox(image, index)}
                 >
-                  <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-card border border-accent/20 hover:border-accent/40 transition-colors">
+                  <div
+                    className="relative aspect-[4/3] rounded-lg overflow-hidden bg-card border border-accent/20 hover:border-accent/40 transition-colors"
+                    onClick={() => openLightbox(image, index)}
+                  >
                     <Image
                       src={image.src || "/placeholder.svg"}
                       alt={image.alt}
@@ -312,7 +334,7 @@ export default function GalleryPage() {
                     />
                     <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors" />
                   </div>
-                </div>
+                </ScrollAnimation>
               ))}
             </div>
           )}
@@ -370,6 +392,7 @@ export default function GalleryPage() {
           </div>
         </div>
       )}
+      <CTASection translationNamespace="events" />
     </div>
   );
 }

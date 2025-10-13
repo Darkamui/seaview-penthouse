@@ -4,6 +4,7 @@ import Image from "next/image";
 import { routing } from "@/i18n/routing";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { EventOverview } from "@/components/event-overview";
+import { ScrollAnimation } from "@/components/scroll-animation";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -24,16 +25,18 @@ export default async function EventsPage({ params }: Props) {
   return (
     <section className="py-4 px-4">
       <div className="max-w-7xl mx-auto">
-        <EventOverview
-          eventKey="meetingSpace"
-          images={[
-            "/images/events/business.jpg",
-            "/images/living3.jpg",
-            "/images/balcony.jpg",
-            "/images/kitchen2.jpg",
-          ]}
-          imageAlt="Business meeting space and professional venues"
-        />
+        <ScrollAnimation animation="up">
+          <EventOverview
+            eventKey="meetingSpace"
+            images={[
+              "/images/events/business.jpg",
+              "/images/events/business2.jpg",
+              "/images/events/business3.jpg",
+              "/images/events/business4.jpg",
+            ]}
+            imageAlt="Business meeting space and professional venues"
+          />
+        </ScrollAnimation>
 
         {/* Features */}
         {/* <div className="grid md:grid-cols-3 gap-8 mb-16">
@@ -96,9 +99,12 @@ export default async function EventsPage({ params }: Props) {
         </div> */}
 
         {/* Capacity & Services */}
-        <div className="bg-primary/5 rounded-2xl p-8 mb-16">
+        <ScrollAnimation
+          animation="scale"
+          className="bg-primary/5 rounded-2xl p-8 mb-16"
+        >
           <div className="grid md:grid-cols-2 gap-8">
-            <div>
+            <ScrollAnimation animation="left" delay={200}>
               <h3 className="font-sans text-2xl font-bold text-foreground mb-4">
                 {eventPageT("capacity.title")}
               </h3>
@@ -108,8 +114,8 @@ export default async function EventsPage({ params }: Props) {
                 <li>• {eventPageT("capacity.businessMeeting")}</li>
                 <li>• {eventPageT("capacity.presentationSetup")}</li>
               </ul>
-            </div>
-            <div>
+            </ScrollAnimation>
+            <ScrollAnimation animation="right" delay={400}>
               <h3 className="font-sans text-2xl font-bold text-foreground mb-4">
                 {eventPageT("services.title")}
               </h3>
@@ -119,16 +125,14 @@ export default async function EventsPage({ params }: Props) {
                 <li>• {eventPageT("services.avEquipment")}</li>
                 <li>• {eventPageT("services.eventSupport")}</li>
               </ul>
-            </div>
+            </ScrollAnimation>
           </div>
-        </div>
+        </ScrollAnimation>
 
         {/* CTA Section */}
-        <CTASection
-          translationNamespace="events"
-          primaryButtonText={t("requestEventQuote")}
-          secondaryButtonText={t("scheduleViewing")}
-        />
+        <ScrollAnimation animation="up">
+          <CTASection translationNamespace="events" />
+        </ScrollAnimation>
       </div>
     </section>
   );

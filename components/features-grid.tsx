@@ -2,6 +2,7 @@ import { useTranslations, useLocale } from "next-intl";
 import { Card, CardContent } from "@/components/ui/card";
 import { Carousel } from "@/components/ui/carousel";
 import Link from "next/link";
+import { ScrollAnimation } from "./scroll-animation";
 
 interface Feature {
   title: string;
@@ -73,13 +74,10 @@ export function FeaturesGrid({
       description: t("features.location.description"),
       galleryCategory: "inside-spaces",
       images: [
-        "/images/kitchen.jpg",
-        "/images/kitchen1.jpg",
-        "/images/kitchen2.jpg",
-        "/images/bath.jpg",
-        "/images/bath1.jpg",
-        "/images/bath2.jpg",
-        "/images/bath3.jpg",
+        "/images/ashdod.jpg",
+        "/images/ashdod1.webp",
+        "/images/ashdod2.jpg",
+        "/images/ashdod3.jpg",
       ],
     },
   ];
@@ -87,39 +85,44 @@ export function FeaturesGrid({
   return (
     <section className={`py-16 px-4 bg-card/30 ${className}`}>
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
+        <ScrollAnimation animation="up" className="text-center mb-12">
           <h2 className="font-sans text-3xl font-bold text-foreground mb-4">
             {t("featuresTitle")}
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             {t("featuresSubtitle")}
           </p>
-        </div>
+        </ScrollAnimation>
 
         <div className="grid md:grid-cols-2 gap-8">
           {features.map((feature, index) => (
-            <Link
+            <ScrollAnimation
               key={index}
-              href={`/${locale}/gallery?tab=${feature.galleryCategory}`}
-              className="group block"
+              animation={index % 2 === 0 ? "left" : "right"}
+              delay={index * 200}
             >
-              <Card className="border-accent/20 hover:border-accent/40 transition-all hover:scale-[1.02] cursor-pointer overflow-hidden group-hover:shadow-lg">
-                <Carousel
-                  images={feature.images}
-                  alt={feature.title}
-                  autoplay
-                  autoplayDelay={4000}
-                />
-                <CardContent className="p-6">
-                  <h3 className="font-sans text-xl font-semibold mb-3 group-hover:text-accent transition-colors">
-                    {feature.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {feature.description}
-                  </p>
-                </CardContent>
-              </Card>
-            </Link>
+              <Link
+                href={`/${locale}/gallery?tab=${feature.galleryCategory}`}
+                className="group block"
+              >
+                <Card className="border-accent/20 hover:border-accent/40 transition-all hover:scale-[1.02] cursor-pointer overflow-hidden group-hover:shadow-lg h-full">
+                  <Carousel
+                    images={feature.images}
+                    alt={feature.title}
+                    autoplay
+                    autoplayDelay={4000}
+                  />
+                  <CardContent className="p-6">
+                    <h3 className="font-sans text-xl font-semibold mb-3 group-hover:text-accent transition-colors">
+                      {feature.title}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {feature.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              </Link>
+            </ScrollAnimation>
           ))}
         </div>
       </div>

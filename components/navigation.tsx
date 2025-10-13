@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { Link, usePathname } from "@/i18n/navigation";
@@ -88,11 +88,11 @@ export function Navigation() {
               />
             </div>
             <div className="flex flex-col">
-              <span className="font-sans font-semibold text-lg text-foreground group-hover:text-accent transition-colors duration-300">
-                {t("siteTitle")}
+              <span className="font-sans font-semibold text-lg text-foreground group-hover:text-accent transition-colors duration-300 whitespace-nowrap">
+                The Seaview Penthouse
               </span>
-              <span className="font-sans font-semibold text-sm text-amber-600 text-center group-hover:text-accent transition-colors duration-300">
-                {t("ashdod")}
+              <span className="font-sans font-semibold text-blue-800/80 text-center group-hover:text-accent transition-colors duration-300">
+                Ashdod
               </span>
             </div>
           </Link>
@@ -112,17 +112,8 @@ export function Navigation() {
                 {item.name}
               </Link>
             ))}
-
-            {/* Events Dropdown */}
-
-            <Link href="http://airbnb.com/h/thepenthouseashdod" target="_blank">
-              <Button className="ml-4 bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                {t("bookStay")}
-              </Button>
-            </Link>
-            <LanguageSwitcher />
           </div>
-
+          <LanguageSwitcher />
           {/* Mobile menu button */}
           <div className="md:hidden">
             <Button
