@@ -78,9 +78,6 @@ export async function EventTypes() {
           <h2 className="font-sans text-3xl font-bold text-foreground mb-4">
             {t("eventTypesTitle")}
           </h2>
-          {/* <p className="text-muted-foreground max-w-2xl mx-auto">
-            {t("eventTypesSubtitle")}
-          </p> */}
         </ScrollAnimation>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

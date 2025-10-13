@@ -6,6 +6,7 @@ import { setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { FeaturesGrid } from "@/components/features-grid";
 import { CTASection } from "@/components/cta-section";
+import { ScrollAnimation } from "@/components/scroll-animation";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -32,7 +33,9 @@ export default async function HomePage({ params }: Props) {
           <LocationOverview />
         </div>
       </section>
-      <CTASection translationNamespace="events" />
+      <ScrollAnimation animation="up">
+        <CTASection translationNamespace="events" />
+      </ScrollAnimation>
     </div>
   );
 }

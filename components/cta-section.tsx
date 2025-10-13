@@ -21,21 +21,25 @@ export function CTASection({
 
   const socialLinks = [
     {
-      name: "Pinterest",
-      image: "/images/pintrest.png",
-      url: "https://pinterest.com",
+      name: "Instagram",
+      image: "/images/instagram.webp",
+      url: "https://www.instagram.com/penthouse.ashdod/",
     },
     {
       name: "Facebook",
       image: "/images/facebook.png",
-      url: "https://facebook.com",
+      url: "https://www.facebook.com/profile.php?id=61576001641765",
     },
     {
       name: "Booking.com",
       image: "/images/booking.png",
       url: "https://booking.com",
     },
-    { name: "Airbnb", image: "/images/airbnb.png", url: "https://airbnb.com" },
+    {
+      name: "Airbnb",
+      image: "/images/airbnb.png",
+      url: "http://airbnb.com/h/thepenthouseashdod",
+    },
   ];
 
   return (
@@ -64,11 +68,6 @@ export function CTASection({
             <div className="text-sm opacity-95">{t("phoneNumber")}</div>
           </div>
         </div>
-
-        {/* Follow Us Label */}
-        {/* <p className="text-lg text-muted-foreground mb-4 font-medium">
-          {t("followUs")}
-        </p> */}
 
         {/* Social Media Links */}
         <div className="flex items-center justify-center gap-6 flex-wrap">

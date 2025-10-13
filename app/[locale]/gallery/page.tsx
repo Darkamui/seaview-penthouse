@@ -392,7 +392,9 @@ export default function GalleryPage() {
           </div>
         </div>
       )}
-      <CTASection translationNamespace="events" />
+      <ScrollAnimation animation="up">
+        <CTASection translationNamespace="events" />
+      </ScrollAnimation>
     </div>
   );
 }

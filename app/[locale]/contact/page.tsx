@@ -234,7 +234,9 @@ Details:
           </div>
         </div>
       </section>
-      <CTASection translationNamespace="events" />
+      <ScrollAnimation animation="up">
+        <CTASection translationNamespace="events" />
+      </ScrollAnimation>
     </div>
   );
 }

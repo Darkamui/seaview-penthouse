@@ -26,9 +26,24 @@ export function HeroSection() {
       src: "/images/balcony10.jpg",
       alt: t("altTexts.eveningBalcony"),
     },
+    {
+      type: "image",
+      src: "/images/events/hero0.jpg",
+      alt: t("altTexts.eveningBalcony"),
+    },
+    {
+      type: "image",
+      src: "/images/events/hero1.jpg",
+      alt: t("altTexts.eveningBalcony"),
+    },
+    {
+      type: "image",
+      src: "/images/events/hero2.jpg",
+      alt: t("altTexts.eveningBalcony"),
+    },
   ];
 
-  const SLIDE_DURATION = 5000; // 5 seconds
+  const SLIDE_DURATION = 3000; // 5 seconds
   const PROGRESS_INTERVAL = 50; // Update every 50ms for smooth animation
   const [currentMediaIndex, setCurrentMediaIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
@@ -116,12 +131,6 @@ export function HeroSection() {
         className={`relative z-10 text-center text-white max-w-6xl mx-auto px-4 transition-all duration-1000`}
       >
         <div className="space-y-8 mb-32">
-          {/* <h1 className="font-sans text-4xl sm:text-5xl lg:text-7xl xl:text-6xl font-bold text-balance leading-tight text-shadow-lg">
-            {t("title")}
-          </h1>
-          <p className="text-lg sm:text-xl lg:text-2xl xl:text-3xl text-balance opacity-90 max-w-4xl mx-auto leading-relaxed text-shadow">
-            {t("subtitle")}
-          </p> */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
             <Link
               href="https://airbnb.com/h/thepenthouseashdod"

@@ -1,7 +1,17 @@
 import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import { AmenitiesModal } from "@/components/amenities-modal";
-import { Wifi, Car, Utensils, Waves, Bath, Wind, Eye, Home } from "lucide-react";
+import {
+  Wifi,
+  Car,
+  Utensils,
+  Waves,
+  Bath,
+  Wind,
+  Eye,
+  Home,
+} from "lucide-react";
+import { ScrollAnimation } from "./scroll-animation";
 
 export function AmenitiesSection() {
   const t = useTranslations("homepage");
@@ -20,18 +30,20 @@ export function AmenitiesSection() {
   return (
     <section className="py-16 px-4 bg-card/30">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
+        <ScrollAnimation animation="up" className="text-center mb-12">
           <h2 className="font-sans text-3xl font-bold text-foreground mb-4">
             {t("amenitiesTitle")}
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             {t("amenitiesSubtitle")}
           </p>
-        </div>
+        </ScrollAnimation>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           {featuredAmenities.map((amenity, index) => (
-            <div
+            <ScrollAnimation
+              animation="right"
+              delay={index * 200}
               key={index}
               className="flex items-center gap-4 p-6 bg-card rounded-lg border border-accent/20 hover:border-accent/40 transition-colors"
             >
@@ -41,17 +53,17 @@ export function AmenitiesSection() {
               <span className="font-medium text-foreground">
                 {amenity.label}
               </span>
-            </div>
+            </ScrollAnimation>
           ))}
         </div>
 
-        <div className="text-center">
+        <ScrollAnimation animation="left" className="text-center">
           <AmenitiesModal>
             <Button variant="outline" size="lg">
               {t("amenitiesItems.viewAllAmenities")}
             </Button>
           </AmenitiesModal>
-        </div>
+        </ScrollAnimation>
       </div>
     </section>
   );

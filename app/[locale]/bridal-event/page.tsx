@@ -2,18 +2,7 @@ import { CTASection } from "@/components/cta-section";
 import { EventOverview } from "@/components/event-overview";
 import { Card, CardContent } from "@/components/ui/card";
 import { routing } from "@/i18n/routing";
-import {
-  Heart,
-  Camera,
-  Sparkles,
-  Group,
-  BedDouble,
-  Armchair,
-  Eye,
-  Wine,
-  Gem,
-  Waves,
-} from "lucide-react";
+import { BedDouble, Armchair, Eye, Wine, Gem, Waves } from "lucide-react";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { ScrollAnimation } from "@/components/scroll-animation";
 
@@ -31,7 +20,6 @@ export default async function BridalEventPage({ params }: Props) {
   // Enable static rendering
   setRequestLocale(locale);
 
-  const t = await getTranslations("events");
   const bridalT = await getTranslations("bridalEvent");
 
   return (
