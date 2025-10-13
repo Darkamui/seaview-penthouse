@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
 import { LanguageSwitcher } from "@/components/language-switcher";
+import { CTASection } from "@/components/cta-section";
 import { Link, usePathname } from "@/i18n/navigation";
 
 export function Navigation() {
@@ -241,6 +242,15 @@ export function Navigation() {
               ))}
               <div className="pt-4 mt-4 border-t border-border">
                 <LanguageSwitcher />
+              </div>
+
+              {/* CTA Section in Mobile Menu */}
+              <div className="pt-6 mt-6 border-t border-border">
+                <CTASection
+                  translationNamespace="events"
+                  className="py-0"
+                  variant="compact"
+                />
               </div>
             </div>
           </div>

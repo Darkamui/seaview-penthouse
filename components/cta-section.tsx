@@ -6,17 +6,19 @@ import Image from "next/image";
 interface CTASectionProps {
   translationNamespace: string;
   className?: string;
+  variant?: "default" | "compact";
 }
 
 export function CTASection({
   translationNamespace,
   className = "",
+  variant = "default",
 }: CTASectionProps) {
   const t = useTranslations(translationNamespace);
+  const isCompact = variant === "compact";
 
   const handleWhatsAppClick = () => {
-    const phoneNumber = t("phoneNumber").replace(/[^0-9+]/g, "");
-    window.open(`https://wa.me/${phoneNumber}`, "_blank");
+    window.open("https://wa.me/972546606233", "_blank");
   };
 
   const socialLinks = [
@@ -46,16 +48,26 @@ export function CTASection({
     <section className={`py-12 px-4 ${className}`}>
       <div className="max-w-4xl mx-auto text-center">
         {/* Title */}
-        <h2 className="font-sans text-3xl md:text-4xl font-bold text-foreground mb-8">
+        <h2
+          className={`font-sans font-bold text-foreground ${
+            isCompact ? "text-lg mb-4" : "text-3xl md:text-4xl mb-8"
+          }`}
+        >
           {t("ctaTitle")}
         </h2>
 
         {/* WhatsApp Section */}
         <div
           onClick={handleWhatsAppClick}
-          className="inline-flex items-center gap-3 bg-[#25D366] hover:bg-[#20BD5A] text-white px-6 py-4 rounded-full cursor-pointer transition-all duration-300 hover:shadow-lg mb-8"
+          className={`inline-flex items-center bg-[#25D366] hover:bg-[#20BD5A] text-white rounded-full cursor-pointer transition-all duration-300 hover:shadow-lg ${
+            isCompact ? "gap-2 px-4 py-2.5 mb-4" : "gap-3 px-6 py-4 mb-8"
+          }`}
         >
-          <div className="relative w-10 h-10 flex-shrink-0">
+          <div
+            className={`relative flex-shrink-0 ${
+              isCompact ? "w-7 h-7" : "w-10 h-10"
+            }`}
+          >
             <Image
               src="/images/whatsapp.png"
               alt="WhatsApp"
@@ -64,20 +76,32 @@ export function CTASection({
             />
           </div>
           <div className="text-start">
-            <div className="font-semibold text-lg">{t("whatsappText")}</div>
-            <div className="text-sm opacity-95">{t("phoneNumber")}</div>
+            <div
+              className={`font-semibold ${isCompact ? "text-sm" : "text-lg"}`}
+            >
+              {t("whatsappText")}
+            </div>
+            <div className={`opacity-95 ${isCompact ? "text-xs" : "text-sm"}`}>
+              {t("phoneNumber")}
+            </div>
           </div>
         </div>
 
         {/* Social Media Links */}
-        <div className="flex items-center justify-center gap-6 flex-wrap">
+        <div
+          className={`flex items-center justify-center flex-wrap ${
+            isCompact ? "gap-3" : "gap-6"
+          }`}
+        >
           {socialLinks.map((link) => (
             <a
               key={link.name}
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="relative w-12 h-12 transition-transform duration-300 hover:scale-110"
+              className={`relative transition-transform duration-300 hover:scale-110 ${
+                isCompact ? "w-8 h-8" : "w-12 h-12"
+              }`}
               aria-label={link.name}
             >
               <Image
