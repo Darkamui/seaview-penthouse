@@ -2,17 +2,17 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { Link, usePathname } from "@/i18n/navigation";
 
 export function Navigation() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [eventsDropdownOpen, setEventsDropdownOpen] = useState(false);
   const pathname = usePathname();
+  const locale = useLocale();
+  const isRTL = locale === "he";
   const t = useTranslations("navigation");
   const eventsT = useTranslations("events");
 
@@ -26,184 +26,211 @@ export function Navigation() {
   ];
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-    window.addEventListener("scroll", handleScroll);
+    const handleScroll = () => setIsScrolled(window.scrollY > 0);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
-    setIsOpen(false);
-    setEventsDropdownOpen(false);
+    setIsMobileMenuOpen(false);
   }, [pathname]);
 
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      const target = event.target as Element;
-      if (!target.closest("[data-events-dropdown]")) {
-        setEventsDropdownOpen(false);
-      }
-    };
-
-    if (eventsDropdownOpen) {
-      document.addEventListener("click", handleClickOutside);
-      return () => document.removeEventListener("click", handleClickOutside);
-    }
-  }, [eventsDropdownOpen]);
-
-  // Prevent body scroll when mobile menu is open
-  useEffect(() => {
-    if (isOpen) {
+    if (isMobileMenuOpen) {
       document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = "";
     }
-
-    // Cleanup on unmount
     return () => {
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = "";
     };
-  }, [isOpen]);
+  }, [isMobileMenuOpen]);
 
   return (
-    <nav
-      className={`sticky top-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-background/95 backdrop-blur-md supports-[backdrop-filter]:bg-background/80 shadow-lg border-b border-accent/20"
-          : "bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-accent/20"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <Link href="/" className="flex items-center space-x-3 group">
-            <div className="relative">
+    <>
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
+          isScrolled
+            ? "bg-background/95 backdrop-blur-sm shadow-md border-b border-border"
+            : "bg-background/90 backdrop-blur-sm border-b border-border/50"
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-14">
+            {/* Mobile: Logo only (left side) */}
+            <Link
+              href="/"
+              className="flex items-center gap-2 group lg:hidden"
+            >
               <Image
                 src="/images/logo-clean.png"
-                alt={t("siteTitle")}
-                width={40}
-                height={40}
-                className="h-10 w-auto transition-transform duration-300 group-hover:scale-110"
+                alt="The Seaview Penthouse"
+                width={32}
+                height={32}
+                className="w-8 h-8 transition-transform group-hover:scale-105"
               />
-            </div>
-            <div className="flex flex-col">
-              <span className="font-sans font-semibold text-lg text-foreground group-hover:text-accent transition-colors duration-300 whitespace-nowrap">
-                The Seaview Penthouse
-              </span>
-              <span className="font-sans font-semibold text-blue-800/80 text-center group-hover:text-accent transition-colors duration-300">
-                Ashdod
-              </span>
-            </div>
-          </Link>
+            </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-1">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 relative group ${
-                  pathname === item.href
-                    ? "text-accent bg-accent/10"
-                    : "text-foreground hover:text-accent hover:bg-accent/5"
-                }`}
-              >
-                {item.name}
-              </Link>
-            ))}
-          </div>
-          <LanguageSwitcher />
-          {/* Mobile menu button */}
-          <div className="md:hidden">
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-foreground hover:text-accent hover:bg-accent/10 transition-all duration-300"
-            >
-              {isOpen ? (
-                <X className="h-6 w-6" />
-              ) : (
-                <Menu className="h-6 w-6" />
-              )}
-            </Button>
-          </div>
-        </div>
-
-        {/* Mobile Navigation - Full Screen Menu */}
-        {isOpen && (
-          <div className="fixed inset-0 z-[100] md:hidden h-screen w-screen">
-            {/* Solid background */}
-            <div
-              className="absolute inset-0 bg-white h-full w-full"
-              onClick={() => setIsOpen(false)}
-            />
-
-            {/* Menu content */}
-            <div className="relative z-10 flex flex-col h-screen bg-white">
-              {/* Header with logo and close button */}
-              <div className="flex items-center justify-between px-6 py-4 bg-white border-b border-accent/20 h-16 flex-shrink-0">
-                <div className="flex items-center space-x-3">
-                  <Image
-                    src="/images/logo-crop.png"
-                    alt={t("siteTitle")}
-                    width={32}
-                    height={32}
-                    className="h-8 w-auto"
-                  />
-                  <div className="flex flex-col">
-                    <span className="font-sans font-semibold text-lg text-foreground group-hover:text-accent transition-colors duration-300">
-                      {t("siteTitle")}
-                    </span>
-                    <span className="font-sans font-semibold text-sm text-amber-600 text-center group-hover:text-accent transition-colors duration-300">
-                      {t("ashdod")}
-                    </span>
-                  </div>
-                </div>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => setIsOpen(false)}
-                  className="text-foreground hover:text-accent"
-                >
-                  <X className="h-6 w-6" />
-                </Button>
+            {/* Mobile: Centered Title */}
+            <div className="absolute left-1/2 -translate-x-1/2 lg:hidden">
+              <div className="flex flex-col -space-y-1 text-center">
+                <span className="text-sm font-semibold text-foreground whitespace-nowrap">
+                  The Seaview Penthouse
+                </span>
+                <span className="text-xs font-medium text-blue-800/80">
+                  Ashdod
+                </span>
               </div>
+            </div>
 
-              {/* Scrollable content area */}
-              <div className="flex-1 overflow-y-auto bg-white">
-                {/* Navigation links */}
-                <div className="flex flex-col justify-center px-6 bg-white py-8">
-                  <nav className="space-y-2">
+            {/* Desktop Layout - Respects RTL/LTR */}
+            <div className="hidden lg:flex items-center flex-1 w-full">
+              {isRTL ? (
+                <>
+                  {/* RTL: Language Switcher (left) */}
+                  <div className="flex-shrink-0">
+                    <LanguageSwitcher />
+                  </div>
+
+                  {/* RTL: Navigation Links (center) */}
+                  <div className="flex items-center gap-1 flex-1 justify-center">
                     {navItems.map((item) => (
                       <Link
-                        key={item.name}
+                        key={item.href}
                         href={item.href}
-                        className={`block text-center py-4 text-lg font-medium transition-colors ${
+                        className={`px-3 py-1.5 text-sm font-medium rounded-md transition-colors ${
                           pathname === item.href
-                            ? "text-accent"
-                            : "text-foreground hover:text-accent"
+                            ? "text-accent bg-accent/10"
+                            : "text-foreground hover:text-accent hover:bg-accent/5"
                         }`}
-                        onClick={() => setIsOpen(false)}
                       >
                         {item.name}
                       </Link>
                     ))}
-                  </nav>
-                </div>
+                  </div>
 
-                {/* Bottom section */}
-                <div className="px-6 py-8 bg-white border-t border-accent/20 space-y-4 mt-auto">
-                  <div className="flex justify-center">
+                  {/* RTL: Logo + Title (right) */}
+                  <Link
+                    href="/"
+                    className="flex items-center gap-2 group flex-shrink-0"
+                  >
+                    <Image
+                      src="/images/logo-clean.png"
+                      alt="The Seaview Penthouse"
+                      width={32}
+                      height={32}
+                      className="w-8 h-8 transition-transform group-hover:scale-105"
+                    />
+                    <div className="flex flex-col -space-y-1">
+                      <span className="text-lg font-semibold text-foreground group-hover:text-accent transition-colors whitespace-nowrap">
+                        The Seaview Penthouse
+                      </span>
+                      <span className="text-xs font-medium text-muted-foreground group-hover:text-accent transition-colors text-center">
+                        Ashdod
+                      </span>
+                    </div>
+                  </Link>
+                </>
+              ) : (
+                <>
+                  {/* LTR: Logo + Title (left) */}
+                  <Link
+                    href="/"
+                    className="flex items-center gap-2 group flex-shrink-0"
+                  >
+                    <Image
+                      src="/images/logo-clean.png"
+                      alt="The Seaview Penthouse"
+                      width={32}
+                      height={32}
+                      className="w-8 h-8 transition-transform group-hover:scale-105"
+                    />
+                    <div className="flex flex-col -space-y-1">
+                      <span className="text-lg font-semibold text-foreground group-hover:text-accent transition-colors whitespace-nowrap">
+                        The Seaview Penthouse
+                      </span>
+                      <span className="text-xs font-medium text-muted-foreground group-hover:text-accent transition-colors text-center">
+                        Ashdod
+                      </span>
+                    </div>
+                  </Link>
+
+                  {/* LTR: Navigation Links (center) */}
+                  <div className="flex items-center gap-1 flex-1 justify-center">
+                    {navItems.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        className={`px-3 py-1.5 text-sm font-medium rounded-md transition-colors ${
+                          pathname === item.href
+                            ? "text-accent bg-accent/10"
+                            : "text-foreground hover:text-accent hover:bg-accent/5"
+                        }`}
+                      >
+                        {item.name}
+                      </Link>
+                    ))}
+                  </div>
+
+                  {/* LTR: Language Switcher (right) */}
+                  <div className="flex-shrink-0">
                     <LanguageSwitcher />
                   </div>
-                </div>
+                </>
+              )}
+            </div>
+
+            {/* Mobile Right side - Menu button */}
+            <div className="flex lg:hidden items-center gap-2">
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="lg:hidden p-2 rounded-md text-foreground hover:text-accent hover:bg-accent/10 transition-colors"
+                aria-label="Toggle menu"
+              >
+                {isMobileMenuOpen ? (
+                  <X className="w-5 h-5" />
+                ) : (
+                  <Menu className="w-5 h-5" />
+                )}
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      {/* Spacer to prevent content from going under fixed nav */}
+      <div className="h-14" />
+
+      {/* Mobile Menu Overlay */}
+      {isMobileMenuOpen && (
+        <div className="fixed inset-0 z-40 lg:hidden">
+          <div
+            className="fixed inset-0 bg-black/20 backdrop-blur-sm"
+            onClick={() => setIsMobileMenuOpen(false)}
+          />
+          <div className="fixed top-14 left-0 right-0 bottom-0 bg-background border-t border-border overflow-y-auto">
+            <div className="px-4 py-6 space-y-1">
+              {navItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`block px-4 py-3 text-base font-medium rounded-lg transition-colors ${
+                    pathname === item.href
+                      ? "text-accent bg-accent/10"
+                      : "text-foreground hover:text-accent hover:bg-accent/5"
+                  }`}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {item.name}
+                </Link>
+              ))}
+              <div className="pt-4 mt-4 border-t border-border">
+                <LanguageSwitcher />
               </div>
             </div>
           </div>
-        )}
-      </div>
-    </nav>
+        </div>
+      )}
+    </>
   );
 }
