@@ -37,13 +37,24 @@ export function Navigation() {
 
   useEffect(() => {
     if (isMobileMenuOpen) {
+      // Store current scroll position
+      const scrollY = window.scrollY;
+
+      // Lock body scroll with multiple techniques for cross-browser compatibility
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = "100%";
       document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
+
+      return () => {
+        // Restore scroll position
+        document.body.style.position = "";
+        document.body.style.top = "";
+        document.body.style.width = "";
+        document.body.style.overflow = "";
+        window.scrollTo(0, scrollY);
+      };
     }
-    return () => {
-      document.body.style.overflow = "";
-    };
   }, [isMobileMenuOpen]);
 
   return (
@@ -207,8 +218,12 @@ export function Navigation() {
           <div
             className="fixed inset-0 bg-black/20 backdrop-blur-sm"
             onClick={() => setIsMobileMenuOpen(false)}
+            onTouchMove={(e) => e.preventDefault()}
           />
-          <div className="fixed top-14 left-0 right-0 bottom-0 bg-background border-t border-border overflow-y-auto">
+          <div
+            className="fixed top-14 left-0 right-0 bottom-0 bg-background border-t border-border overflow-y-auto overscroll-contain"
+            style={{ touchAction: "pan-y" }}
+          >
             <div className="px-4 py-6 space-y-1">
               {navItems.map((item) => (
                 <Link
