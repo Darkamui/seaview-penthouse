@@ -6,6 +6,7 @@ import dynamic from "next/dynamic";
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import { generateLodgingBusinessSchema } from "@/lib/structured-data";
+import { VideoShowcase } from "@/components/video-showcase";
 
 // Phase 5: Code splitting for below-fold components
 const EventTypes = dynamic(
@@ -138,6 +139,7 @@ export default async function HomePage({ params }: Props) {
       />
       <HeroSection />
       <EventTypes />
+      <VideoShowcase />
       <AmenitiesSection />
       <FeaturesGrid translationNamespace="about" />
       <section className="py-16 px-4">

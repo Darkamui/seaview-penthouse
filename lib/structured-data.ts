@@ -1,10 +1,4 @@
-import {
-  WithContext,
-  LodgingBusiness,
-  EventVenue,
-  FAQPage,
-  BreadcrumbList,
-} from "schema-dts";
+import { WithContext, LodgingBusiness, EventVenue } from "schema-dts";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://seaview.j-web.ca";
 
@@ -88,37 +82,5 @@ export function generateEventVenueSchema(
       { "@type": "LocationFeatureSpecification", name: "Indoor Event Space" },
       { "@type": "LocationFeatureSpecification", name: "Outdoor BBQ Station" },
     ],
-  };
-}
-
-export function generateFAQSchema(
-  faqs: Array<{ question: string; answer: string }>
-): WithContext<FAQPage> {
-  return {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faq.answer,
-      },
-    })),
-  };
-}
-
-export function generateBreadcrumbSchema(
-  items: Array<{ name: string; url: string }>
-): WithContext<BreadcrumbList> {
-  return {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: items.map((item, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      name: item.name,
-      item: item.url,
-    })),
   };
 }

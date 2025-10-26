@@ -18,7 +18,6 @@ import "../globals.css";
 import { Footer } from "@/components/footer";
 import { ScrollAnimationObserver } from "@/components/scroll-animation-observer";
 
-// Base fonts (keeping for compatibility)
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
@@ -37,7 +36,6 @@ const manrope = Manrope({
   variable: "--font-manrope",
 });
 
-// Luxury fonts for Phase 1
 const playfairDisplay = Playfair_Display({
   subsets: ["latin"],
   display: "swap",
@@ -71,7 +69,6 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: metadata.title,
     description: metadata.description,
-    generator: "v0.app",
   };
 }
 
@@ -98,7 +95,11 @@ export default async function LocaleLayout({ children, params }: Props) {
       <head>
         {/* Phase 5: Resource hints for performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
         <link rel="dns-prefetch" href="https://airbnb.com" />
       </head>
       <body
