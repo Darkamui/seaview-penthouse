@@ -17,6 +17,7 @@ import { Navigation } from "@/components/navigation";
 import "../globals.css";
 import { Footer } from "@/components/footer";
 import { ScrollAnimationObserver } from "@/components/scroll-animation-observer";
+import { Analytics } from "@/components/analytics";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -111,6 +112,8 @@ export default async function LocaleLayout({ children, params }: Props) {
           <Footer />
           <ScrollAnimationObserver />
         </NextIntlClientProvider>
+        {/* Google Analytics */}
+        <Analytics />
       </body>
     </html>
   );

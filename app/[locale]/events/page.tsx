@@ -1,6 +1,4 @@
 import { CTASection } from "@/components/cta-section";
-import { Card, CardContent } from "@/components/ui/card";
-import Image from "next/image";
 import { routing } from "@/i18n/routing";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { EventOverview } from "@/components/event-overview";
@@ -69,7 +67,6 @@ export default async function EventsPage({ params }: Props) {
   // Enable static rendering
   setRequestLocale(locale);
 
-  const t = await getTranslations("events");
   const eventPageT = await getTranslations("eventPage");
 
   // Generate structured data

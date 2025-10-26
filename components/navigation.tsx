@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
-import { useTranslations, useLocale } from "next-intl";
+import { useTranslations } from "next-intl";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { CTASection } from "@/components/cta-section";
 import { Link, usePathname } from "@/i18n/navigation";
@@ -12,8 +12,6 @@ export function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
-  const locale = useLocale();
-  const isRTL = locale === "he";
   const t = useTranslations("navigation");
   const eventsT = useTranslations("events");
 

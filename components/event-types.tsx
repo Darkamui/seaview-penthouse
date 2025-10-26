@@ -1,4 +1,4 @@
-import { Baby, Briefcase, Camera, ChefHat, Heart } from "lucide-react";
+import { Briefcase, Camera, Heart } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import { Card, CardHeader, CardTitle, CardContent } from "./ui/card";
 import { Carousel } from "./ui/carousel";

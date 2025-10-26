@@ -68,7 +68,6 @@ export default async function VacationPage({ params }: Props) {
   // Enable static rendering
   setRequestLocale(locale);
 
-  const t = await getTranslations("events");
   const tVacation = await getTranslations("vacation");
 
   // Generate structured data
