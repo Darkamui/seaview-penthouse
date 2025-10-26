@@ -31,6 +31,10 @@ jobs:
           context: .
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/seaview-penthouse:latest
+          build-args: |
+            NEXT_PUBLIC_GA_MEASUREMENT_ID=${{ secrets.SEAVIEW_NEXT_PUBLIC_GA_MEASUREMENT_ID }}
+            NEXT_PUBLIC_SITE_URL=https://seaview.j-web.ca
+            SITE_URL=https://seaview.j-web.ca
 
       - name: Deploy via SSH
         uses: appleboy/ssh-action@v0.1.10

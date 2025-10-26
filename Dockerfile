@@ -22,9 +22,18 @@ RUN npm ci --ignore-scripts --legacy-peer-deps
 # Copy source code
 COPY . .
 
+# Accept build arguments for Next.js public env vars
+ARG NEXT_PUBLIC_GA_MEASUREMENT_ID
+ARG NEXT_PUBLIC_SITE_URL
+
 # Set NODE_ENV for build optimization
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
+
+# Set public environment variables for build (Next.js embeds these at build time)
+ENV NEXT_PUBLIC_GA_MEASUREMENT_ID=$NEXT_PUBLIC_GA_MEASUREMENT_ID
+ENV NEXT_PUBLIC_SITE_URL=$NEXT_PUBLIC_SITE_URL
+
 # Build application
 RUN npm run build
 
