@@ -1,7 +1,43 @@
 {
   "metadata": {
     "title": "The Sea View Penthouse - Luxury Vacation Rental in Ashdod",
-    "description": "Experience luxury at its finest in our stunning sea view penthouse in Ashdod. Perfect for intimate events, family vacations, and unforgettable stays."
+    "description": "Experience luxury at its finest in our stunning sea view penthouse in Ashdod. Perfect for intimate events, family vacations, and unforgettable stays.",
+    "home": {
+      "title": "Luxury Sea View Penthouse in Ashdod | Vacation Rentals & Events",
+      "description": "Experience luxury at our 570sqm sea view penthouse with 270sqm balcony in Ashdod, Israel. Perfect for vacations, bridal preparations, and intimate events. 5 bedrooms, hot tub, stunning Mediterranean views.",
+      "ogTitle": "The Sea View Penthouse - Luxury Vacation Rental in Ashdod",
+      "ogDescription": "Book your stay at our stunning 570sqm Mediterranean penthouse with panoramic sea views, 5 bedrooms, private hot tub, and 270sqm terrace in Ashdod, Israel."
+    },
+    "gallery": {
+      "title": "Photo Gallery | Sea View Penthouse Ashdod",
+      "description": "Explore our luxury penthouse through stunning photos of the 150sqm living space, 270sqm balcony, 5 bedrooms, and breathtaking Mediterranean sea views in Ashdod.",
+      "ogTitle": "Gallery - The Sea View Penthouse Ashdod",
+      "ogDescription": "Take a visual tour of our luxury sea view penthouse in Ashdod with stunning photos of every space."
+    },
+    "bridalEvent": {
+      "title": "Bridal Preparation Venue | Sea View Penthouse Ashdod",
+      "description": "Perfect bridal preparation space in Ashdod with makeup station, stunning sea views, and accommodation for up to 9 bridesmaids. Start your wedding day in luxury with natural light and photo-perfect locations.",
+      "ogTitle": "Bridal Preparation Venue - Sea View Penthouse",
+      "ogDescription": "The perfect place to start your big day. Spacious preparation lounge with sea views and accommodation for bridesmaids."
+    },
+    "events": {
+      "title": "Event Venue Ashdod | Meetings & Private Events | Sea View Penthouse",
+      "description": "Host intimate events, business meetings, and celebrations for up to 30 guests in our luxury sea view penthouse with 270sqm terrace and panoramic Mediterranean views in Ashdod.",
+      "ogTitle": "Event Venue - The Sea View Penthouse Ashdod",
+      "ogDescription": "Boutique event space for up to 30 guests with stunning sea views, 270sqm terrace, and elegant indoor spaces."
+    },
+    "vacation": {
+      "title": "Vacation Rental Ashdod | 5-Bedroom Sea View Penthouse",
+      "description": "Book your luxury vacation in Ashdod. 570sqm penthouse with 5 bedrooms, stunning sea views, private hot tub, and 270sqm balcony. Perfect for families and groups up to 12 guests.",
+      "ogTitle": "Vacation Rental - The Sea View Penthouse Ashdod",
+      "ogDescription": "300sqm penthouse with 270sqm terrace overlooking breathtaking Mediterranean sea views. 5 bedrooms, luxury amenities."
+    },
+    "contact": {
+      "title": "Contact Us | Book Your Stay at Sea View Penthouse Ashdod",
+      "description": "Get in touch to book your luxury vacation or event in Ashdod. Available 24/7 via WhatsApp or email. Response within 2 hours. Located at Kineret 17, just 200m from the beach.",
+      "ogTitle": "Contact - The Sea View Penthouse Ashdod",
+      "ogDescription": "Contact us to book your luxury penthouse stay in Ashdod. Available 24/7 with quick response times."
+    }
   },
   "navigation": {
     "home": "Home",
@@ -278,7 +314,7 @@
       },
       "email": {
         "title": "Email",
-        "address": "info@seaviewpenthouse.com",
+        "address": "info@seaview.j-web.ca",
         "response": "Response within 2 hours"
       },
       "location": {

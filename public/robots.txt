@@ -1,0 +1,10 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# Host
+Host: https://seaview.j-web.ca
+
+# Sitemaps
+Sitemap: https://seaview.j-web.ca/sitemap.xml

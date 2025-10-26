@@ -1,13 +1,63 @@
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { GalleryClient } from "@/components/gallery-client";
 import { getAllGalleryImages } from "@/lib/get-gallery-images";
+import type { Metadata } from "next";
 
-export default function GalleryPage({
-  searchParams,
-}: {
+type Props = {
+  params: Promise<{ locale: string }>;
   searchParams: { tab?: string };
-}) {
-  const t = useTranslations("gallery");
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "metadata" });
+  const siteUrl =
+    process.env.NEXT_PUBLIC_SITE_URL || "https://seaview.j-web.ca";
+
+  return {
+    title: t("gallery.title"),
+    description: t("gallery.description"),
+    openGraph: {
+      title: t("gallery.ogTitle"),
+      description: t("gallery.ogDescription"),
+      url: `${siteUrl}/${locale}/gallery`,
+      siteName: "The Sea View Penthouse",
+      images: [
+        {
+          url: `${siteUrl}/images/living-room/20250730_173816.jpg`,
+          width: 1200,
+          height: 630,
+          alt: "Luxury penthouse interior gallery",
+        },
+      ],
+      locale: locale === "he" ? "he_IL" : "en_US",
+      alternateLocale: locale === "he" ? "en_US" : "he_IL",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("gallery.ogTitle"),
+      description: t("gallery.ogDescription"),
+      images: [`${siteUrl}/images/living-room/20250730_173816.jpg`],
+    },
+    robots: {
+      index: true,
+      follow: true,
+    },
+    alternates: {
+      canonical: `${siteUrl}/${locale}/gallery`,
+      languages: {
+        en: `${siteUrl}/en/gallery`,
+        he: `${siteUrl}/he/gallery`,
+        "x-default": `${siteUrl}/en/gallery`,
+      },
+    },
+  };
+}
+
+export default async function GalleryPage({ params, searchParams }: Props) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "gallery" });
 
   // Build base categories structure
   const baseCategories = [

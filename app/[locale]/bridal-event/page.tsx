@@ -5,6 +5,8 @@ import { routing } from "@/i18n/routing";
 import { BedDouble, Armchair, Eye, Wine, Gem, Waves } from "lucide-react";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { ScrollAnimation } from "@/components/scroll-animation";
+import type { Metadata } from "next";
+import { generateEventVenueSchema } from "@/lib/structured-data";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -12,6 +14,53 @@ type Props = {
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "metadata" });
+  const siteUrl =
+    process.env.NEXT_PUBLIC_SITE_URL || "https://seaview.j-web.ca";
+
+  return {
+    title: t("bridalEvent.title"),
+    description: t("bridalEvent.description"),
+    openGraph: {
+      title: t("bridalEvent.ogTitle"),
+      description: t("bridalEvent.ogDescription"),
+      url: `${siteUrl}/${locale}/bridal-event`,
+      siteName: "The Sea View Penthouse",
+      images: [
+        {
+          url: `${siteUrl}/images/events/bride.jpg`,
+          width: 1200,
+          height: 630,
+          alt: "Bridal preparation venue with sea views",
+        },
+      ],
+      locale: locale === "he" ? "he_IL" : "en_US",
+      alternateLocale: locale === "he" ? "en_US" : "he_IL",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("bridalEvent.ogTitle"),
+      description: t("bridalEvent.ogDescription"),
+      images: [`${siteUrl}/images/events/bride.jpg`],
+    },
+    robots: {
+      index: true,
+      follow: true,
+    },
+    alternates: {
+      canonical: `${siteUrl}/${locale}/bridal-event`,
+      languages: {
+        en: `${siteUrl}/en/bridal-event`,
+        he: `${siteUrl}/he/bridal-event`,
+        "x-default": `${siteUrl}/en/bridal-event`,
+      },
+    },
+  };
 }
 
 export default async function BridalEventPage({ params }: Props) {
@@ -22,8 +71,16 @@ export default async function BridalEventPage({ params }: Props) {
 
   const bridalT = await getTranslations("bridalEvent");
 
+  // Generate structured data
+  const structuredData = generateEventVenueSchema(locale);
+
   return (
     <div className="min-h-screen max-w-7xl mx-auto">
+      {/* Inject structured data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       <ScrollAnimation animation="up">
         <EventOverview
           eventKey="bridalPrep"
