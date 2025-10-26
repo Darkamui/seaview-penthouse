@@ -17,7 +17,7 @@
   "hero": {
     "title": "The Sea View Penthouse",
     "subtitle": "Experience luxury living with breathtaking Mediterranean views in the heart of Ashdod. Where modern elegance meets coastal serenity.",
-    "bookStay": "Book Your Private Penthouse",
+    "bookStay": "Contact",
     "virtualTour": "Gallery",
     "loading": "Loading luxury experience...",
     "scroll": "SCROLL",
@@ -386,10 +386,13 @@
     "title": "Gallery",
     "subtitle": "Explore every corner of our luxury penthouse through our comprehensive photo and video gallery",
     "categories": {
-      "insideSpaces": "Inside Spaces",
-      "balconySeaView": "Balcony & Sea View",
-      "events": "Events",
-      "video": "Video"
+      "livingRoom": "Living Room",
+      "balcony": "Balcony",
+      "bedrooms": "Bedrooms",
+      "kitchen": "Kitchen",
+      "bathrooms": "Bathrooms",
+      "video": "Video",
+      "around": "In the area"
     },
     "videoItems": {
       "virtualTour": {

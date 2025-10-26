@@ -70,10 +70,7 @@ export function EventSpaces() {
                 </p>
                 <div className="space-y-3">
                   {space.features.map((feature, featureIndex) => (
-                    <div
-                      key={featureIndex}
-                      className="flex items-center gap-3"
-                    >
+                    <div key={featureIndex} className="flex items-center gap-3">
                       <div className="w-2 h-2 bg-accent rounded-full" />
                       <span className="text-foreground">{feature}</span>
                     </div>

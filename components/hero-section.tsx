@@ -131,18 +131,7 @@ export function HeroSection() {
         className={`relative z-10 text-center text-white max-w-6xl mx-auto px-4 transition-all duration-1000`}
       >
         <div className="space-y-8 mb-32">
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-            <Link
-              href="https://airbnb.com/h/thepenthouseashdod"
-              target="_blank"
-            >
-              <Button
-                size="lg"
-                className="cursor-pointer bg-accent/90 hover:bg-accent text-accent-foreground text-lg px-8 py-4 h-auto font-semibold btn-luxury-subtle luxury-hover-subtle shadow-luxury-lg"
-              >
-                {t("bookStay")}
-              </Button>
-            </Link>
+          <div className="flex flex-col gap-4 justify-center items-center pt-4">
             <Link href="/gallery">
               <Button
                 variant="outline"
@@ -150,6 +139,14 @@ export function HeroSection() {
                 className="cursor-pointer glass-luxury text-black hover:bg-white/90 text-lg px-8 py-4 h-auto shadow-luxury-medium hover:shadow-luxury-lg transition-all duration-500 hover:scale-105"
               >
                 {t("virtualTour")}
+              </Button>
+            </Link>
+            <Link href="https://wa.me/972546606233" target="_blank">
+              <Button
+                size="default"
+                className="cursor-pointer bg-accent/90 hover:bg-accent text-accent-foreground text-md  h-auto font-semibold btn-luxury-subtle luxury-hover-subtle shadow-luxury-lg"
+              >
+                {t("bookStay")}
               </Button>
             </Link>
           </div>

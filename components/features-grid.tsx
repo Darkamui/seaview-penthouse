@@ -83,17 +83,8 @@ export function FeaturesGrid({
   ];
 
   return (
-    <section className={`py-16 px-4 bg-card/30 ${className}`}>
+    <section className={`py-8 px-4 bg-card/30 ${className}`}>
       <div className="max-w-7xl mx-auto">
-        <ScrollAnimation animation="up" className="text-center mb-12">
-          <h2 className="font-sans text-3xl font-bold text-foreground mb-4">
-            {t("featuresTitle")}
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            {t("featuresSubtitle")}
-          </p>
-        </ScrollAnimation>
-
         <div className="grid md:grid-cols-2 gap-8">
           {features.map((feature, index) => (
             <ScrollAnimation
