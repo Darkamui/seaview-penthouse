@@ -93,66 +93,6 @@ export default async function EventsPage({ params }: Props) {
           />
         </ScrollAnimation>
 
-        {/* Features */}
-        {/* <div className="grid md:grid-cols-3 gap-8 mb-16">
-          <Card className="border-accent/20 hover:border-accent/40 transition-colors">
-            <CardContent className="p-6">
-              <div className="aspect-video relative mb-4 rounded-lg overflow-hidden">
-                <Image
-                  src="/images/room6.jpg"
-                  alt={eventPageT("altTexts.elegantInterior")}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <h3 className="font-sans text-xl font-semibold mb-2">
-                {eventPageT("features.interior.title")}
-              </h3>
-              <p className="text-muted-foreground">
-                {eventPageT("features.interior.description")}
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="border-accent/20 hover:border-accent/40 transition-colors">
-            <CardContent className="p-6">
-              <div className="aspect-video relative mb-4 rounded-lg overflow-hidden">
-                <Image
-                  src="/images/balcony4.jpg"
-                  alt={eventPageT("altTexts.outdoorTerrace")}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <h3 className="font-sans text-xl font-semibold mb-2">
-                {eventPageT("features.terrace.title")}
-              </h3>
-              <p className="text-muted-foreground">
-                {eventPageT("features.terrace.description")}
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="border-accent/20 hover:border-accent/40 transition-colors">
-            <CardContent className="p-6">
-              <div className="aspect-video relative mb-4 rounded-lg overflow-hidden">
-                <Image
-                  src="/images/kitchen2.jpg"
-                  alt={eventPageT("altTexts.cateringKitchen")}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <h3 className="font-sans text-xl font-semibold mb-2">
-                {eventPageT("features.cateringReady.title")}
-              </h3>
-              <p className="text-muted-foreground">
-                {eventPageT("features.cateringReady.description")}
-              </p>
-            </CardContent>
-          </Card>
-        </div> */}
-
         {/* Capacity & Services */}
         <ScrollAnimation
           animation="scale"

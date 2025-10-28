@@ -2,7 +2,8 @@ import { routing } from "@/i18n/routing";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import { generateLodgingBusinessSchema } from "@/lib/structured-data";
-import { ContactForm } from "@/components/contact-form";
+import { ContactForm } from "@/components/contact-content";
+import { ScrollAnimation } from "@/components/scroll-animation";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -75,7 +76,9 @@ export default async function ContactPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      <ContactForm />
+      <ScrollAnimation animation="up">
+        <ContactForm />
+      </ScrollAnimation>
     </div>
   );
 }

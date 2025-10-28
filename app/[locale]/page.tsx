@@ -151,11 +151,7 @@ export default async function HomePage({ params }: Props) {
       <VideoShowcase />
       <AmenitiesSection />
       <FeaturesGrid translationNamespace="about" />
-      <section className="py-16 px-4">
-        <div className="max-w-7xl mx-auto">
-          <LocationOverview />
-        </div>
-      </section>
+      <LocationOverview />
       <ScrollAnimation animation="up">
         <CTASection translationNamespace="events" />
       </ScrollAnimation>
