@@ -118,6 +118,7 @@ export function HeroSection() {
               fill
               className="object-cover"
               priority={index === 0}
+              fetchPriority={index === 0 ? "high" : "auto"}
               onLoad={() => index === 0 && setIsLoaded(true)}
             />
           </div>

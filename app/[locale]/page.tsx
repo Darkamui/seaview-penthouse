@@ -6,13 +6,22 @@ import dynamic from "next/dynamic";
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import { generateLodgingBusinessSchema } from "@/lib/structured-data";
-import { VideoShowcase } from "@/components/video-showcase";
 
 // Phase 5: Code splitting for below-fold components
 const EventTypes = dynamic(
   () =>
     import("@/components/event-types").then((mod) => ({
       default: mod.EventTypes,
+    })),
+  {
+    loading: () => <div className="h-96" />,
+  }
+);
+
+const VideoShowcase = dynamic(
+  () =>
+    import("@/components/video-showcase").then((mod) => ({
+      default: mod.VideoShowcase,
     })),
   {
     loading: () => <div className="h-96" />,
