@@ -3,6 +3,15 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Custom Font: The Seasons - Used for Navigation Title */
+@font-face {
+  font-family: "The Seasons";
+  src: url("/theseasons-reg.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   /* Phase 1: Enhanced Luxury Color Palette */
   --midnight-blue: oklch(0.15 0.08 264); /* Deeper, richer blue */
@@ -85,14 +94,8 @@
 }
 
 @theme inline {
-  /* Updated font variables to match new Inter and JetBrains Mono imports */
-  --font-sans: var(--font-inter);
-  --font-serif: var(--font-manrope);
-  --font-mono: var(--font-jetbrains-mono);
-  /* Luxury fonts for Phase 1 */
-  --font-display: var(--font-playfair-display);
-  --font-sans-refined: var(--font-poppins);
-  --font-serif-luxury: var(--font-crimson-text);
+  /* Font variables are set by Next.js font imports in layout.tsx */
+  /* --font-sans and --font-display are defined via CSS variables from Inter and Poppins */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -748,7 +751,7 @@
     min-height: 44px;
     display: inline-flex;
     align-items: center;
-    justify-center: center;
+    justify-content: center;
   }
 
   .touch-target-lg {
@@ -756,7 +759,7 @@
     min-height: 48px;
     display: inline-flex;
     align-items: center;
-    justify-center: center;
+    justify-content: center;
   }
 
   /* Phase 5: Responsive touch targets */

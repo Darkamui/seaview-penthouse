@@ -1,13 +1,6 @@
 import type React from "react";
 import type { Metadata } from "next";
-import {
-  Inter,
-  JetBrains_Mono,
-  Manrope,
-  Playfair_Display,
-  Poppins,
-  Crimson_Text,
-} from "next/font/google";
+import { Inter, Poppins } from "next/font/google";
 import { Suspense } from "react";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
@@ -19,43 +12,19 @@ import { Footer } from "@/components/footer";
 import { ScrollAnimationObserver } from "@/components/scroll-animation-observer";
 import { Analytics } from "@/components/analytics";
 
+// Primary font for body text and UI elements
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-inter",
+  variable: "--font-sans",
 });
 
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-jetbrains-mono",
-});
-
-const manrope = Manrope({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-manrope",
-});
-
-const playfairDisplay = Playfair_Display({
+// Elegant serif font for headings and accents
+const poppinsDisplay = Poppins({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-display",
   weight: ["400", "500", "600", "700"],
-});
-
-const poppins = Poppins({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-sans-refined",
-  weight: ["300", "400", "500", "600", "700"],
-});
-
-const crimsonText = Crimson_Text({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-serif-luxury",
-  weight: ["400", "600", "700"],
 });
 
 type Props = {
@@ -104,7 +73,7 @@ export default async function LocaleLayout({ children, params }: Props) {
         <link rel="dns-prefetch" href="https://airbnb.com" />
       </head>
       <body
-        className={`font-serif ${inter.variable} ${jetbrainsMono.variable} ${manrope.variable} ${playfairDisplay.variable} ${poppins.variable} ${crimsonText.variable}`}
+        className={`font-sans ${inter.variable} ${poppinsDisplay.variable}`}
       >
         <NextIntlClientProvider messages={messages}>
           <Navigation />

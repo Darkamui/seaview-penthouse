@@ -81,10 +81,16 @@ export function Navigation() {
             {/* Mobile: Centered Title */}
             <div className="absolute left-1/2 -translate-x-1/2 lg:hidden">
               <div className="flex flex-col -space-y-1 text-center">
-                <span className="text-sm font-semibold text-foreground whitespace-nowrap">
+                <span
+                  className="text-sm font-semibold text-foreground whitespace-nowrap"
+                  style={{ fontFamily: "'The Seasons', serif" }}
+                >
                   The Seaview Penthouse
                 </span>
-                <span className="text-xs font-medium text-blue-800/80">
+                <span
+                  className="text-xs font-medium text-blue-800/80"
+                  style={{ fontFamily: "'The Seasons', serif" }}
+                >
                   Ashdod
                 </span>
               </div>
@@ -104,10 +110,16 @@ export function Navigation() {
                   className="w-8 h-8 transition-transform group-hover:scale-105"
                 />
                 <div className="flex flex-col -space-y-1">
-                  <span className="text-lg font-semibold text-foreground group-hover:text-accent transition-colors whitespace-nowrap">
+                  <span
+                    className="text-lg font-semibold text-foreground group-hover:text-accent transition-colors whitespace-nowrap"
+                    style={{ fontFamily: "'The Seasons', serif" }}
+                  >
                     The Seaview Penthouse
                   </span>
-                  <span className="text-xs font-medium text-muted-foreground group-hover:text-accent transition-colors text-center">
+                  <span
+                    className="text-xs font-medium text-muted-foreground group-hover:text-accent transition-colors text-center"
+                    style={{ fontFamily: "'The Seasons', serif" }}
+                  >
                     Ashdod
                   </span>
                 </div>
