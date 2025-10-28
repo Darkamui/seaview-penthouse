@@ -22,10 +22,41 @@ const nextConfig: NextConfig = {
     ],
   },
 
+  // Performance optimizations
+  compiler: {
+    removeConsole: process.env.NODE_ENV === "production",
+  },
+
+  // Headers for caching and performance
+  async headers() {
+    return [
+      {
+        source: "/:all*(svg|jpg|jpeg|png|webp|avif|gif|ico|woff|woff2|ttf|otf)",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      {
+        source: "/_next/static/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+    ];
+  },
+
   // Experimental features for better performance
   experimental: {
     // Enable modern JavaScript features
     esmExternals: true,
+    // Optimize CSS loading
+    optimizeCss: true,
   },
 };
 

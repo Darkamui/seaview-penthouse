@@ -1,103 +1,112 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Play, Pause, ChevronDown } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 
+const SLIDE_DURATION = 3000; // 3 seconds
+const HERO_IMAGES = [
+  "/images/balcony2.jpg",
+  "/images/living1.jpg",
+  "/images/balcony10.jpg",
+  "/images/events/hero0.jpg",
+  "/images/events/hero1.jpg",
+  "/images/events/hero2.jpg",
+] as const;
+
 export function HeroSection() {
   const t = useTranslations("hero");
 
-  const heroMedia = [
-    {
-      type: "image",
-      src: "/images/balcony2.jpg",
-      alt: t("altTexts.seaViewSunset"),
-    },
-    {
-      type: "image",
-      src: "/images/living1.jpg",
-      alt: t("altTexts.spaciousLiving"),
-    },
-    {
-      type: "image",
-      src: "/images/balcony10.jpg",
-      alt: t("altTexts.eveningBalcony"),
-    },
-    {
-      type: "image",
-      src: "/images/events/hero0.jpg",
-      alt: t("altTexts.eveningBalcony"),
-    },
-    {
-      type: "image",
-      src: "/images/events/hero1.jpg",
-      alt: t("altTexts.eveningBalcony"),
-    },
-    {
-      type: "image",
-      src: "/images/events/hero2.jpg",
-      alt: t("altTexts.eveningBalcony"),
-    },
-  ];
-
-  const SLIDE_DURATION = 3000; // 5 seconds
-  const PROGRESS_INTERVAL = 50; // Update every 50ms for smooth animation
+  const heroMedia = useMemo(
+    () => [
+      {
+        type: "image" as const,
+        src: HERO_IMAGES[0],
+        alt: t("altTexts.seaViewSunset"),
+      },
+      {
+        type: "image" as const,
+        src: HERO_IMAGES[1],
+        alt: t("altTexts.spaciousLiving"),
+      },
+      {
+        type: "image" as const,
+        src: HERO_IMAGES[2],
+        alt: t("altTexts.eveningBalcony"),
+      },
+      {
+        type: "image" as const,
+        src: HERO_IMAGES[3],
+        alt: t("altTexts.eveningBalcony"),
+      },
+      {
+        type: "image" as const,
+        src: HERO_IMAGES[4],
+        alt: t("altTexts.eveningBalcony"),
+      },
+      {
+        type: "image" as const,
+        src: HERO_IMAGES[5],
+        alt: t("altTexts.eveningBalcony"),
+      },
+    ],
+    [t]
+  );
   const [currentMediaIndex, setCurrentMediaIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [isLoaded, setIsLoaded] = useState(false);
   const [progress, setProgress] = useState(100);
 
+  // Optimized single useEffect for carousel and progress using requestAnimationFrame
   useEffect(() => {
     if (!isAutoPlaying) return;
 
-    const interval = setInterval(() => {
-      setCurrentMediaIndex((prev) => (prev + 1) % heroMedia.length);
-      setProgress(100);
-    }, SLIDE_DURATION);
+    const startTime = Date.now();
+    let rafId: number;
 
-    return () => clearInterval(interval);
-  }, [isAutoPlaying, heroMedia.length, SLIDE_DURATION]);
+    const animate = () => {
+      const elapsed = Date.now() - startTime;
+      const newProgress = Math.max(0, 100 - (elapsed / SLIDE_DURATION) * 100);
 
-  useEffect(() => {
-    if (!isAutoPlaying) return;
+      setProgress(newProgress);
 
-    const progressInterval = setInterval(() => {
-      setProgress((prev) => {
-        const newProgress = prev - (PROGRESS_INTERVAL / SLIDE_DURATION) * 100;
-        return newProgress <= 0 ? 100 : newProgress;
-      });
-    }, PROGRESS_INTERVAL);
+      if (elapsed >= SLIDE_DURATION) {
+        setCurrentMediaIndex((prev) => (prev + 1) % heroMedia.length);
+        setProgress(100);
+      } else {
+        rafId = requestAnimationFrame(animate);
+      }
+    };
 
-    return () => clearInterval(progressInterval);
-  }, [isAutoPlaying, currentMediaIndex]);
+    rafId = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(rafId);
+  }, [isAutoPlaying, currentMediaIndex, heroMedia.length]);
 
   useEffect(() => {
     const timer = setTimeout(() => setIsLoaded(true), 500);
     return () => clearTimeout(timer);
   }, []);
 
-  const toggleAutoPlay = () => {
-    setIsAutoPlaying(!isAutoPlaying);
-    if (isAutoPlaying) {
-      setProgress(100);
-    }
-  };
+  const toggleAutoPlay = useCallback(() => {
+    setIsAutoPlaying((prev) => !prev);
+    setProgress(100);
+  }, []);
 
-  const goToSlide = (index: number) => {
+  const goToSlide = useCallback((index: number) => {
     setCurrentMediaIndex(index);
     setIsAutoPlaying(false);
     setProgress(100);
-  };
+  }, []);
 
-  const scrollToContent = () => {
+  const scrollToContent = useCallback(() => {
     window.scrollTo({
       top: window.innerHeight,
       behavior: "smooth",
     });
-  };
+  }, []);
 
   return (
     <section className="relative h-[calc(100vh-6rem)] lg:h-[calc(100vh-4rem)] flex items-end justify-end overflow-hidden">

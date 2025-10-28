@@ -70,6 +70,8 @@ export default async function LocaleLayout({ children, params }: Props) {
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://airbnb.com" />
       </head>
       <body
