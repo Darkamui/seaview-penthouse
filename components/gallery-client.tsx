@@ -45,7 +45,7 @@ export function GalleryClient({ categories, initialTab }: GalleryClientProps) {
   const [lightboxIndex, setLightboxIndex] = useState(0);
 
   // Phase 5: Progressive loading state
-  const [visibleImageCount, setVisibleImageCount] = useState(12);
+  const [visibleImageCount, setVisibleImageCount] = useState(8);
   const observerTarget = useRef<HTMLDivElement>(null);
 
   // Tab switching loading state
@@ -59,7 +59,7 @@ export function GalleryClient({ categories, initialTab }: GalleryClientProps) {
 
   // Phase 5: Reset visible count and manage loading state when category changes
   useEffect(() => {
-    setVisibleImageCount(12);
+    setVisibleImageCount(8);
 
     // Clear loading state after brief delay for smooth transition
     if (isLoadingTab) {
@@ -82,7 +82,7 @@ export function GalleryClient({ categories, initialTab }: GalleryClientProps) {
           visibleImageCount < currentImages.length
         ) {
           setVisibleImageCount((prev) =>
-            Math.min(prev + 12, currentImages.length)
+            Math.min(prev + 6, currentImages.length)
           );
         }
       },
@@ -272,6 +272,7 @@ export function GalleryClient({ categories, initialTab }: GalleryClientProps) {
                           src={image.src || "/placeholder.svg"}
                           alt={image.alt}
                           fill
+                          quality={85}
                           className="object-cover group-hover:scale-105 transition-transform duration-300"
                           loading={index < 6 ? "eager" : "lazy"}
                           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
