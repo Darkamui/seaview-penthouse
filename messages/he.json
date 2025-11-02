@@ -129,7 +129,9 @@
   },
   "footer": {
     "logoAlt": "פנטהאוס נוף הים",
-    "copyright": "© 2025 J-Web. כל הזכויות שמורות."
+    "madeWith": "נוצר עם",
+    "by": "על ידי",
+    "allRightsReserved": "כל הזכויות שמורות"
   },
   "about": {
     "badge": "אודות הפנטהאוס שלנו",

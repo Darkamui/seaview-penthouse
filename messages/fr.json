@@ -127,7 +127,9 @@
   },
   "footer": {
     "logoAlt": "The Sea View Penthouse",
-    "copyright": "© 2025 J-Web. Tous droits réservés."
+    "madeWith": "Fait avec",
+    "by": "par",
+    "allRightsReserved": "Tous droits réservés"
   },
   "about": {
     "badge": "À Propos de Notre Penthouse",
