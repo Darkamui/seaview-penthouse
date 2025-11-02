@@ -10,7 +10,7 @@ jobs:
 
     environment:
       name: production
-      url: https://seaview.j-web.ca
+      url: https://seaview-penthouse.com
 
     steps:
       - name: Checkout Code
@@ -33,8 +33,8 @@ jobs:
           tags: ${{ secrets.DOCKER_USERNAME }}/seaview-penthouse:latest
           build-args: |
             NEXT_PUBLIC_GA_MEASUREMENT_ID=${{ secrets.SEAVIEW_NEXT_PUBLIC_GA_MEASUREMENT_ID }}
-            NEXT_PUBLIC_SITE_URL=https://seaview.j-web.ca
-            SITE_URL=https://seaview.j-web.ca
+            NEXT_PUBLIC_SITE_URL=https://seaview-penthouse.com
+            SITE_URL=https://seaview-penthouse.com
 
       - name: Deploy via SSH
         uses: appleboy/ssh-action@v0.1.10
