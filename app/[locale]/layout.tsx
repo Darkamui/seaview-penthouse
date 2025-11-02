@@ -11,6 +11,7 @@ import "../globals.css";
 import { Footer } from "@/components/footer";
 import { ScrollAnimationObserver } from "@/components/scroll-animation-observer";
 import { Analytics } from "@/components/analytics";
+import { ServiceWorkerRegistration } from "@/components/service-worker-registration";
 
 // Primary font for body text and UI elements
 const inter = Inter({
@@ -85,6 +86,8 @@ export default async function LocaleLayout({ children, params }: Props) {
         </NextIntlClientProvider>
         {/* Google Analytics */}
         <Analytics />
+        {/* Service Worker for PWA */}
+        <ServiceWorkerRegistration />
       </body>
     </html>
   );
