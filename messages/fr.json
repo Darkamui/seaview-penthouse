@@ -1,0 +1,686 @@
+{
+  "metadata": {
+    "title": "The Sea View Penthouse - Location de Vacances de Luxe à Ashdod",
+    "description": "Découvrez le luxe à son apogée dans notre superbe penthouse avec vue sur mer à Ashdod. Parfait pour les événements intimes, les vacances en famille et les séjours inoubliables.",
+    "home": {
+      "title": "Penthouse de Luxe avec Vue sur Mer à Ashdod | Locations de Vacances & Événements",
+      "description": "Vivez le luxe dans notre penthouse de 570m² avec balcon de 270m² à Ashdod, Israël. Parfait pour les vacances, les préparatifs de mariage et les événements intimes. 5 chambres, jacuzzi, vues époustouflantes sur la Méditerranée.",
+      "ogTitle": "The Sea View Penthouse - Location de Vacances de Luxe à Ashdod",
+      "ogDescription": "Réservez votre séjour dans notre magnifique penthouse méditerranéen de 570m² avec vues panoramiques sur la mer, 5 chambres, jacuzzi privé et terrasse de 270m² à Ashdod, Israël."
+    },
+    "gallery": {
+      "title": "Galerie Photo | Sea View Penthouse Ashdod",
+      "description": "Explorez notre penthouse de luxe à travers de superbes photos de l'espace de vie de 150m², du balcon de 270m², des 5 chambres et des vues à couper le souffle sur la Méditerranée à Ashdod.",
+      "ogTitle": "Galerie - The Sea View Penthouse Ashdod",
+      "ogDescription": "Faites une visite virtuelle de notre penthouse de luxe avec vue sur mer à Ashdod avec de superbes photos de chaque espace."
+    },
+    "bridalEvent": {
+      "title": "Lieu de Préparation pour la Mariée | Sea View Penthouse Ashdod",
+      "description": "Espace de préparation parfait pour la mariée à Ashdod avec station de maquillage, vues mer spectaculaires et hébergement pour jusqu'à 9 demoiselles d'honneur. Commencez votre journée de mariage dans le luxe avec lumière naturelle et lieux parfaits pour les photos.",
+      "ogTitle": "Lieu de Préparation pour la Mariée - Sea View Penthouse",
+      "ogDescription": "L'endroit parfait pour commencer votre grand jour. Salon de préparation spacieux avec vues mer et hébergement pour demoiselles d'honneur."
+    },
+    "events": {
+      "title": "Lieu d'Événements Ashdod | Réunions & Événements Privés | Sea View Penthouse",
+      "description": "Organisez des événements intimes, des réunions d'affaires et des célébrations pour jusqu'à 30 invités dans notre penthouse de luxe avec vue sur mer et terrasse de 270m² avec vues panoramiques sur la Méditerranée à Ashdod.",
+      "ogTitle": "Lieu d'Événements - The Sea View Penthouse Ashdod",
+      "ogDescription": "Espace événementiel boutique pour jusqu'à 30 invités avec vues mer époustouflantes, terrasse de 270m² et espaces intérieurs élégants."
+    },
+    "vacation": {
+      "title": "Location de Vacances Ashdod | Penthouse 5 Chambres Vue sur Mer",
+      "description": "Réservez vos vacances de luxe à Ashdod. Penthouse de 570m² avec 5 chambres, vues mer époustouflantes, jacuzzi privé et balcon de 270m². Parfait pour les familles et les groupes jusqu'à 12 personnes.",
+      "ogTitle": "Location de Vacances - The Sea View Penthouse Ashdod",
+      "ogDescription": "Penthouse de 300m² avec terrasse de 270m² surplombant la Méditerranée. 5 chambres, équipements de luxe."
+    },
+    "contact": {
+      "title": "Contactez-Nous | Réservez Votre Séjour au Sea View Penthouse Ashdod",
+      "description": "Contactez-nous pour réserver vos vacances de luxe ou votre événement à Ashdod. Disponible 24/7 via WhatsApp ou email. Réponse sous 2 heures. Situé Kineret 17, à seulement 200m de la plage.",
+      "ogTitle": "Contact - The Sea View Penthouse Ashdod",
+      "ogDescription": "Contactez-nous pour réserver votre séjour en penthouse de luxe à Ashdod. Disponible 24/7 avec réponse rapide."
+    }
+  },
+  "navigation": {
+    "home": "Accueil",
+    "about": "À Propos",
+    "gallery": "Galerie",
+    "events": "Événements",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "siteTitle": "The Sea View Penthouse",
+    "ashdod": "Ashdod",
+    "bookStay": "Réservez Votre Penthouse Privé"
+  },
+  "hero": {
+    "title": "The Sea View Penthouse",
+    "subtitle": "Vivez le luxe avec des vues à couper le souffle sur la Méditerranée au cœur d'Ashdod. Où l'élégance moderne rencontre la sérénité côtière.",
+    "bookStay": "Contact",
+    "virtualTour": "Galerie",
+    "loading": "Chargement de l'expérience de luxe...",
+    "scroll": "DÉFILER",
+    "pauseSlideshow": "Mettre en pause le diaporama",
+    "playSlideshow": "Lire le diaporama",
+    "goToSlide": "Aller à la diapositive {number}",
+    "scrollToContent": "Défiler vers le contenu",
+    "altTexts": {
+      "seaViewSunset": "Vue sur la mer depuis le balcon du penthouse au coucher du soleil",
+      "spaciousLiving": "Salon spacieux avec vues panoramiques sur la mer",
+      "eveningBalcony": "Ambiance du soir sur le balcon de 270m²"
+    }
+  },
+  "homepage": {
+    "luxuryRedefined": "Le Luxe Redéfini",
+    "subtitle": "Découvrez une expérience de penthouse extraordinaire où l'élégance moderne rencontre la sérénité côtière",
+    "livingSpace": {
+      "title": "Surface Totale : 570 m²",
+      "description": "Cuisine et espaces de vie spacieux conçus pour le confort et la réception",
+      "alt": "Salon spacieux avec vue sur mer"
+    },
+    "balcony": {
+      "title": "Maximum d'Invités pour l'Hébergement : 12",
+      "description": "Terrasse extérieure époustouflante parfaite pour les événements et la détente",
+      "alt": "Terrasse de 270 mètres carrés avec vue sur mer"
+    },
+    "amenities": {
+      "title": "Maximum d'Invités pour Événements : 30",
+      "description": "Chaque détail conçu pour l'expérience de luxe ultime",
+      "alt": "Chambre de luxe avec équipements modernes"
+    },
+    "location": "Ashdod, Israël",
+    "locationTitle": "Emplacement Côtier de Choix",
+    "locationDescription": "Perché au-dessus du littoral méditerranéen, notre penthouse offre des vues dégagées sur la mer et un accès facile aux plus belles plages, restaurants et attractions culturelles d'Ashdod. L'emplacement stratégique offre à la fois tranquillité et commodité.",
+    "totalSpace": "Espace Total",
+    "maxGuests": "Max Invités",
+    "featuresTitle": "Caractéristiques Exceptionnelles",
+    "featuresSubtitle": "Chaque espace a été soigneusement conçu pour offrir l'expérience de luxe ultime",
+    "features": {
+      "livingSpace": {
+        "title": "150m² Espace de Vie",
+        "description": "Cuisine ouverte et salon spacieux avec baies vitrées offrant des vues panoramiques sur la mer."
+      },
+      "balcony": {
+        "title": "270m² Balcon Privé",
+        "description": "Terrasse extérieure époustouflante avec mobilier haut de gamme, parfaite pour recevoir et admirer les couchers de soleil méditerranéens."
+      },
+      "bedroom": {
+        "title": "Suite de Chambre de Luxe",
+        "description": "Chambre élégamment aménagée avec linge de lit premium, textures naturelles et accès direct au balcon."
+      },
+      "bathroom": {
+        "title": "Salle de Bain Type Spa",
+        "description": "Salle de bain moderne avec équipements premium, murs en blocs de verre et commodités de luxe pour une détente ultime."
+      }
+    },
+    "totalGuests": "Capacité événements",
+    "amenitiesTitle": "Équipements Premium",
+    "amenitiesSubtitle": "Tout ce dont vous avez besoin pour un séjour parfait, des commodités modernes aux touches de luxe",
+    "amenitiesItems": {
+      "highSpeedWifi": "WiFi Haute Vitesse",
+      "privateParking": "Parking Privé (2 places)",
+      "fullyEquippedKitchen": "Cuisine Entièrement Équipée",
+      "seaView": "Vues Mer Époustouflantes",
+      "privateHotTub": "Jacuzzi Privé",
+      "airConditioning": "Climatisation",
+      "privateBalcony": "Balcon Privé 270m²",
+      "washerDryer": "Lave-linge & Sèche-linge",
+      "viewAllAmenities": "Voir Tous les Équipements"
+    }
+  },
+  "footer": {
+    "logoAlt": "The Sea View Penthouse",
+    "copyright": "© 2025 J-Web. Tous droits réservés."
+  },
+  "about": {
+    "badge": "À Propos de Notre Penthouse",
+    "title": "Le Penthouse en Détails",
+    "subtitle": "Découvrez chaque détail exquis de notre penthouse de luxe avec vue sur mer, où la sophistication moderne rencontre l'élégance côtière au cœur d'Ashdod.",
+    "location": "Ashdod, Israël",
+    "locationTitle": "Emplacement Côtier de Choix",
+    "locationDescription": "Perché au-dessus du littoral méditerranéen, notre penthouse offre des vues dégagées sur la mer et un accès facile aux plus belles plages, restaurants et attractions culturelles d'Ashdod. L'emplacement stratégique offre à la fois tranquillité et commodité.",
+    "totalSpace": "Espace Total",
+    "maxGuests": "Max Invités",
+    "featuresTitle": "Caractéristiques Exceptionnelles",
+    "featuresSubtitle": "Chaque espace a été soigneusement conçu pour offrir l'expérience de luxe ultime",
+    "features": {
+      "livingSpace": {
+        "title": "Espace de Vie",
+        "description": "L'espace de vie central du penthouse combine un salon luxueux face à la mer et au ciel, une cuisine entièrement équipée pour des expériences culinaires, un coin repas spacieux pour les repas partagés, un coin télévision et un bar intégré. Un espace lumineux et ouvert avec des vues à couper le souffle qui embrasse tout et transforme chaque rassemblement en une expérience inoubliable."
+      },
+      "bedroom": {
+        "title": "Suites et Chambres",
+        "description": "Le penthouse offre cinq chambres magnifiquement conçues. La somptueuse suite parentale comprend une salle de bain privée, un jacuzzi relaxant et un accès direct au balcon. Les quatre chambres supplémentaires partagent une salle de bain spacieuse entièrement équipée avec douche et baignoire, plus des toilettes séparées pour un maximum de commodité. Toutes les chambres disposent de linge de lit premium, d'écrans YES+ et de systèmes de chauffage et climatisation personnalisés."
+      },
+      "balcony": {
+        "title": "Balcon",
+        "description": "Un balcon de 270m² entouré de brise marine et de ciel ouvert. Profitez de transats face à la mer, d'une station barbecue au gaz entièrement équipée et de coins salons confortables pour dîner et se retrouver en plein air."
+      },
+      "location": {
+        "title": "Emplacement de Choix",
+        "description": "Accès à pied facile à la plage, proche des restaurants, sports nautiques, nature et attractions culturelles."
+      }
+    },
+    "amenitiesTitle": "Équipements Premium",
+    "amenitiesSubtitle": "Tout ce dont vous avez besoin pour un séjour parfait, des commodités modernes aux touches de luxe",
+    "amenitiesItems": {
+      "highSpeedWifi": "WiFi Haute Vitesse",
+      "privateParking": "Parking Privé (2 places)",
+      "fullyEquippedKitchen": "Cuisine Entièrement Équipée",
+      "seaView": "Vues Mer Époustouflantes",
+      "privateHotTub": "Jacuzzi Privé",
+      "airConditioning": "Climatisation",
+      "privateBalcony": "Balcon Privé 270m²",
+      "washerDryer": "Lave-linge & Sèche-linge",
+      "viewAllAmenities": "Voir Tous les Équipements",
+      "categories": {
+        "views": "Vues Panoramiques",
+        "bathroom": "Salle de Bain",
+        "bedroom": "Chambre & Blanchisserie",
+        "essentials": "Essentiels",
+        "entertainment": "Divertissement",
+        "climate": "Chauffage & Climatisation",
+        "safety": "Sécurité Domicile",
+        "internet": "Internet & Bureau",
+        "kitchen": "Cuisine & Salle à Manger",
+        "location": "Caractéristiques du Lieu",
+        "outdoor": "Extérieur",
+        "parking": "Parking & Installations",
+        "services": "Services"
+      },
+      "fullList": {
+        "scenicViews": "Vues panoramiques",
+        "beachView": "Vue sur la plage",
+        "harbourView": "Vue sur le port",
+        "marinaView": "Vue sur la marina",
+        "seaViewFull": "Vue sur la mer",
+        "bathtub": "Baignoire",
+        "hairDryer": "Sèche-cheveux",
+        "cleaningProducts": "Produits de nettoyage",
+        "shampoo": "Shampoing",
+        "conditioner": "Après-shampoing",
+        "bodySoap": "Savon pour le corps",
+        "bidet": "Bidet",
+        "hotWater": "Eau chaude",
+        "showerGel": "Gel douche",
+        "washer": "Lave-linge",
+        "freeDryer": "Sèche-linge gratuit – Dans l'unité",
+        "towels": "Serviettes, draps, savon et papier toilette",
+        "hangers": "Cintres",
+        "bedLinens": "Linge de lit",
+        "cottonLinens": "Linge en coton",
+        "extraPillows": "Oreillers et couvertures supplémentaires",
+        "roomDarkening": "Stores occultants",
+        "iron": "Fer à repasser",
+        "dryingRack": "Séchoir à linge",
+        "safe": "Coffre-fort",
+        "clothingStorage": "Rangement vêtements : placard et armoire",
+        "ethernet": "Connexion Ethernet",
+        "tv": "Télévision",
+        "bluetooth": "Système son Bluetooth",
+        "books": "Livres et matériel de lecture",
+        "centralAC": "Climatisation centrale",
+        "centralHeating": "Chauffage central",
+        "securityCameras": "Caméras de sécurité extérieures sur la propriété",
+        "entranceCamera": "Caméra extérieure au-dessus de la porte d'entrée",
+        "fireExtinguisher": "Extincteur",
+        "firstAidKit": "Trousse de premiers soins",
+        "wifi": "WiFi",
+        "workspace": "Espace de travail dédié",
+        "workspacePrivate": "Dans un espace privé avec imprimante",
+        "pocketWifi": "WiFi de poche",
+        "kitchenSpace": "Espace cuisine où les clients peuvent cuisiner leurs propres repas",
+        "refrigerator": "Réfrigérateur",
+        "microwave": "Micro-ondes",
+        "cookingBasics": "Essentiels de cuisine : Casseroles et poêles, huile, sel et poivre",
+        "dishware": "Vaisselle et couverts : Bols, baguettes, assiettes, tasses, etc.",
+        "freezer": "Congélateur",
+        "dishwasher": "Lave-vaisselle",
+        "gasStove": "Cuisinière à gaz",
+        "oven": "Four",
+        "kettle": "Bouilloire électrique",
+        "coffeeMaker": "Machine à café : Nespresso",
+        "wineGlasses": "Verres à vin",
+        "toaster": "Grille-pain",
+        "bakingSheet": "Plaque de cuisson",
+        "blender": "Mixeur",
+        "trashCompactor": "Compacteur à déchets",
+        "bbqUtensils": "Ustensiles barbecue",
+        "bbqGrill": "Grill, charbon, brochettes bambou/fer, etc.",
+        "diningTable": "Table à manger",
+        "coffee": "Café",
+        "sharedBeach": "Accès plage partagé",
+        "beachAccess": "Les invités peuvent profiter d'une plage à proximité",
+        "privateEntrance": "Entrée privée",
+        "separateEntrance": "Entrée rue ou immeuble séparée",
+        "laundromat": "Laverie à proximité",
+        "privateBalconyFull": "Patio ou balcon privé",
+        "outdoorFurniture": "Mobilier d'extérieur",
+        "outdoorDining": "Coin repas extérieur",
+        "outdoorKitchen": "Cuisine extérieure privée",
+        "privateBBQ": "Barbecue privé : gaz",
+        "sunLoungers": "Transats",
+        "garageParking": "Garage résidentiel gratuit sur place – 2 places",
+        "streetParking": "Parking rue gratuit",
+        "hotTub": "Jacuzzi privé",
+        "elevator": "Ascenseur (52 pouces de profondeur, porte de 32 pouces de largeur)",
+        "smokingForbidden": "Interdiction de fumer",
+        "longTermStays": "Séjours longue durée autorisés (28 jours ou plus)",
+        "housekeeping": "Ménage disponible 5 heures par jour, tous les jours - disponible moyennant supplément",
+        "hostGreets": "L'hôte vous accueille"
+      }
+    }
+  },
+  "contact": {
+    "badge": "Nous Contacter",
+    "title": "Contactez-Nous",
+    "subtitle": "Prêt à vivre le luxe ? Contactez-nous pour réserver votre séjour ou planifier votre événement parfait dans notre penthouse avec vue sur mer.",
+    "bookingInquiry": "Demande de Réservation",
+    "bookingInquirySubtitle": "Remplissez le formulaire ci-dessous et nous vous répondrons sous 2 heures",
+    "form": {
+      "fullName": "Nom Complet",
+      "fullNamePlaceholder": "Votre nom complet",
+      "email": "Email",
+      "emailPlaceholder": "votre@email.com",
+      "phone": "Numéro de Téléphone",
+      "phonePlaceholder": "+33 1 23 45 67 89",
+      "checkInDate": "Date d'Arrivée",
+      "checkOutDate": "Date de Départ",
+      "numberOfGuests": "Nombre d'Invités",
+      "selectGuests": "Sélectionnez invités",
+      "guest": "Invité",
+      "guests": "Invités",
+      "purposeOfStay": "Objet du Séjour",
+      "selectPurpose": "Sélectionnez l'objet",
+      "purposes": {
+        "vacation": "Location de Vacances",
+        "business": "Voyage d'Affaires",
+        "wedding": "Mariage/Demande",
+        "family": "Réunion de Famille",
+        "event": "Événement Privé",
+        "other": "Autre"
+      },
+      "specialRequests": "Demandes Spéciales ou Questions",
+      "specialRequestsPlaceholder": "Parlez-nous de vos besoins spéciaux, questions ou comment nous pouvons rendre votre séjour parfait...",
+      "sendInquiry": "Envoyer la Demande",
+      "whatsappUs": "WhatsApp",
+      "sending": "Envoi...",
+      "successMessage": "Votre demande a été envoyée avec succès ! Nous vous répondrons sous 2 heures.",
+      "errorMessage": "Échec de l'envoi de votre demande. Veuillez réessayer ou nous contacter directement."
+    },
+    "getInTouch": "Nous Contacter",
+    "contactInfo": {
+      "phone": {
+        "title": "Téléphone",
+        "number": "+972 50-123-4567",
+        "availability": "Disponible 24/7"
+      },
+      "email": {
+        "title": "Email",
+        "address": "info@seaview.j-web.ca",
+        "response": "Réponse sous 2 heures"
+      },
+      "location": {
+        "title": "Localisation",
+        "address": "Kineret 17, Ashdod",
+        "distance": "200m de la plage"
+      },
+      "checkInOut": {
+        "title": "Arrivée/départ",
+        "checkIn": "Arrivée : 15h00",
+        "checkOut": "Départ : 11h00"
+      }
+    },
+    "contactNow": "Contactez Maintenant",
+    "quickFacts": "Infos Rapides",
+    "quickFactsItems": {
+      "totalSpace": "Espace Total",
+      "maxGuests": "Max Invités",
+      "toBeach": "Vers la Plage",
+      "support": "Support"
+    },
+    "ourLocation": "Notre Localisation",
+    "locationSubtitle": "Parfaitement positionné à Ashdod avec vues mer époustouflantes et accès facile aux meilleures attractions de la ville",
+    "primeCoastalLocation": "Emplacement Côtier de Choix",
+    "locationDetails": {
+      "address": "Kineret 17, Ashdod, Israël",
+      "addressDescription": "Quartier résidentiel premium avec accès mer",
+      "beach": "200m vers la Plage",
+      "beachDescription": "Accès direct au magnifique littoral d'Ashdod",
+      "airport": "45 min de l'Aéroport Ben Gourion",
+      "airportDescription": "Accès facile par autoroute ou transport public",
+      "walkingDistance": "À distance de marche des commodités",
+      "walkingDistanceDescription": "Restaurants, commerces et sites culturels à proximité"
+    }
+  },
+  "events": {
+    "badge": "Organisation d'Événements",
+    "title": "Là où la Mer et le Ciel se Rencontrent – L'Expérience Penthouse Commence",
+    "subtitle": "Organisez vos moments les plus importants dans notre penthouse de luxe, où chaque célébration devient extraordinaire sur fond de mer Méditerranée.",
+    "eventTypesTitle": "Là où la Mer et le Ciel se Rencontrent – L'Expérience Penthouse Commence",
+    "eventTypesSubtitle": "Des rassemblements intimes aux réunions d'affaires, notre penthouse s'adapte à votre vision",
+    "eventTypesCTA": "Détails",
+    "eventTypes": {
+      "intimate": {
+        "title": "Vacances en Penthouse",
+        "capacity": "Jusqu'à 12 personnes",
+        "description": "Penthouse de 300 m² avec terrasse massive de 270 m² surplombant des vues mer à couper le souffle",
+        "feature1": "5 chambres magnifiquement conçues et équipées dans les moindres détails",
+        "feature2": "Suite parentale luxueuse avec jacuzzi et accès terrasse",
+        "feature3": "Espaces accueillants pour se retrouver, cuisiner et partager des repas face au coucher du soleil",
+        "feature4": ""
+      },
+      "bridal": {
+        "title": "Préparation Mariée",
+        "capacity": "Journée de préparation incluant hébergement pour jusqu'à 9 demoiselles d'honneur",
+        "description": "L'endroit parfait pour commencer votre grand jour",
+        "feature1": "Salon de préparation spacieux avec lumière naturelle abondante et vues mer ouvertes",
+        "feature2": "Station de maquillage, grands miroirs et chaises de bar",
+        "feature3": "Suite mariée et 4 chambres pour demoiselles d'honneur avec accès terrasse",
+        "feature4": "Idéal pour la photographie et la rencontre mariés"
+      },
+      "business": {
+        "title": "Événements",
+        "capacity": "Jusqu'à 30 invités",
+        "description": "Réunions boutique et événements élégants face à la mer et au ciel",
+        "feature1": "Vues mer et ciel uniques",
+        "feature2": "Espaces intérieurs avec atmosphère luxueuse mais chaleureuse",
+        "feature3": "Grande cuisine intérieure et station BBQ gaz sur terrasse, pour repas de chef ou réception conviviale",
+        "feature4": "Hébergement combiné pour invités ou membres de la famille, pour compléter l'expérience"
+      }
+    },
+    "eventSpacesTitle": "Espaces Événements",
+    "eventSpacesSubtitle": "Deux zones distinctes pouvant être utilisées ensemble ou séparément pour votre événement parfait",
+    "spaces": {
+      "livingRoom": {
+        "title": "150m² Cuisine & Salon",
+        "description": "Espace ouvert spacieux parfait pour recevoir et événements",
+        "feature1": "Baies vitrées avec vues mer",
+        "feature2": "Cuisine moderne entièrement équipée",
+        "feature3": "Sièges confortables pour 20+ invités",
+        "feature4": "Systèmes son et éclairage premium",
+        "feature5": "Accès direct au balcon"
+      },
+      "balcony": {
+        "title": "270m² Balcon Privé",
+        "description": "Lieu extérieur époustouflant avec vues panoramiques sur la Méditerranée",
+        "feature1": "Vues mer dégagées",
+        "feature2": "Mobilier extérieur premium",
+        "feature3": "Plusieurs coins salon",
+        "feature4": "Parfait pour événements au coucher du soleil",
+        "feature5": "Sections protégées des intempéries"
+      }
+    },
+    "readyToPlan": "Prêt à Planifier Votre Événement ?",
+    "readyToPlanSubtitle": "Laissez-nous vous aider à créer une expérience inoubliable dans notre penthouse de luxe",
+    "requestEventQuote": "Demander un Devis Événement",
+    "scheduleViewing": "Planifier une Visite",
+    "ctaTitle": "Pour un Devis et Plus de Détails",
+    "whatsappText": "Contactez-Nous Maintenant",
+    "phoneNumber": "+972-546-606-233",
+    "followUs": "Suivez-Nous"
+  },
+  "gallery": {
+    "badge": "Expérience Visuelle",
+    "title": "Galerie",
+    "subtitle": "Explorez chaque recoin de notre penthouse de luxe à travers notre galerie complète de photos et vidéos",
+    "categories": {
+      "livingRoom": "Salon",
+      "balcony": "Balcon",
+      "bedrooms": "Chambres",
+      "kitchen": "Cuisine",
+      "bathrooms": "Salles de Bain",
+      "video": "Vidéo",
+      "around": "Dans la région"
+    },
+    "videoItems": {
+      "virtualTour": {
+        "title": "Visite Virtuelle",
+        "description": "Visite complète du penthouse"
+      },
+      "sunsetTimelapse": {
+        "title": "Timelapse Coucher de Soleil",
+        "description": "Magnifique coucher de soleil méditerranéen depuis le balcon"
+      },
+      "amenitiesShowcase": {
+        "title": "Présentation des Équipements",
+        "description": "Aperçu détaillé de tous les équipements premium"
+      }
+    }
+  },
+  "faq": {
+    "badge": "Centre d'Aide",
+    "title": "Questions Fréquemment Posées",
+    "subtitle": "Trouvez des réponses aux questions courantes sur le séjour dans notre penthouse de luxe avec vue sur mer",
+    "categories": {
+      "booking": {
+        "title": "Réservation & Réservations",
+        "questions": {
+          "howFarAdvance": {
+            "question": "Combien de temps à l'avance dois-je réserver ?",
+            "answer": "Nous recommandons de réserver au moins 2-4 semaines à l'avance, surtout pendant la haute saison (mai-septembre) et les vacances. Pour les événements et occasions spéciales, une réservation anticipée est conseillée pour garantir la disponibilité."
+          },
+          "cancellationPolicy": {
+            "question": "Quelle est votre politique d'annulation ?",
+            "answer": "Annulation gratuite jusqu'à 14 jours avant l'arrivée. Les annulations entre 7-14 jours entraînent des frais de 50%. Moins de 7 jours de préavis entraîne des frais complets. Nous comprenons que des urgences peuvent survenir et travaillerons avec vous si possible."
+          },
+          "securityDeposit": {
+            "question": "Exigez-vous un dépôt de garantie ?",
+            "answer": "Oui, nous demandons un dépôt de garantie remboursable de 500$ qui est retourné sous 7 jours après le départ, à condition qu'il n'y ait pas de dommages ou de nettoyage excessif requis."
+          },
+          "checkInOut": {
+            "question": "Quels sont vos horaires d'arrivée et de départ ?",
+            "answer": "L'arrivée est à partir de 15h00 et le départ à 11h00. Arrivée anticipée ou départ tardif peuvent être disponibles sur demande et selon disponibilité."
+          }
+        }
+      },
+      "amenities": {
+        "title": "Équipements & Services",
+        "questions": {
+          "whatIncluded": {
+            "question": "Quels équipements sont inclus ?",
+            "answer": "Tous les séjours incluent WiFi haute vitesse, cuisine entièrement équipée, literie premium, équipements de salle de bain de luxe, parking privé et accès au balcon de 270m². Nous fournissons également des rafraîchissements de bienvenue et support concierge 24/7."
+          },
+          "parkingAvailable": {
+            "question": "Y a-t-il un parking disponible ?",
+            "answer": "Oui, nous fournissons un parking privé sécurisé pour jusqu'à 2 véhicules. Parking supplémentaire peut être arrangé à proximité si nécessaire pour grands groupes ou événements."
+          },
+          "petsAllowed": {
+            "question": "Acceptez-vous les animaux ?",
+            "answer": "Nous accueillons les animaux bien élevés avec approbation préalable. Des frais d'animal de 50$ par séjour s'appliquent, et nous demandons que les animaux soient supervisés en tout temps, surtout sur le balcon."
+          },
+          "suitableChildren": {
+            "question": "Le penthouse est-il adapté aux enfants ?",
+            "answer": "Oui, les familles sont bienvenues ! Le penthouse est adapté aux enfants avec dispositifs de sécurité sur le balcon. Nous pouvons fournir lits bébé, chaises hautes et autres équipements pour bébé sur demande."
+          }
+        }
+      },
+      "location": {
+        "title": "Localisation & Accès",
+        "questions": {
+          "howCloseBeach": {
+            "question": "Quelle est votre proximité avec la plage ?",
+            "answer": "Nous sommes situés à seulement 200 mètres des belles plages d'Ashdod. Le penthouse offre des vues directes sur la mer, et la plage est à 3 minutes de marche facile."
+          },
+          "nearbyDining": {
+            "question": "Qu'y a-t-il à proximité pour dîner et se divertir ?",
+            "answer": "Ashdod offre d'excellents restaurants, cafés et attractions culturelles à distance de marche. La marina, centres commerciaux et sites historiques sont tous facilement accessibles. Nous fournissons un guide local complet à l'arrivée."
+          },
+          "airportTransport": {
+            "question": "Comment me rendre au penthouse depuis l'aéroport ?",
+            "answer": "L'aéroport Ben Gourion est à environ 45 minutes en voiture. Nous pouvons organiser des transferts aéroport, ou vous pouvez prendre un taxi, voiture de location ou transport public. Itinéraires détaillés fournis à la confirmation de réservation."
+          },
+          "publicTransport": {
+            "question": "Les transports publics sont-ils disponibles ?",
+            "answer": "Oui, Ashdod dispose de bons transports publics incluant bus et trains. La gare centrale est à 10 minutes, offrant accès facile à Tel Aviv, Jérusalem et autres grandes villes."
+          }
+        }
+      },
+      "events": {
+        "title": "Événements & Occasions Spéciales",
+        "questions": {
+          "canHostEvents": {
+            "question": "Puis-je organiser des événements au penthouse ?",
+            "answer": "Notre penthouse est parfait pour événements intimes jusqu'à 30 invités. Nous pouvons accueillir demandes en mariage, célébrations d'anniversaire, réunions d'affaires et rassemblements familiaux. Services de planification d'événements disponibles."
+          },
+          "cateringServices": {
+            "question": "Proposez-vous des services de restauration ?",
+            "answer": "Nous pouvons organiser la restauration via notre réseau de traiteurs locaux premium et chefs privés. Notre cuisine entièrement équipée permet également auto-restauration ou engagement de votre propre chef."
+          },
+          "noiseRestrictions": {
+            "question": "Y a-t-il des restrictions de bruit pour les événements ?",
+            "answer": "Nous demandons que les événements respectent les heures calmes de 22h à 8h par considération pour les voisins. Musique et célébrations sont bienvenues pendant les heures appropriées."
+          },
+          "eventPlanning": {
+            "question": "Pouvez-vous aider avec la planification d'événements ?",
+            "answer": "Oui ! Nous offrons assistance à la planification d'événements incluant installation décoration, recommandations fournisseurs et services coordination. Contactez-nous pour discuter de vos besoins et vision spécifiques."
+          }
+        }
+      }
+    },
+    "stillHaveQuestions": "Encore des Questions ?",
+    "stillHaveQuestionsSubtitle": "Notre équipe est là pour vous aider à planifier le séjour parfait",
+    "supportOptions": {
+      "liveChat": {
+        "title": "Chat en Direct",
+        "description": "Disponible 24/7 pour assistance immédiate",
+        "action": "Démarrer Chat"
+      },
+      "phoneSupport": {
+        "title": "Support Téléphonique",
+        "description": "Parlez directement avec notre équipe",
+        "action": "Appeler"
+      },
+      "emailSupport": {
+        "title": "Support Email",
+        "description": "Réponses détaillées sous 2 heures",
+        "action": "Envoyer Email"
+      }
+    },
+    "contactUsDirectly": "Contactez-Nous Directement"
+  },
+  "bridalEvent": {
+    "features": {
+      "companionsStay": {
+        "title": "Séjour pour jusqu'à 12 Compagnes",
+        "description": "Nuitée confortable pour 9-12 demoiselles d'honneur"
+      },
+      "barChairs": {
+        "title": "Chaises de Bar",
+        "description": "Coin bar élégant et confortable"
+      },
+      "mirrors": {
+        "title": "Miroirs",
+        "description": "Grands miroirs bien éclairés pour une préparation parfaite"
+      },
+      "makeupHairCorner": {
+        "title": "Coin Maquillage & Coiffure Face à la Mer",
+        "description": "Station maquillage et coiffure de luxe avec vues mer à couper le souffle"
+      },
+      "coffeeWineFruits": {
+        "title": "Coin Café Riche",
+        "description": "Café premium, vin fin et plateau de fruits frais à l'arrivée"
+      },
+      "suppliersAccess": {
+        "title": "Accès Fournisseurs",
+        "description": "Accès pratique pour fournisseurs le jour de préparation"
+      },
+      "brideGroomMeeting": {
+        "title": "Première Vue Mariés",
+        "description": "Lieux magiques pour première vue émotionnelle avec le marié"
+      }
+    }
+  },
+  "vacation": {
+    "locationBlock": {
+      "title": "Localisation - Face à la Mer",
+      "description": "5 minutes à pied de la plage surveillée"
+    },
+    "hero": {
+      "oceanfront": {
+        "title": "Paradis en Bord de Mer",
+        "description": "Réveillez-vous avec des vues époustouflantes sur la Méditerranée chaque matin depuis votre balcon privé de 270m² surplombant le littoral immaculé."
+      },
+      "allDaySunshine": {
+        "title": "Soleil Toute la Journée",
+        "description": "Profitez d'un temps parfait toute l'année avec notre terrasse orientée sud, idéale pour bronzer, dîner et recevoir."
+      },
+      "gourmetKitchen": {
+        "title": "Cuisine Gastronomique",
+        "description": "Cuisine moderne entièrement équipée avec appareils premium, parfaite pour préparer des repas avec ingrédients locaux frais."
+      },
+      "luxuryAccommodations": {
+        "title": "Hébergement de Luxe",
+        "description": "Chambres spacieuses avec linge premium, salles de bain attenantes et vues époustouflantes pour confort ultime."
+      }
+    },
+    "amenities": {
+      "modernConnectivity": {
+        "title": "Connectivité Moderne",
+        "description": "WiFi haute vitesse et technologie maison intelligente partout"
+      },
+      "convenientLocation": {
+        "title": "Emplacement Pratique",
+        "description": "Accès facile aux attractions et commodités d'Ashdod"
+      },
+      "yearRoundComfort": {
+        "title": "Confort Toute l'Année",
+        "description": "Contrôle climatique et équipements premium pour toute saison"
+      }
+    },
+    "gallery": {
+      "title": "Vivez les Vues",
+      "altTexts": {
+        "eveningBalcony": "Vue balcon du soir",
+        "modernKitchen": "Cuisine moderne",
+        "luxuryBathroom": "Salle de bain de luxe"
+      }
+    }
+  },
+  "eventPage": {
+    "features": {
+      "interior": {
+        "title": "150m² Intérieur",
+        "description": "Espace intérieur spacieux et élégant parfait pour présentations et dîners"
+      },
+      "terrace": {
+        "title": "270m² Terrasse",
+        "description": "Espace extérieur époustouflant avec vues mer panoramiques pour réceptions cocktail"
+      },
+      "cateringReady": {
+        "title": "Prêt pour Restauration",
+        "description": "Cuisine entièrement équipée pour restauration professionnelle et service alimentaire"
+      }
+    },
+    "capacity": {
+      "title": "Capacité Événement",
+      "seatedDinner": "Dîner assis : Jusqu'à 16 invités",
+      "cocktailReception": "Réception cocktail : Jusqu'à 25 invités",
+      "businessMeeting": "Réunion d'affaires : Jusqu'à 12 participants",
+      "presentationSetup": "Configuration présentation : Jusqu'à 20 participants"
+    },
+    "services": {
+      "title": "Services Disponibles",
+      "eventPlanning": "Assistance professionnelle planification événement",
+      "cateringCoordination": "Coordination restauration",
+      "avEquipment": "Installation équipement audio/visuel",
+      "eventSupport": "Personnel support événement dédié"
+    },
+    "altTexts": {
+      "elegantInterior": "Espace intérieur élégant pour événements",
+      "outdoorTerrace": "Terrasse extérieure pour événements",
+      "cateringKitchen": "Cuisine professionnelle de restauration"
+    }
+  },
+  "eventOverviews": {
+    "bridalPrep": {
+      "title": "Préparation Mariée",
+      "description": "Le penthouse offre un mélange de confort, beauté et vues à couper le souffle – une expérience qui vous embrasse dès le premier instant jusqu'à votre marche vers l'autel.\n\nEspaces spacieux avec beaucoup de place pour vous et vos amies les plus proches.\n\nLumière naturelle abondante qui flatte chaque photo et lieux magiques pour première vue touchante avec le marié.\n\nCélébrez la dernière nuit avant votre mariage avec style, avec vos amies les plus chères, dans une atmosphère unique qui restera dans votre mémoire pour toujours."
+    },
+    "meetingSpace": {
+      "title": "Événements & Réunions",
+      "description": "Espace parfait pour événements intimes, le penthouse offre services de luxe avec vues mer à couper le souffle.\n\nLocation lieu inclut également hébergement pour jusqu'à 30 invités.\n\nTerrasse soleil avec vues mer ouvertes et couchers de soleil magiques.\n\nEspaces élégants adaptés à tout style d'événement.\n\nL'espace cuisine et salon ouvert le rend idéal pour réunions d'affaires prestigieuses et rassemblements toute journée.\n\nAbondance de lumière naturelle et installations premium pour invités sélectionnés tout au long de l'événement.\n\nOptions collaboration également disponibles pour expériences uniques.\n\nLe penthouse fournit lieu unique pour événements boutique jusqu'à 30 participants.\n\nÉquilibre parfait entre luxe et atmosphère chaleureuse et familiale.\n\nL'intérieur s'étend sur 150 m² de salon et cuisine ouverts, créant environnement détendu pour rassemblements équipe, réunions conseil, ateliers et journées stratégie.\n\nLa terrasse de 270 m² offre vues mer ouvertes époustouflantes et couchers de soleil.\n\nEndroit idéal pour dîners chef, réseautage et conversations significatives en dehors du bureau.\n\nLumière naturelle abondante et espaces élégants flexibles transforment chaque réunion d'affaires en expérience riche et inoubliable."
+    },
+    "vacationSpace": {
+      "title": "Vacances & Loisirs",
+      "description": "Espaces spacieux et design élégant créent mélange unique de confort et luxe, aux côtés d'une atmosphère chaleureuse et familiale.\n\nIci vous pouvez profiter de temps de qualité avec famille et amis sur immenses terrasses face au coucher du soleil, tout en profitant d'intimité complète dans chacune des chambres luxueuses.\n\nLe penthouse offre tout ce dont vous avez besoin pour vacances inoubliables – vues infinies, espace pour cuisiner et célébrer, et moments qui resteront dans votre cœur pour toujours."
+    }
+  }
+}

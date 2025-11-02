@@ -9,6 +9,7 @@ import { usePathname, useRouter } from "@/i18n/navigation";
 const locales = [
   { code: "he", name: "עברית", flag: "🇮🇱" },
   { code: "en", name: "English", flag: "🇺🇸" },
+  { code: "fr", name: "Français", flag: "🇫🇷" },
 ];
 
 export function LanguageSwitcher() {
@@ -17,7 +18,7 @@ export function LanguageSwitcher() {
   const router = useRouter();
   const currentLocale = useLocale();
 
-  const handleLocaleChange = (newLocale: "he" | "en") => {
+  const handleLocaleChange = (newLocale: "he" | "en" | "fr") => {
     router.replace(pathname, { locale: newLocale });
     setIsOpen(false);
   };
@@ -45,7 +46,7 @@ export function LanguageSwitcher() {
           {locales.map((locale) => (
             <button
               key={locale.code}
-              onClick={() => handleLocaleChange(locale.code as "he" | "en")}
+              onClick={() => handleLocaleChange(locale.code as "he" | "en" | "fr")}
               className={`w-full px-4 py-2 text-left text-sm hover:bg-accent/10 transition-colors flex items-center space-x-2 ${
                 locale.code === currentLocale
                   ? "bg-accent/20 text-accent"

@@ -51,7 +51,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   const { locale } = await params;
 
   // Validate that the incoming `locale` parameter is valid
-  if (!routing.locales.includes(locale as "he" | "en")) {
+  if (!routing.locales.includes(locale as "he" | "en" | "fr")) {
     return null;
   }
 
