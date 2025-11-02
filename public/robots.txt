@@ -4,7 +4,7 @@ Allow: /
 Disallow: /api/
 
 # Host
-Host: https://seaview.j-web.ca
+Host: https://seaview-penthouse.com
 
 # Sitemaps
-Sitemap: https://seaview.j-web.ca/sitemap.xml
+Sitemap: https://seaview-penthouse.com/sitemap.xml

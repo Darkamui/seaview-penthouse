@@ -4,13 +4,40 @@ import { ScrollAnimation } from "./scroll-animation";
 
 export function VideoShowcase() {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [shouldLoad, setShouldLoad] = useState(false);
 
   useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    // Lazy load video when container is near viewport
+    const loadObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setShouldLoad(true);
+            loadObserver.disconnect(); // Stop observing once loaded
+          }
+        });
+      },
+      { rootMargin: "100px" } // Start loading 100px before entering viewport
+    );
+
+    loadObserver.observe(container);
+
+    return () => loadObserver.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!shouldLoad) return;
+
     const video = videoRef.current;
     if (!video) return;
 
-    const observer = new IntersectionObserver(
+    // Auto-play when video is in viewport
+    const playObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
@@ -25,10 +52,10 @@ export function VideoShowcase() {
       { threshold: 0.5 }
     );
 
-    observer.observe(video);
+    playObserver.observe(video);
 
-    return () => observer.disconnect();
-  }, []);
+    return () => playObserver.disconnect();
+  }, [shouldLoad]);
 
   const togglePlay = () => {
     const video = videoRef.current;
@@ -44,7 +71,7 @@ export function VideoShowcase() {
   };
 
   return (
-    <div className="max-w-5xl mx-auto px-4">
+    <div ref={containerRef} className="max-w-5xl mx-auto px-4">
       {/* Phone mockup container */}
       <ScrollAnimation animation="left">
         <div className="relative mx-auto max-w-sm md:max-w-2xl">
@@ -61,8 +88,9 @@ export function VideoShowcase() {
               muted
               playsInline
               poster="/video-thumbnail-modern-tech.jpg"
+              preload={shouldLoad ? "auto" : "none"}
             >
-              <source src="/pent2.mp4" type="video/mp4" />
+              {shouldLoad && <source src="/pent2.mp4" type="video/mp4" />}
               Your browser does not support the video tag.
             </video>
 
