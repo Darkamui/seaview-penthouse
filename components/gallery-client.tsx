@@ -75,6 +75,9 @@ export function GalleryClient({ categories, initialTab }: GalleryClientProps) {
 
   // Phase 5: Progressive loading with IntersectionObserver
   useEffect(() => {
+    // Don't observe while loading tab
+    if (isLoadingTab) return;
+
     const observer = new IntersectionObserver(
       (entries) => {
         if (
@@ -94,7 +97,7 @@ export function GalleryClient({ categories, initialTab }: GalleryClientProps) {
     }
 
     return () => observer.disconnect();
-  }, [currentImages.length, visibleImageCount]);
+  }, [currentImages.length, visibleImageCount, activeCategory, isLoadingTab]);
 
   const openLightbox = (image: { src: string; alt: string }, index: number) => {
     setLightboxImage(image);
