@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 
 type Props = {
   params: Promise<{ locale: string }>;
-  searchParams: { tab?: string };
+  searchParams: Promise<{ tab?: string }>;
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -57,6 +57,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function GalleryPage({ params, searchParams }: Props) {
   const { locale } = await params;
+  const { tab } = await searchParams;
   const t = await getTranslations({ locale, namespace: "gallery" });
 
   // Build base categories structure
@@ -122,6 +123,6 @@ export default async function GalleryPage({ params, searchParams }: Props) {
   });
 
   return (
-    <GalleryClient categories={categories} initialTab={searchParams.tab} />
+    <GalleryClient categories={categories} initialTab={tab} />
   );
 }

@@ -48,16 +48,27 @@ export function GalleryClient({ categories, initialTab }: GalleryClientProps) {
   const [visibleImageCount, setVisibleImageCount] = useState(12);
   const observerTarget = useRef<HTMLDivElement>(null);
 
+  // Tab switching loading state
+  const [isLoadingTab, setIsLoadingTab] = useState(false);
+
   // Phase 5: Touch gesture state for lightbox
   const touchStartX = useRef<number>(0);
   const touchStartY = useRef<number>(0);
   const touchEndX = useRef<number>(0);
   const touchEndY = useRef<number>(0);
 
-  // Phase 5: Reset visible count when category changes
+  // Phase 5: Reset visible count and manage loading state when category changes
   useEffect(() => {
     setVisibleImageCount(12);
-  }, [activeCategory]);
+
+    // Clear loading state after brief delay for smooth transition
+    if (isLoadingTab) {
+      const timer = setTimeout(() => {
+        setIsLoadingTab(false);
+      }, 150);
+      return () => clearTimeout(timer);
+    }
+  }, [activeCategory, isLoadingTab]);
 
   const currentCategory = categories.find((cat) => cat.id === activeCategory);
   const currentImages = currentCategory?.images || [];
@@ -140,6 +151,20 @@ export function GalleryClient({ categories, initialTab }: GalleryClientProps) {
     }
   };
 
+  // Skeleton loader component
+  const SkeletonGrid = () => (
+    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {Array.from({ length: 12 }).map((_, index) => (
+        <div
+          key={index}
+          className="relative aspect-[4/3] rounded-lg overflow-hidden bg-muted border border-accent/10 animate-pulse"
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-muted via-muted-foreground/10 to-muted animate-shimmer" />
+        </div>
+      ))}
+    </div>
+  );
+
   return (
     <div className="min-h-screen">
       {/* Category Navigation */}
@@ -160,7 +185,12 @@ export function GalleryClient({ categories, initialTab }: GalleryClientProps) {
                   variant={
                     activeCategory === category.id ? "default" : "outline"
                   }
-                  onClick={() => setActiveCategory(category.id)}
+                  onClick={() => {
+                    if (category.id !== activeCategory) {
+                      setIsLoadingTab(true);
+                      setActiveCategory(category.id);
+                    }
+                  }}
                   className={
                     activeCategory === category.id
                       ? "bg-accent hover:bg-accent/90 text-accent-foreground"
@@ -178,9 +208,15 @@ export function GalleryClient({ categories, initialTab }: GalleryClientProps) {
       {/* Gallery Grid */}
       <section className="py-8 px-4">
         <div className="max-w-7xl mx-auto">
-          {activeCategory === "video" ? (
+          {isLoadingTab ? (
+            // Skeleton loader during tab switching
+            <SkeletonGrid />
+          ) : activeCategory === "video" ? (
             // Video Grid
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div
+              key={activeCategory}
+              className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+            >
               {currentCategory?.videos?.map((video, index) => (
                 <ScrollAnimation
                   key={index}
@@ -215,7 +251,10 @@ export function GalleryClient({ categories, initialTab }: GalleryClientProps) {
           ) : (
             // Image Grid
             <>
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div
+                key={activeCategory}
+                className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
+              >
                 {currentImages
                   .slice(0, visibleImageCount)
                   .map((image, index) => (
