@@ -27,7 +27,7 @@ export function FeaturesGrid({
     {
       title: t("features.livingSpace.title"),
       description: t("features.livingSpace.description"),
-      galleryCategory: "inside-spaces",
+      galleryCategory: "livingRoom",
       images: [
         "/images/living.jpg",
         "/images/living1.jpg",
@@ -40,7 +40,7 @@ export function FeaturesGrid({
     {
       title: t("features.bedroom.title"),
       description: t("features.bedroom.description"),
-      galleryCategory: "inside-spaces",
+      galleryCategory: "bedrooms",
       images: [
         "/images/room.jpg",
         "/images/room1.jpg",
@@ -54,7 +54,7 @@ export function FeaturesGrid({
     {
       title: t("features.balcony.title"),
       description: t("features.balcony.description"),
-      galleryCategory: "balcony-sea-view",
+      galleryCategory: "balcony",
       images: [
         "/images/balcony.jpg",
         "/images/balcony1.jpg",
@@ -72,7 +72,7 @@ export function FeaturesGrid({
     {
       title: t("features.location.title"),
       description: t("features.location.description"),
-      galleryCategory: "inside-spaces",
+      galleryCategory: "around",
       images: [
         "/images/ashdod.jpg",
         "/images/ashdod1.webp",

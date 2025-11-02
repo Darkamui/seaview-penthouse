@@ -154,7 +154,7 @@ export function GalleryClient({ categories, initialTab }: GalleryClientProps) {
   // Skeleton loader component
   const SkeletonGrid = () => (
     <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      {Array.from({ length: 12 }).map((_, index) => (
+      {Array.from({ length: 8 }).map((_, index) => (
         <div
           key={index}
           className="relative aspect-[4/3] rounded-lg overflow-hidden bg-muted border border-accent/10 animate-pulse"
@@ -261,7 +261,7 @@ export function GalleryClient({ categories, initialTab }: GalleryClientProps) {
                     <ScrollAnimation
                       key={index}
                       animation="stagger"
-                      delay={index < 12 ? index * 50 : 0}
+                      delay={index < 8 ? index * 50 : 0}
                       className="group cursor-pointer"
                     >
                       <div
