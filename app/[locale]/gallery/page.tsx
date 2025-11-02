@@ -83,10 +83,10 @@ export default async function GalleryPage({ params, searchParams }: Props) {
       name: t("categories.bathrooms"),
     },
     { id: "around", name: t("categories.around") },
-    {
-      id: "video",
-      name: t("categories.video"),
-    },
+    // {
+    //   id: "video",
+    //   name: t("categories.video"),
+    // },
   ];
 
   // Get images for all categories (excluding video)
@@ -122,7 +122,5 @@ export default async function GalleryPage({ params, searchParams }: Props) {
     };
   });
 
-  return (
-    <GalleryClient categories={categories} initialTab={tab} />
-  );
+  return <GalleryClient categories={categories} initialTab={tab} />;
 }
