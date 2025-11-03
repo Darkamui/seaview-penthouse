@@ -137,7 +137,7 @@ export function HeroSection() {
       </div>
 
       {/* Hero Content */}
-      <div
+      {/* <div
         className={`relative z-10 text-center text-white max-w-6xl mx-auto px-4 transition-all duration-1000`}
       >
         <div className="space-y-8 mb-32">
@@ -161,7 +161,7 @@ export function HeroSection() {
             </Link>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Media Controls */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
