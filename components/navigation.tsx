@@ -72,28 +72,22 @@ export function Navigation() {
               <Image
                 src="/images/logo-clean.png"
                 alt="The Seaview Penthouse"
-                width={32}
+                width={48}
                 height={32}
-                className="w-8 h-8 transition-transform group-hover:scale-105"
+                className=" transition-transform group-hover:scale-105"
               />
             </Link>
 
             {/* Mobile: Centered Title */}
             <div className="absolute left-1/2 -translate-x-1/2 lg:hidden">
-              <div className="flex flex-col -space-y-1 text-center">
-                <span
-                  className="text-sm font-semibold text-foreground whitespace-nowrap"
-                  style={{ fontFamily: "'The Seasons', serif" }}
-                >
-                  THE SEAVIEW PENTHOUSE
-                </span>
-                <span
-                  className="text-xs font-medium text-blue-800/80"
-                  style={{ fontFamily: "'The Seasons', serif" }}
-                >
-                  ASHDOD
-                </span>
-              </div>
+              <Image
+                src="/images/logo-text.png"
+                alt="The Seaview Penthouse Ashdod"
+                width={200}
+                height={40}
+                className="h-8 w-auto"
+                priority
+              />
             </div>
 
             {/* Desktop Layout - Respects RTL/LTR */}
@@ -105,24 +99,18 @@ export function Navigation() {
                 <Image
                   src="/images/logo-clean.png"
                   alt="The Seaview Penthouse"
-                  width={32}
+                  width={48}
                   height={32}
-                  className="w-8 h-8 transition-transform group-hover:scale-105"
+                  className="transition-transform group-hover:scale-105"
                 />
-                <div className="flex flex-col -space-y-1">
-                  <span
-                    className="text-lg font-semibold text-foreground group-hover:text-accent transition-colors whitespace-nowrap"
-                    style={{ fontFamily: "'The Seasons', serif" }}
-                  >
-                    THE SEAVIEW PENTHOUSE
-                  </span>
-                  <span
-                    className="text-xs font-medium text-muted-foreground group-hover:text-accent transition-colors text-center"
-                    style={{ fontFamily: "'The Seasons', serif" }}
-                  >
-                    ASHDOD
-                  </span>
-                </div>
+                <Image
+                  src="/images/logo-text.png"
+                  alt="The Seaview Penthouse Ashdod"
+                  width={240}
+                  height={48}
+                  className="h-10 w-auto group-hover:opacity-90 transition-opacity"
+                  priority
+                />
               </Link>
 
               {/* LTR: Navigation Links (center) */}
