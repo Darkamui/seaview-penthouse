@@ -35,7 +35,7 @@ export function CTASection({
     {
       name: "Booking.com",
       image: "/images/booking.png",
-      url: "https://booking.com",
+      url: "https://booking.com/Share-6bNqJtR",
     },
     {
       name: "Airbnb",
