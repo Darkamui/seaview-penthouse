@@ -114,13 +114,13 @@ export function Navigation() {
                     className="text-lg font-semibold text-foreground group-hover:text-accent transition-colors whitespace-nowrap"
                     style={{ fontFamily: "'The Seasons', serif" }}
                   >
-                    The Seaview Penthouse
+                    THE SEAVIEW PENTHOUSE
                   </span>
                   <span
                     className="text-xs font-medium text-muted-foreground group-hover:text-accent transition-colors text-center"
                     style={{ fontFamily: "'The Seasons', serif" }}
                   >
-                    Ashdod
+                    ASHDOD
                   </span>
                 </div>
               </Link>
