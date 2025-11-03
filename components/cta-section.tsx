@@ -25,7 +25,7 @@ export function CTASection({
     {
       name: "Instagram",
       image: "/images/instagram.webp",
-      url: "https://www.instagram.com/penthouse.ashdod/",
+      url: "https://www.instagram.com/penthouse.sea.view.ashdod/",
     },
     {
       name: "Facebook",
