@@ -121,11 +121,11 @@ export async function EventTypes() {
                       </div>
                     ))}
                   </div>
-                  <Link href={event.href} className="mx-auto">
+                  {/* <Link href={event.href} className="mx-auto">
                     <Button variant="default" className="mt-6 ">
                       {t("eventTypesCTA")}
                     </Button>
-                  </Link>
+                  </Link> */}
                 </CardContent>
               </Card>
             </ScrollAnimation>

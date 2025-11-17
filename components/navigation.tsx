@@ -18,9 +18,9 @@ export function Navigation() {
   const navItems = [
     { name: t("home"), href: "/" },
     { name: t("gallery"), href: "/gallery" },
-    { name: eventsT("eventTypes.intimate.title"), href: "/vacation" },
-    { name: eventsT("eventTypes.bridal.title"), href: "/bridal-event" },
-    { name: eventsT("eventTypes.business.title"), href: "/events" },
+    // { name: eventsT("eventTypes.intimate.title"), href: "/vacation" },
+    // { name: eventsT("eventTypes.bridal.title"), href: "/bridal-event" },
+    // { name: eventsT("eventTypes.business.title"), href: "/events" },
     { name: t("contact"), href: "/contact" },
   ];
 
