@@ -2,10 +2,8 @@
 
 import { useState, useEffect, useCallback, useMemo } from "react";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
 import { Play, Pause, ChevronDown } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
 
 const SLIDE_DURATION = 3000; // 3 seconds
 const HERO_IMAGES = [

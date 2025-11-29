@@ -2,12 +2,17 @@ import { Briefcase, Camera, Heart } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import { Card, CardHeader, CardTitle, CardContent } from "./ui/card";
 import { Carousel } from "./ui/carousel";
-import { Button } from "./ui/button";
-import Link from "next/link";
 import { ScrollAnimation } from "./scroll-animation";
+import { getAllEventTypeImages, groupImagesByEventType } from "@/lib/sanity.fetch";
+import { urlFor } from "@/lib/sanity.image";
 
 export async function EventTypes() {
   const t = await getTranslations("events");
+
+  // Fetch images from Sanity
+  const eventImages = await getAllEventTypeImages();
+  const groupedImages = groupImagesByEventType(eventImages);
+
   const eventTypes = [
     {
       icon: Heart,
@@ -19,16 +24,9 @@ export async function EventTypes() {
         t("eventTypes.intimate.feature2"),
         t("eventTypes.intimate.feature3"),
       ],
-      images: [
-        "/images/room.jpg",
-        "/images/room1.jpg",
-        "/images/room2.jpg",
-        "/images/room2.jpg",
-        "/images/room3.jpg",
-        "/images/room4.jpg",
-        "/images/room5.jpg",
-        "/images/room6.jpg",
-      ],
+      images: groupedImages['intimate']?.map(img =>
+        urlFor(img.image).width(800).url()
+      ) || [],
       color: "text-red-500",
       href: "/vacation",
     },
@@ -43,11 +41,9 @@ export async function EventTypes() {
         t("eventTypes.bridal.feature3"),
         t("eventTypes.bridal.feature4"),
       ],
-      images: [
-        "/images/events/bride.jpg",
-        "/images/events/bridalPrep2.jpg",
-        "/images/events/bridalPrep3.jpg",
-      ],
+      images: groupedImages['bridal']?.map(img =>
+        urlFor(img.image).width(800).url()
+      ) || [],
       color: "text-pink-500",
       href: "/bridal-event",
     },
@@ -62,11 +58,9 @@ export async function EventTypes() {
         t("eventTypes.business.feature3"),
         t("eventTypes.business.feature4"),
       ],
-      images: [
-        "/images/living3.jpg",
-        "/images/living4.jpg",
-        "/images/living5.jpg",
-      ],
+      images: groupedImages['business']?.map(img =>
+        urlFor(img.image).width(800).url()
+      ) || [],
       color: "text-blue-500",
       href: "/events",
     },

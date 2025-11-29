@@ -1,3 +1,5 @@
+"use client";
+
 import { useTranslations, useLocale } from "next-intl";
 import { ElevatedCard, CardContent } from "@/components/ui/card";
 import { Carousel } from "@/components/ui/carousel";
@@ -14,11 +16,13 @@ interface Feature {
 interface FeaturesGridProps {
   translationNamespace: string;
   className?: string;
+  featureUrls: Record<string, string[]>;
 }
 
 export function FeaturesGrid({
   translationNamespace,
   className = "",
+  featureUrls,
 }: FeaturesGridProps) {
   const t = useTranslations(translationNamespace);
   const locale = useLocale();
@@ -28,57 +32,25 @@ export function FeaturesGrid({
       title: t("features.livingSpace.title"),
       description: t("features.livingSpace.description"),
       galleryCategory: "livingRoom",
-      images: [
-        "/images/living.jpg",
-        "/images/living1.jpg",
-        "/images/living2.jpg",
-        "/images/living3.jpg",
-        "/images/living4.jpg",
-        "/images/living5.jpg",
-      ],
+      images: featureUrls['livingSpace'] || [],
     },
     {
       title: t("features.bedroom.title"),
       description: t("features.bedroom.description"),
       galleryCategory: "bedrooms",
-      images: [
-        "/images/room.jpg",
-        "/images/room1.jpg",
-        "/images/room2.jpg",
-        "/images/room3.jpg",
-        "/images/room4.jpg",
-        "/images/room5.jpg",
-        "/images/room6.jpg",
-      ],
+      images: featureUrls['bedroom'] || [],
     },
     {
       title: t("features.balcony.title"),
       description: t("features.balcony.description"),
       galleryCategory: "balcony",
-      images: [
-        "/images/balcony.jpg",
-        "/images/balcony1.jpg",
-        "/images/balcony2.jpg",
-        "/images/balcony3.jpg",
-        "/images/balcony4.jpg",
-        "/images/balcony5.jpg",
-        "/images/balcony6.jpg",
-        "/images/balcony7.jpg",
-        "/images/balcony8.jpg",
-        "/images/balcony9.jpg",
-        "/images/balcony10.jpg",
-      ],
+      images: featureUrls['balcony'] || [],
     },
     {
       title: t("features.location.title"),
       description: t("features.location.description"),
       galleryCategory: "around",
-      images: [
-        "/images/ashdod.jpg",
-        "/images/ashdod1.webp",
-        "/images/ashdod2.jpg",
-        "/images/ashdod3.jpg",
-      ],
+      images: featureUrls['location'] || [],
     },
   ];
 
@@ -94,20 +66,20 @@ export function FeaturesGrid({
             >
               <Link
                 href={`/${locale}/gallery?tab=${feature.galleryCategory}`}
-                className="group block"
+                className="group block h-full"
               >
-                <ElevatedCard className="border-accent/20 cursor-pointer overflow-hidden h-full">
+                <ElevatedCard className="border-accent/20 cursor-pointer overflow-hidden h-full flex flex-col">
                   <Carousel
                     images={feature.images}
                     alt={feature.title}
                     autoplay
                     autoplayDelay={4000}
                   />
-                  <CardContent className="p-6">
+                  <CardContent className="p-6 flex-1 flex flex-col">
                     <h3 className="font-sans text-xl font-semibold mb-3 group-hover:text-accent transition-colors">
                       {feature.title}
                     </h3>
-                    <p className="text-muted-foreground leading-relaxed">
+                    <p className="text-muted-foreground leading-relaxed flex-1">
                       {feature.description}
                     </p>
                   </CardContent>
