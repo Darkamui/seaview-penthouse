@@ -10,9 +10,9 @@ const HERO_IMAGES = [
   "/images/balcony2.jpg",
   "/images/living1.jpg",
   "/images/balcony10.jpg",
-  "/images/events/hero0.jpg",
-  "/images/events/hero1.jpg",
-  "/images/events/hero2.jpg",
+  "/images/hero0.jpg",
+  "/images/hero1.jpg",
+  "/images/hero2.jpg",
 ] as const;
 
 export function HeroSection() {
