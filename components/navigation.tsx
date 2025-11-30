@@ -13,7 +13,6 @@ export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
   const t = useTranslations("navigation");
-  const eventsT = useTranslations("events");
 
   const navItems = [
     { name: t("home"), href: "/" },

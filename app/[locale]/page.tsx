@@ -11,6 +11,8 @@ import { AmenitiesSection } from "@/components/amenities-section";
 import { LocationOverview } from "@/components/location-overview";
 import { FeaturesGrid } from "@/components/features-grid";
 import { CTASection } from "@/components/cta-section";
+import { getAllFeatureImages, groupImagesByFeature } from "@/lib/sanity.fetch";
+import { urlFor } from "@/lib/sanity.image";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -83,6 +85,16 @@ export default async function HomePage({ params }: Props) {
   // Generate structured data
   const structuredData = generateLodgingBusinessSchema(locale);
 
+  // Fetch feature images from Sanity
+  const featureImages = await getAllFeatureImages();
+  const groupedFeatures = groupImagesByFeature(featureImages);
+
+  // Convert to URLs for the client component
+  const featureUrls = Object.entries(groupedFeatures).reduce((acc, [key, images]) => {
+    acc[key] = images.map(img => urlFor(img.image).width(800).url());
+    return acc;
+  }, {} as Record<string, string[]>);
+
   return (
     <div className="min-h-screen">
       {/* Inject structured data */}
@@ -94,7 +106,10 @@ export default async function HomePage({ params }: Props) {
       <EventTypes />
       <VideoShowcase />
       <AmenitiesSection />
-      <FeaturesGrid translationNamespace="about" />
+      <FeaturesGrid
+        translationNamespace="about"
+        featureUrls={featureUrls}
+      />
       <LocationOverview />
       <ScrollAnimation animation="up">
         <CTASection translationNamespace="events" />

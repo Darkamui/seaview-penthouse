@@ -41,6 +41,10 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# sanity
+sanity-studio/dist
+sanity-studio/node_modules
+.sanity
 
 .claude
 *.md

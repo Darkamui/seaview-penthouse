@@ -1,12 +1,15 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { X, ChevronLeft, ChevronRight, Play } from "lucide-react";
+import { Play } from "lucide-react";
 import { ScrollAnimation } from "@/components/scroll-animation";
 import dynamic from "next/dynamic";
-import type { GalleryImage } from "@/lib/get-gallery-images";
+import { useLocale } from "next-intl";
+import type { GalleryImage } from "@/lib/sanity.types";
+import { ImageCarouselModal } from "@/components/image-carousel";
+import { urlFor } from "@/lib/sanity.image";
 
 // Phase 5: Code splitting for below-fold components
 const CTASection = dynamic(
@@ -35,14 +38,14 @@ interface GalleryClientProps {
 }
 
 export function GalleryClient({ categories, initialTab }: GalleryClientProps) {
+  const locale = useLocale();
   const [activeCategory, setActiveCategory] = useState(
     initialTab || categories[0]?.id || "livingRoom"
   );
-  const [lightboxImage, setLightboxImage] = useState<{
-    src: string;
-    alt: string;
+  const [carouselModal, setCarouselModal] = useState<{
+    isOpen: boolean;
+    initialIndex: number;
   } | null>(null);
-  const [lightboxIndex, setLightboxIndex] = useState(0);
 
   // Phase 5: Progressive loading state
   const [visibleImageCount, setVisibleImageCount] = useState(8);
@@ -51,11 +54,23 @@ export function GalleryClient({ categories, initialTab }: GalleryClientProps) {
   // Tab switching loading state
   const [isLoadingTab, setIsLoadingTab] = useState(false);
 
-  // Phase 5: Touch gesture state for lightbox
-  const touchStartX = useRef<number>(0);
-  const touchStartY = useRef<number>(0);
-  const touchEndX = useRef<number>(0);
-  const touchEndY = useRef<number>(0);
+  const currentCategory = useMemo(
+    () => categories.find((cat) => cat.id === activeCategory),
+    [categories, activeCategory]
+  );
+
+  const currentImages = useMemo(
+    () => currentCategory?.images || [],
+    [currentCategory]
+  );
+
+  // Transform Sanity images to carousel format
+  const carouselImages = useMemo(() => {
+    return currentImages.map((image) => ({
+      src: urlFor(image.image).url(),
+      alt: image.alt[locale as keyof typeof image.alt] || image.alt.en || '',
+    }));
+  }, [currentImages, locale]);
 
   // Phase 5: Reset visible count and manage loading state when category changes
   useEffect(() => {
@@ -69,9 +84,6 @@ export function GalleryClient({ categories, initialTab }: GalleryClientProps) {
       return () => clearTimeout(timer);
     }
   }, [activeCategory, isLoadingTab]);
-
-  const currentCategory = categories.find((cat) => cat.id === activeCategory);
-  const currentImages = currentCategory?.images || [];
 
   // Phase 5: Progressive loading with IntersectionObserver
   useEffect(() => {
@@ -98,61 +110,6 @@ export function GalleryClient({ categories, initialTab }: GalleryClientProps) {
 
     return () => observer.disconnect();
   }, [currentImages.length, visibleImageCount, activeCategory, isLoadingTab]);
-
-  const openLightbox = (image: { src: string; alt: string }, index: number) => {
-    setLightboxImage(image);
-    setLightboxIndex(index);
-  };
-
-  const closeLightbox = () => {
-    setLightboxImage(null);
-  };
-
-  const navigateLightbox = (direction: "prev" | "next") => {
-    if (!currentImages.length) return;
-
-    let newIndex = lightboxIndex;
-    if (direction === "prev") {
-      newIndex =
-        lightboxIndex > 0 ? lightboxIndex - 1 : currentImages.length - 1;
-    } else {
-      newIndex =
-        lightboxIndex < currentImages.length - 1 ? lightboxIndex + 1 : 0;
-    }
-
-    setLightboxIndex(newIndex);
-    setLightboxImage(currentImages[newIndex]);
-  };
-
-  // Phase 5: Touch gesture handlers for lightbox
-  const handleLightboxTouchStart = (e: React.TouchEvent) => {
-    touchStartX.current = e.touches[0].clientX;
-    touchStartY.current = e.touches[0].clientY;
-  };
-
-  const handleLightboxTouchMove = (e: React.TouchEvent) => {
-    touchEndX.current = e.touches[0].clientX;
-    touchEndY.current = e.touches[0].clientY;
-  };
-
-  const handleLightboxTouchEnd = () => {
-    const diffX = touchStartX.current - touchEndX.current;
-    const diffY = touchStartY.current - touchEndY.current;
-    const minSwipeDistance = 50;
-
-    // Horizontal swipe (navigate images)
-    if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > minSwipeDistance) {
-      if (diffX > 0) {
-        navigateLightbox("next"); // Swipe left
-      } else {
-        navigateLightbox("prev"); // Swipe right
-      }
-    }
-    // Vertical swipe down (close lightbox)
-    else if (diffY < -minSwipeDistance && Math.abs(diffY) > Math.abs(diffX)) {
-      closeLightbox();
-    }
-  };
 
   // Skeleton loader component
   const SkeletonGrid = () => (
@@ -269,11 +226,11 @@ export function GalleryClient({ categories, initialTab }: GalleryClientProps) {
                     >
                       <div
                         className="relative aspect-[4/3] rounded-lg overflow-hidden bg-card border border-accent/20 hover:border-accent/40 transition-colors"
-                        onClick={() => openLightbox(image, index)}
+                        onClick={() => setCarouselModal({ isOpen: true, initialIndex: index })}
                       >
                         <Image
-                          src={image.src || "/placeholder.svg"}
-                          alt={image.alt}
+                          src={urlFor(image.image).url() || "/placeholder.svg"}
+                          alt={image.alt[locale as keyof typeof image.alt] || image.alt.en || ''}
                           fill
                           quality={85}
                           className="object-cover group-hover:scale-105 transition-transform duration-300"
@@ -299,67 +256,17 @@ export function GalleryClient({ categories, initialTab }: GalleryClientProps) {
         </div>
       </section>
 
-      {/* Lightbox */}
-      {lightboxImage && (
-        <div
-          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
-          onTouchStart={handleLightboxTouchStart}
-          onTouchMove={handleLightboxTouchMove}
-          onTouchEnd={handleLightboxTouchEnd}
-        >
-          <div className="relative max-w-7xl max-h-full">
-            <Image
-              src={lightboxImage.src || "/placeholder.svg"}
-              alt={lightboxImage.alt}
-              width={1200}
-              height={800}
-              className="max-w-full max-h-full object-contain"
-              priority
-              sizes="100vw"
-            />
-
-            {/* Close Button - Phase 5: Enhanced touch target */}
-            <Button
-              variant="ghost"
-              size="lg"
-              onClick={closeLightbox}
-              className="absolute top-2 right-2 sm:top-4 sm:right-4 text-white hover:bg-white/20 min-w-[44px] min-h-[44px] p-3"
-              aria-label="Close gallery"
-            >
-              <X className="w-6 h-6" />
-            </Button>
-
-            {/* Navigation Buttons - Phase 5: Enhanced touch targets */}
-            {currentImages.length > 1 && (
-              <>
-                <Button
-                  variant="ghost"
-                  size="lg"
-                  onClick={() => navigateLightbox("prev")}
-                  className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 text-white hover:bg-white/20 min-w-[44px] min-h-[44px] p-3"
-                  aria-label="Previous image"
-                >
-                  <ChevronLeft className="w-6 h-6" />
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="lg"
-                  onClick={() => navigateLightbox("next")}
-                  className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 text-white hover:bg-white/20 min-w-[44px] min-h-[44px] p-3"
-                  aria-label="Next image"
-                >
-                  <ChevronRight className="w-6 h-6" />
-                </Button>
-              </>
-            )}
-
-            {/* Image Counter */}
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/50 text-white px-3 py-1 rounded-full text-sm">
-              {lightboxIndex + 1} / {currentImages.length}
-            </div>
-          </div>
-        </div>
+      {/* Carousel Modal */}
+      {carouselModal && (
+        <ImageCarouselModal
+          isOpen={carouselModal.isOpen}
+          onClose={() => setCarouselModal(null)}
+          images={carouselImages}
+          initialIndex={carouselModal.initialIndex}
+          context="gallery"
+        />
       )}
+
       <ScrollAnimation animation="up">
         <CTASection translationNamespace="events" />
       </ScrollAnimation>

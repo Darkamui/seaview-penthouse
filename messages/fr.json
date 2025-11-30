@@ -684,5 +684,13 @@
       "title": "Vacances & Loisirs",
       "description": "Espaces spacieux et design élégant créent mélange unique de confort et luxe, aux côtés d'une atmosphère chaleureuse et familiale.\n\nIci vous pouvez profiter de temps de qualité avec famille et amis sur immenses terrasses face au coucher du soleil, tout en profitant d'intimité complète dans chacune des chambres luxueuses.\n\nLe penthouse offre tout ce dont vous avez besoin pour vacances inoubliables – vues infinies, espace pour cuisiner et célébrer, et moments qui resteront dans votre cœur pour toujours."
     }
+  },
+  "carousel": {
+    "previous": "Image précédente",
+    "next": "Image suivante",
+    "close": "Fermer la galerie",
+    "imageCounter": "Image {current} sur {total}",
+    "thumbnail": "Voir l'image {index}",
+    "loading": "Chargement de l'image..."
   }
 }
