@@ -684,5 +684,13 @@
       "title": "Vacation & Leisure",
       "description": "Spacious areas and elegant design create a unique blend of comfort and luxury, alongside a warm, homely atmosphere.\n\nHere you can enjoy quality time with family and friends on huge terraces facing the sunset, while enjoying full privacy in each of the luxurious bedrooms.\n\nThe penthouse offers everything you need for an unforgettable vacation – endless views, space to cook and celebrate, and moments that will stay in your heart forever."
     }
+  },
+  "carousel": {
+    "previous": "Previous image",
+    "next": "Next image",
+    "close": "Close gallery",
+    "imageCounter": "Image {current} of {total}",
+    "thumbnail": "View image {index}",
+    "loading": "Loading image..."
   }
 }

@@ -1,7 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { GalleryClient } from "@/components/gallery-client";
 import { getAllGalleryImages as getSanityGalleryImages, groupImagesByCategory } from "@/lib/sanity.fetch";
-import { urlFor } from "@/lib/sanity.image";
 import type { Metadata } from "next";
 
 type Props = {
@@ -90,10 +89,7 @@ export default async function GalleryPage({ params, searchParams }: Props) {
     { id: "around", name: t("categories.around") },
   ].map((category) => ({
     ...category,
-    images: groupedImages[category.id]?.map((img) => ({
-      src: urlFor(img.image).width(1200).url(),
-      alt: img.alt[locale as keyof typeof img.alt] || img.alt.en || '',
-    })) || [],
+    images: groupedImages[category.id] || [],
   }));
 
   return <GalleryClient categories={categories} initialTab={tab} />;
