@@ -22,6 +22,13 @@ RUN npm ci --ignore-scripts --legacy-peer-deps
 # Copy source code
 COPY . .
 
+# Install Sanity Studio dependencies
+WORKDIR /app/sanity-studio
+RUN npm ci --ignore-scripts --legacy-peer-deps
+
+# Return to app root
+WORKDIR /app
+
 # Accept build arguments for Next.js public env vars
 ARG NEXT_PUBLIC_GA_MEASUREMENT_ID
 ARG NEXT_PUBLIC_SITE_URL
