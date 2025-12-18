@@ -13,7 +13,7 @@ import type { GalleryImage, EventTypeImage, FeatureImage } from './sanity.types'
 export async function getAllGalleryImages(): Promise<GalleryImage[]> {
   try {
     const result = await client.fetch(galleryImagesQuery, {}, {
-      next: { revalidate: 3600 }, // Revalidate every hour
+      cache: 'no-store', // Always fetch fresh data
     })
     return result || []
   } catch (error) {
@@ -27,7 +27,7 @@ export async function getGalleryImagesByCategory(
 ): Promise<GalleryImage[]> {
   try {
     const result = await client.fetch(galleryImagesByCategoryQuery, { category }, {
-      next: { revalidate: 3600 },
+      cache: 'no-store',
     })
     return result || []
   } catch (error) {
@@ -40,7 +40,7 @@ export async function getGalleryImagesByCategory(
 export async function getAllEventTypeImages(): Promise<EventTypeImage[]> {
   try {
     const result = await client.fetch(eventTypeImagesQuery, {}, {
-      next: { revalidate: 3600 },
+      cache: 'no-store',
     })
     return result || []
   } catch (error) {
@@ -54,7 +54,7 @@ export async function getEventTypeImagesByType(
 ): Promise<EventTypeImage[]> {
   try {
     const result = await client.fetch(eventTypeImagesByTypeQuery, { eventType }, {
-      next: { revalidate: 3600 },
+      cache: 'no-store',
     })
     return result || []
   } catch (error) {
@@ -67,7 +67,7 @@ export async function getEventTypeImagesByType(
 export async function getAllFeatureImages(): Promise<FeatureImage[]> {
   try {
     const result = await client.fetch(featureImagesQuery, {}, {
-      next: { revalidate: 3600 },
+      cache: 'no-store',
     })
     return result || []
   } catch (error) {
@@ -81,7 +81,7 @@ export async function getFeatureImagesByFeature(
 ): Promise<FeatureImage[]> {
   try {
     const result = await client.fetch(featureImagesByFeatureQuery, { feature }, {
-      next: { revalidate: 3600 },
+      cache: 'no-store',
     })
     return result || []
   } catch (error) {
