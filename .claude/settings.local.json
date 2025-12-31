@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls:*)",
+      "Bash(find:*)",
+      "Bash(cat:*)",
+      "Bash(git -C \"C:\\local\\2025\\seaview-penthouse\" log --oneline -10)",
+      "WebSearch",
+      "WebFetch(domain:www.sanity.io)",
+      "Bash(npm view:*)",
+      "Bash(npm install:*)",
+      "Bash(npx tsc:*)",
+      "Bash(npm run lint)",
+      "Bash(dir /B \"C:\\local\\2025\\seaview-penthouse\\sanity-studio\")",
+      "WebFetch(domain:github.com)",
+      "Bash(dir:*)",
+      "Bash(npm run build:*)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:api.github.com)",
+      "Bash(python -c \"import sys, json; data = json.load\\(sys.stdin\\); data[''about''][''amenitiesItems''][''fullList''] = {''bathtub'': ''אמבטיה'', ''hairDryer'': ''מייבש שיער'', ''shampoo'': ''שמפו'', ''conditioner'': ''מרכך'', ''bodySoap'': ''סבון גוף'', ''bidet'': ''בידה'', ''hotWater'': ''מים חמים'', ''showerStall'': ''מקלחון'', ''toiletPaper'': ''נייר טואלט'', ''faceTowels'': ''מגבות פנים וגוף'', ''tv'': ''טלוויזיה'', ''airConditioning'': ''מזגן'', ''storageCabinets'': ''ארונות אחסון ותלייה'', ''hangers'': ''קולבים'', ''bedLinens'': ''מצעי מיטה'', ''extraPillows'': ''כריות ושמיכות נוספות'', ''safe'': ''כספת'', ''freezerShabbat'': ''מקפיא עם מצב שבת'', ''refrigeratorShabbat'': ''מקרר עם מצב שבת'', ''microwave'': ''מיקרוגל'', ''oven'': ''תנור'', ''cookingUtensils'': ''כלים לבישול'', ''dishware'': ''כלי אוכל וכוסות'', ''servingDishes'': ''כלי הגשה'', ''coffeeCorner'': ''פינת קפה'', ''nespressoMachine'': ''מכונת נספרסו'', ''milkFrother'': ''מקציף חלב'', ''dishwasher'': ''מדיח כלים'', ''waterBar'': ''בר מים'', ''toaster'': ''טוסטר'', ''blender'': ''בלנדר'', ''gasStove'': ''כיריים גז'', ''bbqUtensils'': ''כלי ברביקיו'', ''shabbatPlate'': ''פלטת שבת'', ''washer'': ''מכונת כביסה'', ''dryer'': ''מכונת ייבוש'', ''iron'': ''מגהץ'', ''ironingBoard'': ''קרש גיהוץ'', ''dryingRack'': ''מתלה לייבוש בגדים'', ''seatingArea'': ''פינת ישיבה'', ''diningArea'': ''פינת אוכל'', ''sunbeds'': ''2 מיטות שיזוף'', ''hammocks'': ''2 ערסלים'', ''gasBBQ'': ''מנגל גז'', ''bbqStation'': ''עמדת ברביקיו''}; print\\(json.dumps\\(data, ensure_ascii=False, indent=2\\)\\)\")",
+      "Bash(node update-amenities.js:*)",
+      "Bash(del \"C:\\\\local\\\\2025\\\\seaview-penthouse\\\\update-amenities.js\")",
+      "Bash(node update-fr-amenities.js:*)",
+      "Bash(findstr:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

@@ -23,6 +23,10 @@ export function Navigation() {
     { name: t("contact"), href: "/contact" },
   ];
 
+  const handleWhatsAppClick = () => {
+    window.open("https://wa.me/972546606233", "_blank");
+  };
+
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 0);
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -128,6 +132,23 @@ export function Navigation() {
                   </Link>
                 ))}
               </div>
+
+              {/* Desktop: WhatsApp Button (compact) */}
+              <button
+                onClick={handleWhatsAppClick}
+                className="flex items-center gap-2 bg-[#25D366] hover:bg-[#20BD5A] text-white px-4 py-2 rounded-full transition-all duration-300 hover:shadow-lg flex-shrink-0 mx-2"
+                aria-label="Contact via WhatsApp"
+              >
+                <div className="relative w-5 h-5 flex-shrink-0">
+                  <Image
+                    src="/images/whatsapp.png"
+                    alt="WhatsApp"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+                <span className="text-sm font-semibold">{t("bookStay")}</span>
+              </button>
 
               {/* LTR: Language Switcher (right) */}
               <div className="flex-shrink-0">

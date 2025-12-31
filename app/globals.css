@@ -12,48 +12,58 @@
   font-display: swap;
 }
 
+/* Hebrew Font: Ellinia CLM Light - Used for Hebrew locale only */
+@font-face {
+  font-family: "Ellinia CLM Light";
+  src: url("/Ellinia CLM Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   /* Phase 1: Enhanced Luxury Color Palette */
   --midnight-blue: oklch(0.15 0.08 264); /* Deeper, richer blue */
   --champagne-gold: oklch(0.85 0.15 85); /* Warmer, sophisticated gold */
   --pearl-white: oklch(0.98 0.01 85); /* Subtle warm white */
   --warm-cream: oklch(0.95 0.03 85); /* Enhanced cream with warmth */
-  --deep-teal: oklch(0.25 0.12 195); /* Ocean depth */
+  --logo-blue: oklch(0.73 0.04 225); /* Logo blue #95B3C6 */
+  --logo-blue-dark: oklch(0.60 0.05 225); /* Darker logo blue for accents */
   --soft-bronze: oklch(0.65 0.08 60); /* Metallic accent */
   --misty-grey: oklch(0.92 0.01 240); /* Sophisticated neutral */
 
   /* Updated color tokens to clean white & blue theme, removing gold/yellow accents */
   --background: oklch(1 0 0); /* Pure white */
-  --foreground: var(--midnight-blue); /* Deep luxury blue */
+  --foreground: var(--logo-blue); /* Logo blue */
   --card: oklch(0.98 0.005 240); /* Very light blue-tinted white */
-  --card-foreground: var(--midnight-blue); /* Deep blue */
+  --card-foreground: var(--logo-blue); /* Logo blue */
   --popover: oklch(1 0 0); /* White */
-  --popover-foreground: var(--midnight-blue); /* Deep blue */
+  --popover-foreground: var(--logo-blue); /* Logo blue */
   --primary: var(--midnight-blue); /* Deep luxury blue */
   --primary-foreground: oklch(1 0 0); /* White */
   --secondary: oklch(0.556 0.059 264.376); /* Medium blue */
   --secondary-foreground: oklch(1 0 0); /* White */
   --muted: var(--misty-grey); /* Sophisticated grey */
-  --muted-foreground: oklch(0.556 0.059 264.376); /* Muted blue */
-  --accent: var(--deep-teal); /* Deep teal accent */
-  --accent-foreground: oklch(1 0 0); /* White */
+  --muted-foreground: var(--logo-blue); /* Logo blue */
+  --accent: var(--logo-blue-dark); /* Darker logo blue for hover/accent */
+  --accent-foreground: oklch(1 0 0); /* White for better contrast */
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(1 0 0);
   --border: oklch(0.9 0.02 240); /* Light blue-gray border */
   --input: oklch(0.98 0.005 240); /* Light input background */
   --ring: oklch(0.439 0.118 264.376 / 0.5); /* Blue ring with opacity */
   --chart-1: var(--midnight-blue); /* Deep blue */
-  --chart-2: var(--deep-teal); /* Deep teal */
+  --chart-2: var(--logo-blue-dark); /* Darker logo blue */
   --chart-3: oklch(0.556 0.059 264.376); /* Light blue */
   --chart-4: oklch(1 0 0); /* White */
   --chart-5: oklch(0.8 0.03 240); /* Very light blue */
   --radius: 0.5rem;
   --sidebar: oklch(1 0 0); /* White */
-  --sidebar-foreground: var(--midnight-blue); /* Deep blue */
-  --sidebar-primary: var(--midnight-blue); /* Deep blue */
+  --sidebar-foreground: var(--logo-blue); /* Logo blue */
+  --sidebar-primary: var(--logo-blue); /* Logo blue */
   --sidebar-primary-foreground: oklch(1 0 0); /* White */
   --sidebar-accent: var(--misty-grey); /* Sophisticated grey */
-  --sidebar-accent-foreground: var(--midnight-blue); /* Deep blue */
+  --sidebar-accent-foreground: var(--logo-blue); /* Logo blue */
   --sidebar-border: oklch(0.9 0.02 240); /* Light blue-gray */
   --sidebar-ring: oklch(0.439 0.118 264.376 / 0.5); /* Blue ring */
 }
@@ -797,9 +807,9 @@
     }
   }
 
-  /* RTL Support */
+  /* RTL Support - Hebrew locale uses Ellinia CLM Light font */
   [dir="rtl"] {
-    font-family: "Noto Sans Hebrew", var(--font-serif), ui-serif, Georgia,
+    font-family: "Ellinia CLM Light", "Noto Sans Hebrew", var(--font-serif), ui-serif, Georgia,
       Cambria, "Times New Roman", Times, serif;
   }
 

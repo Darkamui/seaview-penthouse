@@ -46,5 +46,3 @@ sanity-studio/dist
 sanity-studio/node_modules
 .sanity
 
-.claude
-*.md
