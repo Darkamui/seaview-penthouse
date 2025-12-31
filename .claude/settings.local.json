@@ -21,7 +21,9 @@
       "Bash(node update-amenities.js:*)",
       "Bash(del \"C:\\\\local\\\\2025\\\\seaview-penthouse\\\\update-amenities.js\")",
       "Bash(node update-fr-amenities.js:*)",
-      "Bash(findstr:*)"
+      "Bash(findstr:*)",
+      "Bash(npm run deploy:*)",
+      "Bash(npx sanity exec:*)"
     ],
     "deny": [],
     "ask": []

@@ -6,58 +6,32 @@ export const structure: StructureResolver = (S, context) =>
   S.list()
     .title('Content')
     .items([
-      // Gallery Images with Bulk Actions
+      // Gallery Images
       createBulkActionsTable({
         type: 'galleryImage',
         S,
         context,
-        title: 'Gallery Images (Bulk View)',
+        title: 'Gallery Images',
         icon: ImageIcon,
       }),
       S.divider(),
 
-      // Event Type Images with Bulk Actions
+      // Event Type Images
       createBulkActionsTable({
         type: 'eventTypeImage',
         S,
         context,
-        title: 'Event Type Images (Bulk View)',
+        title: 'Event Type Images',
         icon: CalendarIcon,
       }),
       S.divider(),
 
-      // Feature Images with Bulk Actions
+      // Feature Images
       createBulkActionsTable({
         type: 'featureImage',
         S,
         context,
-        title: 'Feature Images (Bulk View)',
+        title: 'Feature Images',
         icon: SparklesIcon,
       }),
-      S.divider(),
-
-      // Standard document lists (for single-item editing)
-      S.listItem()
-        .title('Gallery Images (List)')
-        .icon(ImageIcon)
-        .child(
-          S.documentTypeList('galleryImage')
-            .title('Gallery Images')
-        ),
-
-      S.listItem()
-        .title('Event Type Images (List)')
-        .icon(CalendarIcon)
-        .child(
-          S.documentTypeList('eventTypeImage')
-            .title('Event Type Images')
-        ),
-
-      S.listItem()
-        .title('Feature Images (List)')
-        .icon(SparklesIcon)
-        .child(
-          S.documentTypeList('featureImage')
-            .title('Feature Images')
-        ),
     ])

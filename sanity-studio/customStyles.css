@@ -1,0 +1,29 @@
+/* Custom styles for Sanity Studio */
+
+/* Currently using sanity-plugin-media for grid view */
+/* No custom CSS needed - the plugin handles everything */
+
+/* Grid view alternative - uncomment to enable grid layout instead of list */
+/*
+[data-ui="DocumentListPane"] > div > div {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)) !important;
+  gap: 16px !important;
+  padding: 16px !important;
+}
+
+[data-ui="DocumentListPane"] [data-ui="Box"]:has([data-ui="Preview"]) {
+  min-height: 280px !important;
+}
+
+[data-ui="Preview"] {
+  flex-direction: column !important;
+  text-align: center !important;
+}
+
+[data-ui="Preview"] [data-ui="Flex"]:first-child {
+  width: 100% !important;
+  height: 200px !important;
+  max-width: 100% !important;
+}
+*/

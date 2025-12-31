@@ -1,6 +1,7 @@
 import type { SanityClient } from 'sanity'
 import { generateAltTextFromFilename } from './generateAltText'
 import { getNextOrderNumber } from './getNextOrderNumber'
+import { tagImageAsset } from './tagImageAsset'
 
 export interface BulkUploadOptions {
   client: SanityClient
@@ -79,6 +80,16 @@ export async function bulkUploadImages({
         order: currentOrder,
         publishedAt: new Date().toISOString(),
         ...(documentType === 'galleryImage' && { featured: false }),
+      })
+
+      // Tag the asset immediately after creating the document
+      const typeLabel = documentType === 'galleryImage' ? 'Gallery' :
+                        documentType === 'eventTypeImage' ? 'Event' : 'Feature'
+
+      await tagImageAsset(client, asset._id, categoryValue, {
+        documentType,
+        categoryField,
+        typeLabel,
       })
 
       success++
