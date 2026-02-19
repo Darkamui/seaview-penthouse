@@ -6,6 +6,17 @@ export interface LocalizedString {
   fr?: string
 }
 
+export interface GalleryVideo {
+  _id: string
+  _type: 'galleryVideo'
+  videoUrl: string
+  thumbnail?: SanityImageSource
+  title: LocalizedString
+  description?: LocalizedString
+  order: number
+  publishedAt?: string
+}
+
 export interface GalleryImage {
   _id: string
   _type: 'galleryImage'

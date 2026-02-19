@@ -1,6 +1,6 @@
 import { createBulkActionsTable } from 'sanity-plugin-bulk-actions-table'
 import type { StructureResolver } from 'sanity/structure'
-import { ImageIcon, CalendarIcon, SparklesIcon } from '@sanity/icons'
+import { ImageIcon, CalendarIcon, SparklesIcon, PlayIcon } from '@sanity/icons'
 
 export const structure: StructureResolver = (S, context) =>
   S.list()
@@ -14,6 +14,17 @@ export const structure: StructureResolver = (S, context) =>
         title: 'Gallery Images',
         icon: ImageIcon,
       }),
+      S.divider(),
+
+      // Gallery Videos
+      S.listItem()
+        .title('Gallery Videos')
+        .icon(PlayIcon)
+        .child(
+          S.documentTypeList('galleryVideo')
+            .title('Gallery Videos')
+            .defaultOrdering([{ field: 'order', direction: 'asc' }])
+        ),
       S.divider(),
 
       // Event Type Images

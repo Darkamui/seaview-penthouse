@@ -2,12 +2,13 @@ import { client } from './sanity.client'
 import {
   galleryImagesQuery,
   galleryImagesByCategoryQuery,
+  galleryVideosQuery,
   eventTypeImagesQuery,
   eventTypeImagesByTypeQuery,
   featureImagesQuery,
   featureImagesByFeatureQuery,
 } from './sanity.queries'
-import type { GalleryImage, EventTypeImage, FeatureImage } from './sanity.types'
+import type { GalleryImage, GalleryVideo, EventTypeImage, FeatureImage } from './sanity.types'
 
 // Gallery Images
 export async function getAllGalleryImages(): Promise<GalleryImage[]> {
@@ -32,6 +33,19 @@ export async function getGalleryImagesByCategory(
     return result || []
   } catch (error) {
     console.error(`Error fetching gallery images for category ${category}:`, error)
+    return []
+  }
+}
+
+// Gallery Videos
+export async function getAllGalleryVideos(): Promise<GalleryVideo[]> {
+  try {
+    const result = await client.fetch(galleryVideosQuery, {}, {
+      next: { revalidate: 60 },
+    })
+    return result || []
+  } catch (error) {
+    console.error('Error fetching gallery videos:', error)
     return []
   }
 }

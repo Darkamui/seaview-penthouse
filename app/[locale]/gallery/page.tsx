@@ -1,6 +1,10 @@
 import { getTranslations } from "next-intl/server";
 import { GalleryClient } from "@/components/gallery-client";
-import { getAllGalleryImages as getSanityGalleryImages, groupImagesByCategory } from "@/lib/sanity.fetch";
+import {
+  getAllGalleryImages as getSanityGalleryImages,
+  groupImagesByCategory,
+  getAllGalleryVideos,
+} from "@/lib/sanity.fetch";
 import type { Metadata } from "next";
 
 type Props = {
@@ -60,37 +64,34 @@ export default async function GalleryPage({ params, searchParams }: Props) {
   const { tab } = await searchParams;
   const t = await getTranslations({ locale, namespace: "gallery" });
 
-  // Fetch all images from Sanity
-  const images = await getSanityGalleryImages();
+  // Fetch all images and videos from Sanity in parallel
+  const [images, videos] = await Promise.all([
+    getSanityGalleryImages(),
+    getAllGalleryVideos(),
+  ]);
   const groupedImages = groupImagesByCategory(images);
 
   // Build categories structure
-  const categories = [
-    {
-      id: "livingRoom",
-      name: t("categories.livingRoom"),
-    },
-    {
-      id: "balcony",
-      name: t("categories.balcony"),
-    },
-    {
-      id: "bedrooms",
-      name: t("categories.bedrooms"),
-    },
-    {
-      id: "kitchen",
-      name: t("categories.kitchen"),
-    },
-    {
-      id: "bathrooms",
-      name: t("categories.bathrooms"),
-    },
+  const imageCategories = [
+    { id: "livingRoom", name: t("categories.livingRoom") },
+    { id: "balcony", name: t("categories.balcony") },
+    { id: "bedrooms", name: t("categories.bedrooms") },
+    { id: "kitchen", name: t("categories.kitchen") },
+    { id: "bathrooms", name: t("categories.bathrooms") },
     { id: "around", name: t("categories.around") },
   ].map((category) => ({
     ...category,
     images: groupedImages[category.id] || [],
   }));
+
+  const categories = [
+    ...imageCategories,
+    {
+      id: "video",
+      name: t("categories.video"),
+      videos,
+    },
+  ];
 
   return <GalleryClient categories={categories} initialTab={tab} />;
 }

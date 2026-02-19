@@ -7,29 +7,27 @@ import { Play } from "lucide-react";
 import { ScrollAnimation } from "@/components/scroll-animation";
 import dynamic from "next/dynamic";
 import { useLocale } from "next-intl";
-import type { GalleryImage } from "@/lib/sanity.types";
+import type { GalleryImage, GalleryVideo } from "@/lib/sanity.types";
 import { ImageCarouselModal } from "@/components/image-carousel";
 import { urlFor } from "@/lib/sanity.image";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 
 // Phase 5: Code splitting for below-fold components
 const CTASection = dynamic(
-  () => import("@/components/cta-section").then((mod) => ({ default: mod.CTASection })),
+  () =>
+    import("@/components/cta-section").then((mod) => ({
+      default: mod.CTASection,
+    })),
   {
     loading: () => <div className="h-96" />,
-  }
+  },
 );
-
-interface VideoItem {
-  thumbnail: string;
-  title: string;
-  description: string;
-}
 
 interface GalleryCategory {
   id: string;
   name: string;
   images?: GalleryImage[];
-  videos?: VideoItem[];
+  videos?: GalleryVideo[];
 }
 
 interface GalleryClientProps {
@@ -40,12 +38,13 @@ interface GalleryClientProps {
 export function GalleryClient({ categories, initialTab }: GalleryClientProps) {
   const locale = useLocale();
   const [activeCategory, setActiveCategory] = useState(
-    initialTab || categories[0]?.id || "livingRoom"
+    initialTab || categories[0]?.id || "livingRoom",
   );
   const [carouselModal, setCarouselModal] = useState<{
     isOpen: boolean;
     initialIndex: number;
   } | null>(null);
+  const [activeVideo, setActiveVideo] = useState<GalleryVideo | null>(null);
 
   // Phase 5: Progressive loading state
   const [visibleImageCount, setVisibleImageCount] = useState(8);
@@ -56,19 +55,19 @@ export function GalleryClient({ categories, initialTab }: GalleryClientProps) {
 
   const currentCategory = useMemo(
     () => categories.find((cat) => cat.id === activeCategory),
-    [categories, activeCategory]
+    [categories, activeCategory],
   );
 
   const currentImages = useMemo(
     () => currentCategory?.images || [],
-    [currentCategory]
+    [currentCategory],
   );
 
   // Transform Sanity images to carousel format
   const carouselImages = useMemo(() => {
     return currentImages.map((image) => ({
       src: urlFor(image.image).url(),
-      alt: image.alt[locale as keyof typeof image.alt] || image.alt.en || '',
+      alt: image.alt[locale as keyof typeof image.alt] || image.alt.en || "",
     }));
   }, [currentImages, locale]);
 
@@ -97,11 +96,11 @@ export function GalleryClient({ categories, initialTab }: GalleryClientProps) {
           visibleImageCount < currentImages.length
         ) {
           setVisibleImageCount((prev) =>
-            Math.min(prev + 6, currentImages.length)
+            Math.min(prev + 6, currentImages.length),
           );
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     if (observerTarget.current && visibleImageCount < currentImages.length) {
@@ -177,36 +176,65 @@ export function GalleryClient({ categories, initialTab }: GalleryClientProps) {
               key={activeCategory}
               className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
             >
-              {currentCategory?.videos?.map((video, index) => (
-                <ScrollAnimation
-                  key={index}
-                  animation="stagger"
-                  delay={index * 150}
-                  className="group cursor-pointer"
-                >
-                  <div className="relative aspect-video rounded-lg overflow-hidden bg-card border border-accent/20 hover:border-accent/40 transition-colors">
-                    <Image
-                      src={video.thumbnail || "/placeholder.svg"}
-                      alt={video.title}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                    <div className="absolute inset-0 bg-primary/20 group-hover:bg-primary/30 transition-colors flex items-center justify-center">
-                      <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <Play className="w-6 h-6 text-primary ml-1" />
+              {currentCategory?.videos?.map((video, index) => {
+                const title =
+                  video.title[locale as keyof typeof video.title] ||
+                  video.title.en ||
+                  "";
+                const description =
+                  video.description?.[
+                    locale as keyof typeof video.description
+                  ] ||
+                  video.description?.en ||
+                  "";
+                const thumbnailSrc = video.thumbnail
+                  ? urlFor(video.thumbnail).width(600).url()
+                  : null;
+
+                return (
+                  <ScrollAnimation
+                    key={video._id}
+                    animation="stagger"
+                    delay={index * 150}
+                    className="group cursor-pointer"
+                  >
+                    <button
+                      className="w-full text-start"
+                      onClick={() => setActiveVideo(video)}
+                      aria-label={`Play video: ${title}`}
+                    >
+                      <div className="relative aspect-video rounded-lg overflow-hidden bg-card border border-accent/20 hover:border-accent/40 transition-colors">
+                        {thumbnailSrc ? (
+                          <Image
+                            src={thumbnailSrc}
+                            alt={title}
+                            fill
+                            className="object-cover group-hover:scale-105 transition-transform duration-300"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                          />
+                        ) : (
+                          <div className="absolute inset-0 bg-muted" />
+                        )}
+                        <div className="absolute inset-0 bg-primary/20 group-hover:bg-primary/30 transition-colors flex items-center justify-center">
+                          <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
+                            <Play className="w-6 h-6 text-primary ml-1" />
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                  <div className="mt-4">
-                    <h3 className="font-sans text-lg font-semibold mb-2">
-                      {video.title}
-                    </h3>
-                    <p className="text-muted-foreground text-sm">
-                      {video.description}
-                    </p>
-                  </div>
-                </ScrollAnimation>
-              ))}
+                      {/* <div className="mt-4">
+                        <h3 className="font-sans text-lg font-semibold mb-2">
+                          {title}
+                        </h3>
+                        {description && (
+                          <p className="text-muted-foreground text-sm">
+                            {description}
+                          </p>
+                        )}
+                      </div> */}
+                    </button>
+                  </ScrollAnimation>
+                );
+              })}
             </div>
           ) : (
             // Image Grid
@@ -226,11 +254,20 @@ export function GalleryClient({ categories, initialTab }: GalleryClientProps) {
                     >
                       <div
                         className="relative aspect-[4/3] rounded-lg overflow-hidden bg-card border border-accent/20 hover:border-accent/40 transition-colors"
-                        onClick={() => setCarouselModal({ isOpen: true, initialIndex: index })}
+                        onClick={() =>
+                          setCarouselModal({
+                            isOpen: true,
+                            initialIndex: index,
+                          })
+                        }
                       >
                         <Image
                           src={urlFor(image.image).url() || "/placeholder.svg"}
-                          alt={image.alt[locale as keyof typeof image.alt] || image.alt.en || ''}
+                          alt={
+                            image.alt[locale as keyof typeof image.alt] ||
+                            image.alt.en ||
+                            ""
+                          }
                           fill
                           quality={85}
                           className="object-cover group-hover:scale-105 transition-transform duration-300"
@@ -266,6 +303,37 @@ export function GalleryClient({ categories, initialTab }: GalleryClientProps) {
           context="gallery"
         />
       )}
+
+      {/* Video Player Modal */}
+      <Dialog
+        open={activeVideo !== null}
+        onOpenChange={(open) => {
+          if (!open) setActiveVideo(null);
+        }}
+      >
+        <DialogContent
+          className="max-w-4xl w-full p-0 overflow-hidden bg-black border-0"
+          showCloseButton={true}
+        >
+          <DialogTitle className="sr-only">
+            {activeVideo
+              ? activeVideo.title[locale as keyof typeof activeVideo.title] ||
+                activeVideo.title.en ||
+                "Video"
+              : "Video"}
+          </DialogTitle>
+          {activeVideo && (
+            <video
+              key={activeVideo._id}
+              className="w-full aspect-video"
+              controls
+              autoPlay
+              playsInline
+              src={activeVideo.videoUrl}
+            />
+          )}
+        </DialogContent>
+      </Dialog>
 
       <ScrollAnimation animation="up">
         <CTASection translationNamespace="events" />

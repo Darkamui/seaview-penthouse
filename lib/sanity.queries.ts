@@ -46,6 +46,19 @@ export const eventTypeImagesByTypeQuery = groq`
   }
 `
 
+// Gallery Videos
+export const galleryVideosQuery = groq`
+  *[_type == "galleryVideo"] | order(order asc) {
+    _id,
+    "videoUrl": video.asset->url,
+    thumbnail,
+    title,
+    description,
+    order,
+    publishedAt
+  }
+`
+
 // Feature Images
 export const featureImagesQuery = groq`
   *[_type == "featureImage"] | order(feature asc, order asc) {
