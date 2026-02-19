@@ -88,7 +88,7 @@ export async function bulkUploadImages({
 
       await tagImageAsset(client, asset._id, categoryValue, {
         documentType,
-        categoryField,
+        categoryField: categoryField as 'category' | 'eventType' | 'feature',
         typeLabel,
       })
 

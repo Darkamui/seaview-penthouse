@@ -35,14 +35,16 @@ export function createAutoTagAction(config: AutoTagConfig): DocumentActionCompon
     }, [isPublishing])
 
     return {
-      disabled: publish.disabled,
+      // publish.disabled returns string literals ("ALREADY_PUBLISHED" etc.) when disabled;
+      // DocumentActionDescription.disabled only accepts boolean | undefined.
+      disabled: !!publish.disabled,
       label: isPublishing ? 'Publishing & Tagging...' : 'Publish',
       onHandle: async () => {
         setIsPublishing(true)
 
         try {
-          // Get the document (draft or published)
-          const doc = draft || published
+          // Get the document (draft or published); cast to access dynamic fields
+          const doc = (draft || published) as Record<string, unknown> | null
 
           if (!doc) {
             console.error('No document found')
@@ -52,8 +54,9 @@ export function createAutoTagAction(config: AutoTagConfig): DocumentActionCompon
           }
 
           // Get category value and image asset reference
-          const categoryValue = doc[config.categoryField]
-          const assetRef = doc.image?.asset?._ref
+          const categoryValue = doc[config.categoryField] as string | undefined
+          const image = doc['image'] as { asset?: { _ref?: string } } | undefined
+          const assetRef = image?.asset?._ref
 
           if (!categoryValue || !assetRef) {
             console.log('No category or asset found, skipping tagging')
