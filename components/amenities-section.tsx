@@ -31,10 +31,7 @@ export function AmenitiesSection() {
     <section className="py-16 px-4 bg-card/30">
       <div className="max-w-7xl mx-auto">
         <ScrollAnimation animation="up" className="text-center mb-12">
-          <h2 className="font-sans text-3xl font-bold text-foreground mb-4">
-            {t("amenitiesTitle")}
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-xl max-w-2xl mx-auto">
             {t("amenitiesSubtitle")}
           </p>
         </ScrollAnimation>
